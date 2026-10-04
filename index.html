@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>蓝佐汽配密封 - 汽车尾气后处理密封件厂家</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --bg: #0a0e14;
+  --bg-card: #141a24;
+  --bg-light: #1c2536;
+  --ink: #ffffff;
+  --muted: #8b95a5;
+  --accent: #ff6b35;
+  --accent-dark: #e85a28;
+  --accent-light: rgba(255,107,53,0.12);
+  --line: #252d3d;
+  --gradient: linear-gradient(135deg, #ff6b35 0%, #ff8c42 100%);
+}
+html { scroll-behavior: smooth; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+/* 动画 */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes slideDown {
+  from { opacity: 0; max-height: 0; }
+  to { opacity: 1; max-height: 5000px; }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+@keyframes glow {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.6; }
+}
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.animate-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 导航 */
+.nav {
+  background: rgba(10,14,20,0.9);
+  border-bottom: 1px solid var(--line);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  backdrop-filter: blur(20px);
+  transition: all 0.3s;
+}
+.nav-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+}
+.logo {
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+.logo span { color: var(--accent); }
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.nav-link-sm {
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: var(--muted);
+  transition: all 0.2s;
+  font-family: inherit;
+}
+.nav-link-sm:hover {
+  color: var(--ink);
+  background: rgba(255,255,255,0.05);
+}
+.quick-btn {
+  padding: 9px 18px;
+  border-radius: 8px;
+  font-size: 13px;
+  cursor: pointer;
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  color: var(--ink);
+  transition: all 0.3s;
+  font-family: inherit;
+  font-weight: 500;
+}
+.quick-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: translateY(-1px);
+}
+.quick-btn.primary {
+  background: var(--gradient);
+  border: none;
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(255,107,53,0.3);
+}
+.quick-btn.primary:hover {
+  box-shadow: 0 6px 20px rgba(255,107,53,0.4);
+  transform: translateY(-2px);
+}
+#langSelect {
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  color: var(--ink);
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 13px;
+  cursor: pointer;
+  outline: none;
+}
+
+/* Hero */
+.hero {
+  padding: 160px 0 100px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: 
+    radial-gradient(circle at 30% 50%, rgba(255,107,53,0.08) 0%, transparent 50%),
+    radial-gradient(circle at 70% 20%, rgba(100,150,255,0.05) 0%, transparent 40%);
+  animation: heroGlow 10s ease infinite;
+}
+@keyframes heroGlow {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(3%, 3%) rotate(2deg); }
+}
+.hero-content { position: relative; z-index: 1; text-align: center; }
+.hero-badge {
+  display: inline-block;
+  padding: 6px 16px;
+  background: var(--accent-light);
+  border: 1px solid rgba(255,107,53,0.2);
+  border-radius: 20px;
+  font-size: 13px;
+  color: var(--accent);
+  margin-bottom: 24px;
+  animation: fadeInUp 0.6s ease;
+}
+.hero h1 {
+  font-size: 48px;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 20px;
+  background: linear-gradient(180deg, #fff 0%, #ccc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: fadeInUp 0.6s ease 0.1s both;
+}
+.hero-sub {
+  font-size: 17px;
+  color: var(--muted);
+  max-width: 600px;
+  margin: 0 auto 48px;
+  animation: fadeInUp 0.6s ease 0.2s both;
+}
+.hero-stats {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  animation: fadeInUp 0.6s ease 0.3s both;
+}
+.stat { text-align: center; }
+.stat-num {
+  font-size: 40px;
+  font-weight: 800;
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.stat-label { font-size: 13px; color: var(--muted); margin-top: 4px; }
+
+/* 关于我们 */
+.about {
+  padding: 100px 0;
+  background: var(--bg-card);
+}
+.section-head {
+  text-align: center;
+  margin-bottom: 60px;
+}
+.section-tag {
+  display: inline-block;
+  padding: 4px 14px;
+  background: var(--accent-light);
+  color: var(--accent);
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 16px;
+}
+.section-title { font-size: 36px; font-weight: 700; margin-bottom: 16px; }
+.section-sub { font-size: 16px; color: var(--muted); max-width: 600px; margin: 0 auto; }
+
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+.about-card {
+  background: var(--bg);
+  padding: 32px;
+  border-radius: 16px;
+  border: 1px solid var(--line);
+  transition: all 0.4s;
+}
+.about-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255,107,53,0.2);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+.about-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  background: var(--accent-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+.about-title { font-size: 18px; font-weight: 700; margin-bottom: 10px; }
+.about-desc { font-size: 14px; color: var(--muted); line-height: 1.8; }
+
+/* 产品区 */
+.product-section { padding: 100px 0; }
+.tabs {
+  display: inline-flex;
+  gap: 4px;
+  margin-bottom: 32px;
+  background: var(--bg-card);
+  padding: 6px;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+}
+.tab-btn {
+  padding: 10px 24px;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  color: var(--muted);
+  transition: all 0.3s;
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-weight: 500;
+}
+.tab-btn:hover { color: var(--ink); }
+.tab-btn.active {
+  background: var(--gradient);
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(255,107,53,0.3);
+}
+.search-box { margin-bottom: 32px; }
+.search-box input {
+  width: 100%;
+  max-width: 450px;
+  padding: 14px 20px;
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  color: var(--ink);
+  font-size: 14px;
+  outline: none;
+  transition: all 0.3s;
+}
+.search-box input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(255,107,53,0.1);
+}
+
+/* 产品网格 */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+.product-card {
+  background: var(--bg-card);
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.product-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(255,107,53,0.3);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+.product-img {
+  width: 100%;
+  height: 200px;
+  background: #0d1117;
+  cursor: zoom-in;
+  overflow: hidden;
+  position: relative;
+}
+.product-img::after {
+  content: '🔍';
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 32px;
+  height: 32px;
+  background: rgba(0,0,0,0.6);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.product-card:hover .product-img::after { opacity: 1; }
+.product-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.product-card:hover .product-img img { transform: scale(1.06); }
+.product-info { padding: 18px; }
+.product-no { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
+.product-size { font-size: 12px; color: var(--muted); margin-bottom: 14px; }
+.draw-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  background: var(--accent-light);
+  border: 1px solid rgba(255,107,53,0.25);
+  border-radius: 8px;
+  color: var(--accent);
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-family: inherit;
+}
+.draw-btn:hover {
+  background: rgba(255,107,53,0.2);
+  border-color: var(--accent);
+  transform: translateY(-1px);
+}
+
+/* 套卡片 */
+.set-card {
+  background: var(--bg-card);
+  border-radius: 16px;
+  border: 1px solid var(--line);
+  margin-bottom: 16px;
+  overflow: hidden;
+  transition: all 0.4s;
+}
+.set-card:hover {
+  border-color: rgba(255,107,53,0.15);
+}
+.set-header {
+  padding: 24px 28px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background 0.2s;
+}
+.set-header:hover { background: rgba(255,255,255,0.02); }
+.set-title { display: flex; align-items: center; gap: 14px; }
+.set-name { font-size: 18px; font-weight: 700; }
+.set-count {
+  font-size: 12px;
+  color: var(--accent);
+  background: var(--accent-light);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-weight: 500;
+}
+.set-arrow {
+  color: var(--muted);
+  font-size: 14px;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.set-card.open .set-arrow { transform: rotate(180deg); }
+.set-products {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.set-card.open .set-products { max-height: 8000px; }
+.set-products-inner { padding: 0 28px 24px; }
+.set-list {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 2;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--line);
+}
+.set-list strong { color: var(--ink); font-weight: 500; }
+.set-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.set-item {
+  background: var(--bg);
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: zoom-in;
+  transition: all 0.3s;
+  border: 1px solid var(--line);
+}
+.set-item:hover {
+  transform: scale(1.04);
+  border-color: rgba(255,107,53,0.3);
+}
+.set-item img {
+  width: 100%;
+  height: 120px;
+  object-fit: contain;
+  background: #0d1117;
+}
+.set-item-name {
+  padding: 8px 10px;
+  font-size: 12px;
+  color: var(--muted);
+}
+.showcase-section {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+}
+.showcase-title {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 14px;
+  color: var(--ink);
+}
+.showcase-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 12px;
+}
+.showcase-item {
+  background: var(--bg);
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: zoom-in;
+  transition: all 0.3s;
+  border: 1px solid var(--line);
+}
+.showcase-item:hover {
+  transform: scale(1.03);
+  border-color: rgba(255,107,53,0.3);
+}
+.showcase-item img {
+  width: 100%;
+  height: 160px;
+  object-fit: contain;
+  background: #0d1117;
+}
+.showcase-item-name {
+  padding: 10px 12px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* 弹窗 */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.95);
+  z-index: 9999;
+  justify-content: center;
+  align-items: center;
+  cursor: zoom-out;
+  animation: fadeIn 0.25s ease;
+}
+.modal.active { display: flex; }
+.modal img {
+  max-width: 90%;
+  max-height: 90vh;
+  border-radius: 12px;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+  animation: fadeInUp 0.3s ease;
+}
+.modal-close {
+  position: absolute;
+  top: 24px;
+  right: 32px;
+  color: #fff;
+  font-size: 36px;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: opacity 0.2s;
+  background: none;
+  border: none;
+}
+.modal-close:hover { opacity: 1; }
+
+/* 底部 */
+.footer {
+  padding: 80px 0 40px;
+  border-top: 1px solid var(--line);
+  background: var(--bg-card);
+  text-align: center;
+}
+.footer-logo {
+  font-size: 24px;
+  font-weight: 800;
+  margin-bottom: 16px;
+}
+.footer-logo span { color: var(--accent); }
+.footer-info {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 2;
+}
+.footer-info a { color: var(--accent); text-decoration: none; }
+.footer-bottom {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* 响应式 */
+@media (max-width: 768px) {
+  .hero h1 { font-size: 32px; }
+  .about-grid { grid-template-columns: 1fr; }
+  .hero-stats { gap: 30px; }
+  .product-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
+  .nav-right .quick-btn { display: none; }
+}
+</style>
+</head>
+<body>
+<div id="loginMask" style="position:fixed;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg,#1e293b,#0f172a);z-index:9999;display:flex;align-items:center;justify-content:center;">
+  <div style="background:white;padding:40px;border-radius:16px;box-shadow:0 20px 60px rgba(0,0,0,0.3);width:90%;max-width:400px;">
+    <div style="text-align:center;margin-bottom:24px;">
+      <div style="font-size:24px;font-weight:700;color:#1e293b;">蓝佐汽配内网</div>
+      <div style="color:#64748b;margin-top:8px;font-size:14px;">请输入动态密码</div>
+    </div>
+    
+    <div id="verifyNum" style="text-align:center;font-size:36px;font-weight:700;color:#1e293b;letter-spacing:6px;margin-bottom:20px;">----</div>
+    <input type="text" id="pwdInput" placeholder="请输入密码" style="width:100%;padding:12px 16px;border:2px solid #e2e8f0;border-radius:8px;font-size:16px;outline:none;box-sizing:border-box;" onkeydown="if(event.key==='enter')checkPwd()">
+    <div id="pwdError" style="color:#e74c3c;font-size:13px;margin-top:8px;display:none;">密码错误，请重试</div>
+    <button onclick="checkPwd()" style="width:100%;padding:12px;background:linear-gradient(135deg,#2563eb,#1d4ed8);color:white;border:none;border-radius:8px;font-size:16px;font-weight:600;margin-top:16px;cursor:pointer;">进入网站</button>
+  </div>
+</div>
+<script>
+// 生成随机4位数
+const verifyNum = Math.floor(1000 + Math.random() * 9000);
+document.getElementById('verifyNum').textContent = verifyNum;
+
+function checkPwd() {
+  const pwd = document.getElementById('pwdInput').value.trim();
+  // 把随机数转成8进制
+  const correctPwd = verifyNum.toString(8);
+  if (pwd === correctPwd) {
+    sessionStorage.setItem('lanzuo_login', 'ok');
+    document.getElementById('loginMask').style.display = 'none';
+  } else {
+    document.getElementById('pwdError').style.display = 'block';
+  }
+}
+// 打开页面先检查是否已登录
+if (sessionStorage.getItem('lanzuo_login') === 'ok') {
+  document.getElementById('loginMask').style.display = 'none';
+}
+// 自动聚焦密码框
+window.onload = () => document.getElementById('pwdInput').focus();
+
+
+</script>
+
+
+<nav class="nav">
+  <div class="container nav-inner">
+    <div class="logo" style="display:flex;align-items:center;gap:10px;">
+      <img src="https://aka.doubaocdn.com/s/VdLTc0G2xE" alt="蓝佐汽配密封" style="height:40px;width:auto;mix-blend-mode:screen;">
+      <span style="font-size:18px;font-weight:700;">蓝佐<span style="color:var(--accent);">汽配密封</span></span>
+    </div>
+    <div class="nav-right">
+      <button class="nav-link-sm" onclick="scrollToId('about')" data-i18n="nav_about">公司简介</button>
+      <button class="nav-link-sm" onclick="scrollToId('products')" data-i18n="nav_products">产品中心</button>
+      <button class="nav-link-sm" onclick="scrollToId('contact')" data-i18n="nav_contact">联系我们</button>
+      <select id="langSelect" onchange="switchLang(this.value)">
+        <option value="zh">中文</option>
+        <option value="en">English</option>
+        <option value="ja">日本語</option>
+        <option value="ko">한국어</option>
+        <option value="de">Deutsch</option>
+        <option value="fr">Français</option>
+        <option value="es">Español</option>
+        <option value="ru">Русский</option>
+        <option value="pt">Português</option>
+        <option value="it">Italiano</option>
+        <option value="ar">العربية</option>
+        <option value="th">ไทย</option>
+        <option value="vi">Tiếng Việt</option>
+        <option value="id">Bahasa Indonesia</option>
+        <option value="nl">Nederlands</option>
+        <option value="tr">Türkçe</option>
+      </select>
+      <button class="nav-link-sm" onclick="openQQ()" data-i18n="online_support">💬 在线支持</button>
+      <button class="quick-btn primary" onclick="window.location.href='tel:15631700440'" data-i18n="call_now">立即咨询</button>
+    </div>
+  </div>
+</nav>
+
+<section class="hero" id="hero">
+  <div class="container hero-content">
+    <div class="hero-badge" data-i18n="badge">源头工厂 · 300+型号现货</div>
+    <h1 data-i18n="title">汽车尾气后处理密封件专家</h1>
+    <p class="hero-sub" data-i18n="subtitle">河间市蓝佐汽车配件有限公司 · 多年专注尾气后处理密封件、卡箍生产，适配斯堪尼亚、沃尔沃、奔驰卡车排气系统</p>
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-num">300+</div>
+        <div class="stat-label" data-i18n="stat_products">在售产品</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">20+</div>
+        <div class="stat-label" data-i18n="stat_series">核心系列</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">37</div>
+        <div class="stat-label" data-i18n="stat_sets">成套产品</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="container">
+    <div class="section-head animate-on-scroll">
+      <div class="section-tag" data-i18n="about_tag">About Us</div>
+      <h2 class="section-title" data-i18n="about_title">关于蓝佐汽配</h2>
+      <p class="section-sub" data-i18n="about_sub">多年专注尾气后处理密封件、卡箍生产，工厂深耕汽配密封件行业多年</p>
+    </div>
+
+    <div style="max-width:800px;margin:0 auto 50px;text-align:center;">
+      <p style="font-size:15px;color:var(--muted);line-height:1.9;margin-bottom:16px;">
+        Hejian Lanzuo Auto Parts Co., Ltd. — 源头工厂，专注排气密封件多年
+      </p>
+      <p style="font-size:14px;color:var(--muted);line-height:1.9;">
+        多年深耕汽配密封件行业。蓝佐位于河北省河间市米各庄镇，地理位置优越，紧邻全国汽配产业带。工厂专业生产尾气后处理密封件、V型卡箍，产品涵盖金属缠绕垫片、石墨复合垫片、耐高温纤维垫片等全系列。
+      </p>
+      <p style="font-size:14px;color:var(--muted);line-height:1.9;margin-top:12px;">
+        我们的V型卡箍采用304不锈钢/碳钢冲压工艺，耐高温、抗排气腐蚀。产品适配斯堪尼亚（Scania）、沃尔沃（Volvo）、奔驰（Mercedes-Benz）、底特律（Detroit）等主流卡车品牌的排气后处理系统，同时面向国内批发与海外卡车配件市场出口。
+      </p>
+      <p style="font-size:14px;color:var(--muted);line-height:1.9;margin-top:12px;">
+        支持样品单与小批量试单，大批量订单优先排产。源头工厂直供，性价比高，可提供样品测试。欢迎来图来样定制非标尺寸。
+      </p>
+    </div>
+    <div class="about-grid">
+      <div class="about-card animate-on-scroll">
+        <div class="about-icon">🏭</div>
+        <div class="about-title" data-i18n="about1_title">公司全称</div>
+        <div class="about-desc">河间市蓝佐汽车配件有限公司</div>
+      </div>
+      <div class="about-card animate-on-scroll">
+        <div class="about-icon">📦</div>
+        <div class="about-title" data-i18n="about2_title">从业年限</div>
+        <div class="about-desc" data-i18n="about2_desc">多年专注尾气后处理密封件、卡箍生产，工厂深耕汽配密封件行业多年</div>
+      </div>
+      <div class="about-card animate-on-scroll">
+        <div class="about-icon">🌍</div>
+        <div class="about-title" data-i18n="about3_title">销售区域</div>
+        <div class="about-desc" data-i18n="about3_desc">国内批发 + 外贸出口，主打海外卡车配件市场</div>
+      </div>
+      <div class="about-card animate-on-scroll">
+        <div class="about-icon">🔧</div>
+        <div class="about-title" data-i18n="about4_title">材质工艺</div>
+        <div class="about-desc" data-i18n="about4_desc">金属缠绕垫片、石墨复合垫片、耐高温纤维垫片；V型卡箍为304不锈钢/碳钢冲压，耐高温、抗排气腐蚀</div>
+      </div>
+      <div class="about-card animate-on-scroll">
+        <div class="about-icon">📋</div>
+        <div class="about-title" data-i18n="about5_title">起订量</div>
+        <div class="about-desc" data-i18n="about5_desc">支持样品单，小批量可拿；大批量订单优先，可散拿试样</div>
+      </div>
+      <div class="about-card animate-on-scroll">
+        <div class="about-icon">⭐</div>
+        <div class="about-title" data-i18n="about6_title">突出优势</div>
+        <div class="about-desc" data-i18n="about6_desc">尺寸齐全，支持定制非标尺寸；样品发货快；适配斯堪尼亚、沃尔沃、奔驰卡车后处理排气系统；源头工厂，性价比高，可提供样品测试</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="product-section" id="products">
+  <div class="container">
+    <div class="section-head animate-on-scroll">
+      <div class="section-tag" data-i18n="products_tag">Products</div>
+      <h2 class="section-title" data-i18n="products_title">产品中心</h2>
+      <p class="section-sub" data-i18n="products_sub">点击图片查看大图 · 点击图纸按钮查看工程图纸</p>
+    </div>
+
+    <div class="tabs animate-on-scroll">
+      <button class="tab-btn active" onclick="switchTab('all', this)" data-i18n="tab_all">全部产品</button>
+      <button class="tab-btn" onclick="switchTab('custom', this)" data-i18n="tab_custom">客户定制</button>
+      <button class="tab-btn" onclick="switchTab('bianjing', this)">变径卡箍</button>
+      <button class="tab-btn" onclick="switchTab('qiangli', this)">强力卡箍</button>
+      <button class="tab-btn" onclick="switchTab('guangu', this)">管箍</button>
+      <button class="tab-btn" onclick="switchTab('sets', this)" data-i18n="tab_sets">成套展示</button>
+      <button class="tab-btn" onclick="switchTab('pdf', this)" data-i18n="tab_pdf">PDF打印</button>
+    </div>
+    
+    <div class="search-box animate-on-scroll">
+      <input type="text" id="searchInput" placeholder="输入产品标号搜索..." oninput="render()">
+      <div id="resultCount" style="margin-top:10px;font-size:13px;color:var(--muted);"></div>
+    </div>
+    
+    <div id="productGrid"></div>
+  </div>
+</section>
+
+<footer class="footer" id="contact">
+  <div class="container">
+    <div class="footer-logo" style="display:flex;align-items:center;justify-content:center;gap:12px;">
+      <img src="https://aka.doubaocdn.com/s/VdLTc0G2xE" alt="蓝佐汽配密封" style="height:48px;width:auto;mix-blend-mode:screen;">
+    </div>
+    <div class="footer-info">
+      <p>河间市蓝佐汽车配件有限公司</p>
+      <p>电话：<a href="tel:15631700440">15631700440</a></p>
+      <p>地址：河北省河间市米各庄镇</p>
+    </div>
+    <div class="footer-bottom">
+      <p>Domestic Wholesale & Export Worldwide · Factory Direct Supply</p>
+    </div>
+  </div>
+</footer>
+
+<div class="modal" id="imgModal" onclick="closeModal()">
+  <button class="modal-close">&times;</button>
+  <img id="modalImg" src="" alt="">
+</div>
+
+<script>
+const allList = [{"no": "垫片钢圈", "size": "", "img": "https://aka.doubaocdn.com/s/BF3UGgkVW0", "draw": "https://aka.doubaocdn.com/s/eJEiLuMEvm", "sheet": "Sheet1"}, {"no": "多层内衬卡箍", "size": "", "img": "https://aka.doubaocdn.com/s/DdeRA7R65j", "draw": "https://aka.doubaocdn.com/s/P0KYzN811D", "sheet": "Sheet1"}, {"no": "2AL043", "size": "Φ334", "img": "https://aka.doubaocdn.com/s/sEboOQH2VT", "draw": "https://aka.doubaocdn.com/s/7Xw67Msv6s", "sheet": "Sheet1"}, {"no": "2AL045", "size": "Φ282*294", "img": "https://aka.doubaocdn.com/s/UqNkLE6xqr", "draw": "https://aka.doubaocdn.com/s/EDbAkaq14Y", "sheet": "Sheet1"}, {"no": "2AL044*2", "size": "Φ305*325斜口", "img": "https://aka.doubaocdn.com/s/CyYfavHdfo", "draw": "https://aka.doubaocdn.com/s/uYgS4iQugP", "sheet": "Sheet1"}, {"no": "2AL046", "size": "Φ280*300", "img": "https://aka.doubaocdn.com/s/P0NBrfhKyo", "draw": "https://aka.doubaocdn.com/s/YOWsZfwmri", "sheet": "Sheet1"}, {"no": "2AL009", "size": "Φ385", "img": "https://aka.doubaocdn.com/s/osUA9nL6Eb", "draw": "https://aka.doubaocdn.com/s/o15a8NARQI", "sheet": "Sheet1"}, {"no": "2AL008", "size": "Φ359.5*383.5", "img": "https://aka.doubaocdn.com/s/z9Tut2ebN7", "draw": "https://aka.doubaocdn.com/s/X7Hu3yevPO", "sheet": "Sheet1"}, {"no": "2AL010", "size": "Φ364*375", "img": "https://aka.doubaocdn.com/s/UbQrCtyWto", "draw": "https://aka.doubaocdn.com/s/69fUZrp9We", "sheet": "Sheet1"}, {"no": "2AL011", "size": "Φ324*343", "img": "https://aka.doubaocdn.com/s/rkHad0BEAm", "draw": "https://aka.doubaocdn.com/s/bdQMhoCm35", "sheet": "Sheet1"}, {"no": "2AL012", "size": "Φ341*354", "img": "https://aka.doubaocdn.com/s/900ClYRKKj", "draw": "https://aka.doubaocdn.com/s/aYf2mqSFB5", "sheet": "Sheet1"}, {"no": "6LL005", "size": "Φ353", "img": "https://aka.doubaocdn.com/s/kyXNwao8Sn", "draw": "https://aka.doubaocdn.com/s/4oFZFxHyKi", "sheet": "Sheet1"}, {"no": "6LL006", "size": "Φ322*344", "img": "https://aka.doubaocdn.com/s/KmyfDyJXg5", "draw": "https://aka.doubaocdn.com/s/sircv5NLib", "sheet": "Sheet1"}, {"no": "6LL008", "size": "Φ312*323", "img": "https://aka.doubaocdn.com/s/g6H7zhf9Wq", "draw": "https://aka.doubaocdn.com/s/hl78vuMi1D", "sheet": "Sheet1"}, {"no": "4IL004", "size": "Φ380U型宽槽", "img": "https://aka.doubaocdn.com/s/GMEibyYPZo", "draw": "https://aka.doubaocdn.com/s/disKgN6D0U", "sheet": "Sheet1"}, {"no": "4IL003*2", "size": "Φ355*375 大翻边", "img": "https://aka.doubaocdn.com/s/g4BtXVYMUh", "draw": "https://aka.doubaocdn.com/s/78IYZxqypX", "sheet": "Sheet1"}, {"no": "4IL059", "size": "Φ250U型宽槽", "img": "https://aka.doubaocdn.com/s/6cOoD3WOlr", "draw": "https://aka.doubaocdn.com/s/NIxVNDNeOZ", "sheet": "Sheet1"}, {"no": "4IL060", "size": "Φ222*248", "img": "https://aka.doubaocdn.com/s/spjU53uNB0", "draw": "https://aka.doubaocdn.com/s/djTZeBq19x", "sheet": "Sheet1"}, {"no": "8AL006", "size": "Φ360沃尔沃", "img": "https://aka.doubaocdn.com/s/wDkcFD4PxV", "draw": "https://aka.doubaocdn.com/s/Sm1OvIUfBU", "sheet": "Sheet1"}, {"no": "8AL005*2", "size": "Φ340*353(0880) 内八爪", "img": "https://aka.doubaocdn.com/s/DgDlHnicM3", "draw": "https://aka.doubaocdn.com/s/usLOMKaf3N", "sheet": "Sheet1"}, {"no": "8AL016", "size": "Φ164", "img": "https://aka.doubaocdn.com/s/4huJazKzQe", "draw": "https://aka.doubaocdn.com/s/CcVULvQXLV", "sheet": "Sheet1"}, {"no": "82829", "size": "复合带背胶(5959) Φ137*158", "img": "https://aka.doubaocdn.com/s/Yjx3DMBae4", "draw": "https://aka.doubaocdn.com/s/82IDuUDCic", "sheet": "Sheet1"}, {"no": "5AL060", "size": "Φ325偏口", "img": "https://aka.doubaocdn.com/s/45V2IZGbCV", "draw": "https://aka.doubaocdn.com/s/s6beuOXmWm", "sheet": "Sheet1"}, {"no": "2KL015", "size": "Φ347平 不粘石墨条", "img": "https://aka.doubaocdn.com/s/MnT9CvSsyh", "draw": "https://aka.doubaocdn.com/s/zqBUv14ofU", "sheet": "Sheet1"}, {"no": "35833", "size": "大奔驰垫 Φ295.3*317.5", "img": "https://aka.doubaocdn.com/s/8KPtJpIUYd", "draw": "https://aka.doubaocdn.com/s/jPsKWfAFU1", "sheet": "Sheet1"}, {"no": "2KL016", "size": "Φ312*323", "img": "https://aka.doubaocdn.com/s/BsGQ2kB4hr", "draw": "https://aka.doubaocdn.com/s/2eywlVibOB", "sheet": "Sheet1"}, {"no": "2KL014", "size": "Φ332双螺栓", "img": "https://aka.doubaocdn.com/s/hhmX23xWQ9", "draw": "https://aka.doubaocdn.com/s/y5CBugwTgO", "sheet": "Sheet1"}, {"no": "35825*2", "size": "Φ268平", "img": "https://aka.doubaocdn.com/s/NBBviD9Ucr", "draw": "https://aka.doubaocdn.com/s/09ZayIN3Eq", "sheet": "Sheet1"}, {"no": "35822*2", "size": "Φ267宽槽", "img": "https://aka.doubaocdn.com/s/j37pgNKYSC", "draw": "https://aka.doubaocdn.com/s/RIyplb9wR1", "sheet": "Sheet1"}, {"no": "35817*2", "size": "Φ246*260", "img": "https://aka.doubaocdn.com/s/tyk5h4lAsS", "draw": "https://aka.doubaocdn.com/s/Y3s4WAAqdy", "sheet": "Sheet1"}, {"no": "4IL021", "size": "Φ282", "img": "https://aka.doubaocdn.com/s/zJ2gP4meuE", "draw": "https://aka.doubaocdn.com/s/yXtnU3WFiW", "sheet": "Sheet1"}, {"no": "4IL025", "size": "Φ261*279", "img": "https://aka.doubaocdn.com/s/Rez4bxUO9N", "draw": "https://aka.doubaocdn.com/s/yIg1YtQoqK", "sheet": "Sheet1"}, {"no": "4IL017", "size": "Φ126 四寸宽槽", "img": "https://aka.doubaocdn.com/s/aKJ4Syt6f5", "draw": "https://aka.doubaocdn.com/s/YxwD4oVIfU", "sheet": "Sheet1"}, {"no": "4IL014", "size": "Φ104*121", "img": "https://aka.doubaocdn.com/s/LMG3gaGVuR", "draw": "https://aka.doubaocdn.com/s/WW5YS4UTGc", "sheet": "Sheet1"}, {"no": "65822", "size": "Φ340", "img": "https://aka.doubaocdn.com/s/nAM0u8bo60", "draw": "https://aka.doubaocdn.com/s/hlytQBqxCW", "sheet": "Sheet1"}, {"no": "58817", "size": "Φ316.5*336", "img": "https://aka.doubaocdn.com/s/o30KoFJhEp", "draw": "https://aka.doubaocdn.com/s/dr47UbFKYd", "sheet": "Sheet1"}, {"no": "6LL000", "size": "Φ321", "img": "https://aka.doubaocdn.com/s/1UOTZfsWV2", "draw": "https://aka.doubaocdn.com/s/xwSZZnoSNR", "sheet": "Sheet1"}, {"no": "6LL003*2", "size": "Φ294*310", "img": "https://aka.doubaocdn.com/s/kowXBcauUI", "draw": "https://aka.doubaocdn.com/s/jPu5EzUcIf", "sheet": "Sheet1"}, {"no": "4IL006", "size": "Φ225 宽槽", "img": "https://aka.doubaocdn.com/s/Y9yZM21zUN", "draw": "https://aka.doubaocdn.com/s/F2s2xl6DbF", "sheet": "Sheet1"}, {"no": "4IL003", "size": "Φ355*375 大翻边", "img": "https://aka.doubaocdn.com/s/kMFWg7PUwC", "draw": "https://aka.doubaocdn.com/s/K7hB4DyLLW", "sheet": "Sheet1"}, {"no": "4IL005", "size": "Φ193.5*219.5 小翻边", "img": "https://aka.doubaocdn.com/s/KncwqI7heX", "draw": "https://aka.doubaocdn.com/s/fAL1BB6toI", "sheet": "Sheet1"}, {"no": "58824*2", "size": "Φ265", "img": "https://aka.doubaocdn.com/s/XF8vr3mhuU", "draw": "https://aka.doubaocdn.com/s/VFdKjw3LJ1", "sheet": "Sheet1"}, {"no": "65831*2", "size": "Φ240*260", "img": "https://aka.doubaocdn.com/s/bCugLIHcdE", "draw": "https://aka.doubaocdn.com/s/9uxVnQxzCU", "sheet": "Sheet1"}, {"no": "2AL018", "size": "Φ209.2*223.5", "img": "https://aka.doubaocdn.com/s/7NGDX72c7u", "draw": "https://aka.doubaocdn.com/s/wguaCbUiXD", "sheet": "Sheet1"}, {"no": "2AL019", "size": "Φ225 不宽不窄", "img": "https://aka.doubaocdn.com/s/7vFfUkmJko", "draw": "https://aka.doubaocdn.com/s/1HzuI9VytH", "sheet": "Sheet1"}, {"no": "6LL012", "size": "Φ247*261", "img": "https://aka.doubaocdn.com/s/jhvYPHuLUs", "draw": "https://aka.doubaocdn.com/s/M5EWyPpqV3", "sheet": "Sheet1"}, {"no": "6LL011", "size": "Φ265", "img": "https://aka.doubaocdn.com/s/gmnIYV72Zo", "draw": "https://aka.doubaocdn.com/s/ItHkw3T4VB", "sheet": "Sheet1"}, {"no": "8AL014", "size": "Φ331", "img": "https://aka.doubaocdn.com/s/0uZtkpctO7", "draw": "https://aka.doubaocdn.com/s/XQVTx3yK3T", "sheet": "Sheet1"}, {"no": "8AL013*2", "size": "Φ301*319 内六", "img": "https://aka.doubaocdn.com/s/FLq7uFCv04", "draw": "https://aka.doubaocdn.com/s/f0zn4YDkhG", "sheet": "Sheet1"}, {"no": "8AL015", "size": "Φ140", "img": "https://aka.doubaocdn.com/s/4zM4QIONGe", "draw": "https://aka.doubaocdn.com/s/aQJmMvoatT", "sheet": "Sheet1"}, {"no": "58821*2", "size": "Φ364*384 4868", "img": "https://aka.doubaocdn.com/s/9PVCADFMyp", "draw": "https://aka.doubaocdn.com/s/Na31pAHTwK", "sheet": "Sheet1"}, {"no": "58831*2", "size": "Φ394", "img": "https://aka.doubaocdn.com/s/wNv89X2Xia", "draw": "https://aka.doubaocdn.com/s/J1lW371S12", "sheet": "Sheet1"}, {"no": "4IL016", "size": "Φ308", "img": "https://aka.doubaocdn.com/s/OaH8HbyxcO", "draw": "https://aka.doubaocdn.com/s/hbbVf8RDON", "sheet": "Sheet1"}, {"no": "4IL013", "size": "Φ285*303", "img": "https://aka.doubaocdn.com/s/hZ7uCcnEvJ", "draw": "https://aka.doubaocdn.com/s/cTteVxhioD", "sheet": "Sheet1"}, {"no": "2KL028", "size": "Φ266*281", "img": "https://aka.doubaocdn.com/s/hrmUCKVMRx", "draw": "https://aka.doubaocdn.com/s/lVtg45ds60", "sheet": "Sheet1"}, {"no": "2KL029", "size": "Φ300平", "img": "https://aka.doubaocdn.com/s/o15a8NARQI", "draw": "https://aka.doubaocdn.com/s/EHZCNaubSt", "sheet": "Sheet1"}, {"no": "2KL030", "size": "Φ287 双螺栓", "img": "https://aka.doubaocdn.com/s/mu0MofU8hY", "draw": "https://aka.doubaocdn.com/s/iZNfQhGEGG", "sheet": "Sheet1"}, {"no": "35831", "size": "Φ349平", "img": "https://aka.doubaocdn.com/s/BcaS56GBHS", "draw": "https://aka.doubaocdn.com/s/ZpQ9FvB9O1", "sheet": "Sheet1"}, {"no": "35832", "size": "Φ325偏口", "img": "https://aka.doubaocdn.com/s/uKBpAgjknW", "draw": "https://aka.doubaocdn.com/s/GUUUaFEWFq", "sheet": "Sheet1"}, {"no": "5AL055", "size": "Φ267窄槽", "img": "https://aka.doubaocdn.com/s/HfcK2Bh2NC", "draw": "https://aka.doubaocdn.com/s/IdLzO52w3K", "sheet": "Sheet1"}, {"no": "5AL021", "size": "Φ250*257 缠绕", "img": "https://aka.doubaocdn.com/s/lqV3rnyN1Y", "draw": "https://aka.doubaocdn.com/s/QhVE2Pqf6Y", "sheet": "Sheet1"}, {"no": "5AL004", "size": "Φ280平", "img": "https://aka.doubaocdn.com/s/aKZs3eaWHH", "draw": "https://aka.doubaocdn.com/s/yTuEblAA3h", "sheet": "Sheet1"}, {"no": "58843*2", "size": "Φ332", "img": "https://aka.doubaocdn.com/s/pe3JIx0y6q", "draw": "https://aka.doubaocdn.com/s/otWUx2VlnJ", "sheet": "Sheet1"}, {"no": "58836*2", "size": "Φ301.5*321 0019", "img": "https://aka.doubaocdn.com/s/CLziS0ndIe", "draw": "https://aka.doubaocdn.com/s/zlUUPeMrbC", "sheet": "Sheet1"}, {"no": "5AL005", "size": "Φ243*264", "img": "https://aka.doubaocdn.com/s/FH5iyeMCk5", "draw": "https://aka.doubaocdn.com/s/kjVSvilV6O", "sheet": "Sheet1"}, {"no": "35822", "size": "Φ267宽槽", "img": "https://aka.doubaocdn.com/s/0vxordzeEp", "draw": "https://aka.doubaocdn.com/s/0HgUZI8nTC", "sheet": "Sheet1"}, {"no": "5AL001", "size": "Φ268平", "img": "https://aka.doubaocdn.com/s/FPBngXbv9e", "draw": "https://aka.doubaocdn.com/s/IHFqq0Z86x", "sheet": "Sheet1"}, {"no": "50902", "size": "Φ246*257 小奔驰", "img": "https://aka.doubaocdn.com/s/L8YlqNepMF", "draw": "https://aka.doubaocdn.com/s/SLGzYIVIV6", "sheet": "Sheet1"}, {"no": "5AL003", "size": "Φ267 不宽不窄", "img": "https://aka.doubaocdn.com/s/zBJASYfagG", "draw": "https://aka.doubaocdn.com/s/ckYp3kNYTA", "sheet": "Sheet1"}, {"no": "8AL069", "size": "Φ332*350", "img": "https://aka.doubaocdn.com/s/cuNteUr4kw", "draw": "https://aka.doubaocdn.com/s/NQp82Rl6hx", "sheet": "Sheet1"}, {"no": "8AL072", "size": "-", "img": "https://aka.doubaocdn.com/s/c9nZUk3pXw", "draw": "https://aka.doubaocdn.com/s/BddzbxZTWV", "sheet": "Sheet1"}, {"no": "8AL070", "size": "Φ311*323", "img": "https://aka.doubaocdn.com/s/PER0f2KMI1", "draw": "https://aka.doubaocdn.com/s/ThWkpOBQt5", "sheet": "Sheet1"}, {"no": "6LL002", "size": "Φ285*307", "img": "https://aka.doubaocdn.com/s/2Gchmeeshw", "draw": "https://aka.doubaocdn.com/s/GUj5xTmH3q", "sheet": "Sheet1"}, {"no": "6LL007", "size": "Φ275*287 斯堪尼亚", "img": "https://aka.doubaocdn.com/s/I0zZjkzbNN", "draw": "https://aka.doubaocdn.com/s/1UO0TRFezz", "sheet": "Sheet1"}, {"no": "4IL036", "size": "Φ288*308", "img": "https://aka.doubaocdn.com/s/hbmS2VFcFa", "draw": "https://aka.doubaocdn.com/s/pIU9qO4QUU", "sheet": "Sheet1"}, {"no": "4IL037", "size": "Φ275*287 斯堪尼亚", "img": "https://aka.doubaocdn.com/s/UKGrTase1l", "draw": "https://aka.doubaocdn.com/s/xcv4JihVHt", "sheet": "Sheet1"}, {"no": "35806*2", "size": "Φ360宽槽", "img": "https://aka.doubaocdn.com/s/mNU2WEcFVq", "draw": "https://aka.doubaocdn.com/s/HtiJzMOYZK", "sheet": "Sheet1"}, {"no": "35805*2", "size": "Φ340*348 大缠绕", "img": "https://aka.doubaocdn.com/s/C38mJh2wWX", "draw": "https://aka.doubaocdn.com/s/V5rGwlwd1f", "sheet": "Sheet1"}, {"no": "82810*2", "size": "Φ242*262", "img": "https://aka.doubaocdn.com/s/nDGALi0foB", "draw": "https://aka.doubaocdn.com/s/xTdsV9gF4Y", "sheet": "Sheet1"}, {"no": "82809*2", "size": "Φ365 宽槽", "img": "https://aka.doubaocdn.com/s/TURNLNxHAd", "draw": "https://aka.doubaocdn.com/s/8LInZt6mc4", "sheet": "Sheet1"}, {"no": "58827(365窄)", "size": "Φ365窄槽", "img": "https://aka.doubaocdn.com/s/ye8tBEVq7o", "draw": "https://aka.doubaocdn.com/s/E4NcL7S6WJ", "sheet": "Sheet1"}, {"no": "58841", "size": "-", "img": "https://aka.doubaocdn.com/s/IfWaEGl9re", "draw": "https://aka.doubaocdn.com/s/7CVfL2v782", "sheet": "Sheet1"}, {"no": "39801", "size": "-", "img": "https://aka.doubaocdn.com/s/F8to9bqnDH", "draw": "https://aka.doubaocdn.com/s/iqemh8IOsS", "sheet": "Sheet1"}, {"no": "28999-8K910", "size": "-", "img": "https://aka.doubaocdn.com/s/mWMUzGHBwz", "draw": "https://aka.doubaocdn.com/s/xv5hqwwDgM", "sheet": "Sheet1"}, {"no": "20755169（韩国）", "size": "-", "img": "https://aka.doubaocdn.com/s/Ud1F7Ol655", "draw": "https://aka.doubaocdn.com/s/pVDwEzuL88", "sheet": "Sheet1"}, {"no": "51958", "size": "Φ73 2寸", "img": "https://aka.doubaocdn.com/s/wyWK6OaKie", "draw": "https://aka.doubaocdn.com/s/jb1DrvJpBq", "sheet": "Sheet1"}, {"no": "68898", "size": "Φ120 四寸半", "img": "https://aka.doubaocdn.com/s/loTaUD1AZf", "draw": "https://aka.doubaocdn.com/s/BfgXe8jc82", "sheet": "Sheet1"}, {"no": "21850", "size": "Φ151 五寸", "img": "https://aka.doubaocdn.com/s/mRD3Nynq8b", "draw": "https://aka.doubaocdn.com/s/gPwAz4Bn1k", "sheet": "Sheet1"}, {"no": "44805", "size": "Φ76 2.25寸", "img": "https://aka.doubaocdn.com/s/G6uHhMPUhk", "draw": "https://aka.doubaocdn.com/s/3VAieA2lFN", "sheet": "Sheet1"}, {"no": "99277", "size": "3寸通径", "img": "https://aka.doubaocdn.com/s/zhYUGdzd0w", "draw": "https://aka.doubaocdn.com/s/VwbcVlUrZH", "sheet": "Sheet1"}, {"no": "1675741", "size": "Φ116", "img": "https://aka.doubaocdn.com/s/WRvVOk9iUj", "draw": "https://aka.doubaocdn.com/s/AmCkUjXUSH", "sheet": "Sheet1"}, {"no": "2AL049", "size": "Φ75 二寸", "img": "https://aka.doubaocdn.com/s/SVKqpZbAK3", "draw": "https://aka.doubaocdn.com/s/WTD45MgFUl", "sheet": "Sheet1"}, {"no": "拖拉机卡箍", "size": "Φ327", "img": "https://aka.doubaocdn.com/s/aXx5nTT9Lo", "draw": "https://aka.doubaocdn.com/s/Nyw9rRYWYm", "sheet": "Sheet1"}, {"no": "拖拉机垫片", "size": "Φ318*334", "img": "https://aka.doubaocdn.com/s/LE0bOOuUYx", "draw": "https://aka.doubaocdn.com/s/uytolUKxWp", "sheet": "Sheet1"}, {"no": "新A型", "size": "Φ240*260", "img": "https://aka.doubaocdn.com/s/yLMOYL7Jrr", "draw": "https://aka.doubaocdn.com/s/RoRu63A2mY", "sheet": "Sheet1"}, {"no": "4寸强力卡箍", "size": "Φ110", "img": "https://aka.doubaocdn.com/s/YKOVDo4wSj", "draw": "", "sheet": "新品", "cat": "强力卡箍"}, {"no": "5寸强力卡箍", "size": "Φ140", "img": "https://aka.doubaocdn.com/s/CslxD21LyK", "draw": "", "sheet": "新品", "cat": "强力卡箍"}, {"no": "50.5*90管箍", "size": "Φ50.5*90 铁镀锌", "img": "https://aka.doubaocdn.com/s/SNPTqYUdQg", "draw": "", "sheet": "新品", "cat": "管箍"}, {"no": "62*90管箍", "size": "Φ62*90 外铁镀锌内409", "img": "https://aka.doubaocdn.com/s/BgwW9Oqvf1", "draw": "", "sheet": "新品", "cat": "管箍"}, {"no": "72*125管箍", "size": "Φ72*125 全409", "img": "https://aka.doubaocdn.com/s/hDTiMmBh1v", "draw": "", "sheet": "新品", "cat": "管箍"}, {"no": "四寸变径卡箍", "size": "Φ110变径", "img": "https://aka.doubaocdn.com/s/oxj74ZvkWn", "draw": "", "sheet": "新品", "cat": "变径卡箍"}, {"no": "五寸变径卡箍", "size": "Φ140变径", "img": "https://aka.doubaocdn.com/s/tbrOaA5nEa", "draw": "", "sheet": "新品", "cat": "变径卡箍"},{"no": "2AL005", "size": "Φ243*264", "img": "https://aka.doubaocdn.com/s/FT1wWUWQQH", "draw": "https://aka.doubaocdn.com/s/FT1wWUWQQH", "sheet": "新品"},{"no": "3.5寸铁法兰", "size": "3.5寸法兰", "img": "https://aka.doubaocdn.com/s/8PSHGfBs5S", "draw": "https://aka.doubaocdn.com/s/Bnnt2UoGhq", "sheet": "新品", "cat": "强力卡箍"},{"no": "6LL019", "size": "Φ系列", "img": "https://aka.doubaocdn.com/s/iZYtPekdci", "draw": "https://aka.doubaocdn.com/s/zVKupCV62M", "sheet": "新品"},{"no": "137*158S石墨带背胶", "size": "Φ137*158", "img": "https://aka.doubaocdn.com/s/q9i6M5Zud9", "draw": "", "sheet": "新品"},{"no": "160大喇叭口", "size": "Φ160", "img": "https://aka.doubaocdn.com/s/xe0HUedWaV", "draw": "https://aka.doubaocdn.com/s/xe0HUedWaV", "sheet": "新品", "cat": "强力卡箍"},{"no": "99811", "size": "五寸强力配套", "img": "https://aka.doubaocdn.com/s/CslxD21LyK", "draw": "https://aka.doubaocdn.com/s/ULEs28emD6", "sheet": "新品", "cat": "强力卡箍"},{"no": "1676424", "size": "标准件", "img": "https://aka.doubaocdn.com/s/wdGEpM6GZH", "draw": "https://aka.doubaocdn.com/s/bmmxtzZEmM", "sheet": "新品"}]
+const customList = [{"no": "51958", "size": "Φ73 2寸", "img": "https://aka.doubaocdn.com/s/nELSbHLl73", "draw": "https://aka.doubaocdn.com/s/VKYR46VUda", "sheet": "HOBI"}, {"no": "68898", "size": "Φ120 四寸半", "img": "https://aka.doubaocdn.com/s/9NeqcEQ26i", "draw": "https://aka.doubaocdn.com/s/5AwXizF0Vm", "sheet": "HOBI"}, {"no": "21850", "size": "Φ151 五寸", "img": "https://aka.doubaocdn.com/s/G8rOD2Dqfs", "draw": "https://aka.doubaocdn.com/s/9ihKGNV5yQ", "sheet": "HOBI"}, {"no": "44805", "size": "Φ76 2.25寸", "img": "https://aka.doubaocdn.com/s/Ybv52zrDlC", "draw": "https://aka.doubaocdn.com/s/tDdrtazFG4", "sheet": "HOBI"}, {"no": "99277", "size": "3寸通径", "img": "https://aka.doubaocdn.com/s/YbmvdRzQsN", "draw": "https://aka.doubaocdn.com/s/ESeAxWyVTa", "sheet": "HOBI"}, {"no": "1675741", "size": "Φ116 四寸", "img": "https://aka.doubaocdn.com/s/n5uIUVQg6Y", "draw": "https://aka.doubaocdn.com/s/22xclLK1Za", "sheet": "HOBI"}, {"no": "2AL049", "size": "Φ75 二寸", "img": "https://aka.doubaocdn.com/s/sDhsT8MVcN", "draw": "https://aka.doubaocdn.com/s/5Zd8cY7Ef3", "sheet": "HOBI"}]
+const setsList = [{"name": "2AL042", "count": 4, "sub_nos": ["2AL043", "2AL045", "2AL044*2", "2AL046"], "img": "https://aka.doubaocdn.com/s/sEboOQH2VT", "products": [{"no": "2AL043", "size": "Φ334", "taobiao": "2AL042", "img_id": "ID_6DAC47FB03224CADAF8B7573278FD596", "draw_id": "ID_DE6134DB299540D88E1D755B8C440242", "sheet": "Sheet1", "cat": "耐火套系列", "img": "https://aka.doubaocdn.com/s/sEboOQH2VT", "draw": "https://aka.doubaocdn.com/s/7Xw67Msv6s"}, {"no": "2AL045", "size": "Φ282*294", "taobiao": "2AL042", "img_id": "ID_878B7F826BA842C9ACC9D918F323D108", "draw_id": "ID_E7A288EADC7749D0BE4A35259890846B", "sheet": "Sheet1", "cat": "耐火套系列", "img": "https://aka.doubaocdn.com/s/UqNkLE6xqr", "draw": "https://aka.doubaocdn.com/s/EDbAkaq14Y"}, {"no": "2AL044*2", "size": "Φ305*325斜口", "taobiao": "2AL042", "img_id": "ID_1298E022156A43ACAE6705FBE8212390", "draw_id": "ID_722ED9440AF54B729D445CF6DF051672", "sheet": "Sheet1", "cat": "耐火套系列", "img": "https://aka.doubaocdn.com/s/CyYfavHdfo", "draw": "https://aka.doubaocdn.com/s/uYgS4iQugP"}, {"no": "2AL046", "size": "Φ280*300", "taobiao": "2AL042", "img_id": "ID_84FBA404430D4446BCA1B5FF4596EE53", "draw_id": "ID_44B5C4A7F8134752A1634D41BC4FA53F", "sheet": "Sheet1", "cat": "耐火套系列", "img": "https://aka.doubaocdn.com/s/P0NBrfhKyo", "draw": "https://aka.doubaocdn.com/s/YOWsZfwmri"}], "display_images": [{"sub_label": "2AL043", "size": "Φ334", "img": "https://aka.doubaocdn.com/s/UZHK2VcaaI"}]}, {"name": "2AL038", "count": 5, "sub_nos": ["2AL009", "2AL008", "2AL010", "2AL011", "2AL012"], "img": "https://aka.doubaocdn.com/s/osUA9nL6Eb", "products": [{"no": "2AL009", "size": "Φ385", "taobiao": "2AL038", "img_id": "ID_91A65494EFAE4B39B4DE542769397FDA", "draw_id": "ID_341F99F282A34ABA8C84D0C4C923C546", "sheet": "Sheet1", "cat": "耐火套系列", "img": "https://aka.doubaocdn.com/s/osUA9nL6Eb", "draw": "https://aka.doubaocdn.com/s/o15a8NARQI"}, {"no": "2AL008", "size": "Φ359.5*383.5", "taobiao": "2AL038", "img_id": "ID_EECB35E7EC294FFD82ED90233BB303EE", "draw_id": "ID_CE1C7979AC794613985670F0FBCE0A36", "sheet": "Sheet1", "cat": "耐火套系列", "img": "https://aka.doubaocdn.com/s/z9Tut2ebN7", "draw": "https://aka.doubaocdn.com/s/X7Hu3yevPO"}, {"no": "2AL010", "size": "Φ364*375", "taobiao": "2AL038", "img_id": "ID_059D06A2D7094859925D0ADEB7572C46", "draw_id": "ID_000B2009FD5247BCB5C06B39A0AF57D6", "sheet": "Sheet1", "cat": "耐火套系列", "img": "https://aka.doubaocdn.com/s/UbQrCtyWto", "draw": "https://aka.doubaocdn.com/s/69fUZrp9We"}, {"no": "2AL011", "size": "Φ324*343", "taobiao": "2AL038", "img_id": "ID_60A9E86585E948E5BE4CD01E74DC8794", "draw_id": "ID_66A7F25941064E108A9120DF0860B35B", "sheet": "Sheet1", "cat": "耐火套系列", "img": "https://aka.doubaocdn.com/s/rkHad0BEAm", "draw": "https://aka.doubaocdn.com/s/bdQMhoCm35"}, {"no": "2AL012", "size": "Φ341*354", "taobiao": "2AL038", "img_id": "ID_8A622E0EAD8C494FB41702079D3EB5BE", "draw_id": "ID_0022BFE431394D80B7A32FFFFEDDF003", "sheet": "Sheet1", "cat": "耐火套系列", "img": "https://aka.doubaocdn.com/s/900ClYRKKj", "draw": "https://aka.doubaocdn.com/s/aYf2mqSFB5"}], "display_images": [{"sub_label": "2AL009", "size": "Φ385", "img": "https://aka.doubaocdn.com/s/r7eRnsIKH9"}]}, {"name": "6LL016(斯堪尼亚)", "count": 3, "sub_nos": ["6LL005", "6LL006", "6LL008"], "img": "https://aka.doubaocdn.com/s/kyXNwao8Sn", "products": [{"no": "6LL005", "size": "Φ353", "taobiao": "6LL016(斯堪尼亚)", "img_id": "ID_0F56F673541F4908BD9B37CB595D4BDA", "draw_id": "ID_DEAF2D2D783D49B693BBCC71CB425443", "sheet": "Sheet1", "cat": "耐火套系列", "img": "https://aka.doubaocdn.com/s/kyXNwao8Sn", "draw": "https://aka.doubaocdn.com/s/4oFZFxHyKi"}, {"no": "6LL006", "size": "Φ322*344", "taobiao": "6LL016(斯堪尼亚)", "img_id": "ID_DD1421DF3C2641BE973A1CBE2C3B61BA", "draw_id": "ID_63F650E2007F44F58A90849A79657D4C", "sheet": "Sheet1", "cat": "耐火套系列", "img": "https://aka.doubaocdn.com/s/KmyfDyJXg5", "draw": "https://aka.doubaocdn.com/s/sircv5NLib"}, {"no": "6LL008", "size": "Φ312*323", "taobiao": "6LL016(斯堪尼亚)", "img_id": "ID_87FF1FFAB14241A8846BC3CFBAC3ABD7", "draw_id": "ID_61C570F8A3C543F9A1D6BB4DE9DCFE18", "sheet": "Sheet1", "cat": "耐火套系列", "img": "https://aka.doubaocdn.com/s/g6H7zhf9Wq", "draw": "https://aka.doubaocdn.com/s/hl78vuMi1D"}], "display_images": [{"sub_label": "6LL005", "size": "Φ353", "img": "https://aka.doubaocdn.com/s/1eykiY8l6T"}]}, {"name": "4IJ002", "count": 5, "sub_nos": ["4IL004", "4IL004", "4IL006", "4IL003", "4IL005"], "img": "https://aka.doubaocdn.com/s/GMEibyYPZo", "products": [{"no": "4IL004", "size": "Φ380U型宽槽", "taobiao": "4IJ007", "img_id": "ID_9B4AC012EF3A4A51BEFB6436C04A7E52", "draw_id": "ID_F37FBD71AB5643888C6CF82B08640C58", "sheet": "Sheet1", "cat": "宽槽U型系列", "img": "https://aka.doubaocdn.com/s/GMEibyYPZo", "draw": "https://aka.doubaocdn.com/s/disKgN6D0U"}, {"no": "4IL004", "size": "Φ380U型宽槽", "taobiao": "4IJ002", "img_id": "ID_1ACAD13E23DD4F16ACA90B7761815FFC", "draw_id": "ID_582A3CA8A8294011A80B53234047C5D7", "sheet": "Sheet1", "cat": "宽槽U型系列", "img": "https://aka.doubaocdn.com/s/2G4Xf82sWn", "draw": "https://aka.doubaocdn.com/s/Y0jLp1fY6K"}, {"no": "4IL006", "size": "Φ225 宽槽", "taobiao": "4IJ002", "img_id": "ID_5D2C3CC37E8F467A948F4886781859BF", "draw_id": "ID_4270A5449F7D4D7985B4D7086C9309C5", "sheet": "Sheet1", "cat": "宽槽U型系列", "img": "https://aka.doubaocdn.com/s/Y9yZM21zUN", "draw": "https://aka.doubaocdn.com/s/F2s2xl6DbF"}, {"no": "4IL003", "size": "Φ355*375 大翻边", "taobiao": "4IJ002", "img_id": "ID_68480B79F9CA42B7AF43CAD0E6BE5F02", "draw_id": "ID_E1B881363903436EB9651BE623F4A544", "sheet": "Sheet1", "cat": "宽槽U型系列", "img": "https://aka.doubaocdn.com/s/kMFWg7PUwC", "draw": "https://aka.doubaocdn.com/s/K7hB4DyLLW"}, {"no": "4IL005", "size": "Φ193.5*219.5 小翻边", "taobiao": "4IJ002", "img_id": "ID_598FB5E85B1B413882FB391F96C8DF2B", "draw_id": "ID_5084F91D378E428597C1AA206988657B", "sheet": "Sheet1", "cat": "宽槽U型系列", "img": "https://aka.doubaocdn.com/s/KncwqI7heX", "draw": "https://aka.doubaocdn.com/s/fAL1BB6toI"}], "display_images": [{"sub_label": "4IL004", "size": "Φ380U型宽槽", "img": "https://aka.doubaocdn.com/s/rUL5QnV7Jr"}]}, {"name": "4IJ007", "count": 3, "sub_nos": ["4IL003*2", "4IL059", "4IL060"], "img": "https://aka.doubaocdn.com/s/g4BtXVYMUh", "products": [{"no": "4IL003*2", "size": "Φ355*375 大翻边", "taobiao": "4IJ007", "img_id": "ID_9637DF7E603B4774B518D7EE9C26D954", "draw_id": "ID_2C0561A3193448D186E246332C1706AC", "sheet": "Sheet1", "cat": "宽槽U型系列", "img": "https://aka.doubaocdn.com/s/g4BtXVYMUh", "draw": "https://aka.doubaocdn.com/s/78IYZxqypX"}, {"no": "4IL059", "size": "Φ250U型宽槽", "taobiao": "4IJ007", "img_id": "ID_FBF29D65E2674FE9A947DAEE42C89F0C", "draw_id": "ID_114250AF0E054FAE80563E9D7EFDEA3C", "sheet": "Sheet1", "cat": "宽槽U型系列", "img": "https://aka.doubaocdn.com/s/6cOoD3WOlr", "draw": "https://aka.doubaocdn.com/s/NIxVNDNeOZ"}, {"no": "4IL060", "size": "Φ222*248", "taobiao": "4IJ007", "img_id": "ID_C7255E136023407A94109749FBF2BC59", "draw_id": "ID_94D81A90F1D0429CBE6ACBEF9E9FE99C", "sheet": "Sheet1", "cat": "宽槽U型系列", "img": "https://aka.doubaocdn.com/s/spjU53uNB0", "draw": "https://aka.doubaocdn.com/s/djTZeBq19x"}], "display_images": [{"sub_label": "4IL004", "size": "Φ380U型宽槽", "img": "https://aka.doubaocdn.com/s/3nnIcsvhdo"}]}, {"name": "8AL074", "count": 6, "sub_nos": ["8AL006", "8AL006", "8AL006", "8AL069", "8AL072", "8AL070"], "img": "https://aka.doubaocdn.com/s/wDkcFD4PxV", "products": [{"no": "8AL006", "size": "Φ360沃尔沃", "taobiao": "82831(沃尔沃)", "img_id": "ID_525F4CCD0C0B4C23BDB6F2148C38CEF3", "draw_id": "ID_69B1EF2BC3B948B8BD0E32FB231ED9C5", "sheet": "Sheet1", "cat": "品牌适配系列", "img": "https://aka.doubaocdn.com/s/wDkcFD4PxV", "draw": "https://aka.doubaocdn.com/s/Sm1OvIUfBU"}, {"no": "8AL006", "size": "Φ365 宽槽", "taobiao": "8AL031", "img_id": "ID_B497D3232B524A4AB605522FE237BEFA", "draw_id": "ID_F079E89A1C074DDDB409E5EEB5B52CE3", "sheet": "Sheet1", "cat": "品牌适配系列", "img": "https://aka.doubaocdn.com/s/vOZ4dQIFfL", "draw": "https://aka.doubaocdn.com/s/8KxLW5FejC"}, {"no": "8AL006", "size": "Φ365 宽槽", "taobiao": "8AL074", "img_id": "ID_02D9CA0F07A64EE4A5133F660E83AFA4", "draw_id": "ID_C7A65A1E14AD4ABD9389E1E174553EF9", "sheet": "Sheet1", "cat": "品牌适配系列", "img": "https://aka.doubaocdn.com/s/6LKmSuifqS", "draw": "https://aka.doubaocdn.com/s/IJvWUoZxyN"}, {"no": "8AL069", "size": "Φ332*350", "taobiao": "8AL074", "img_id": "ID_E6BCC0CBFFD8457EAF652190F9907090", "draw_id": "ID_BE44D066422245FE8292576BFF572A8B", "sheet": "Sheet1", "cat": "品牌适配系列", "img": "https://aka.doubaocdn.com/s/cuNteUr4kw", "draw": "https://aka.doubaocdn.com/s/NQp82Rl6hx"}, {"no": "8AL072", "size": "-", "taobiao": "8AL074", "img_id": "ID_EFCF06D1B0CF457BBB4029649B3DB637", "draw_id": "ID_28D632DE48E9439586E78BF8E8E56606", "sheet": "Sheet1", "cat": "品牌适配系列", "img": "https://aka.doubaocdn.com/s/c9nZUk3pXw", "draw": "https://aka.doubaocdn.com/s/BddzbxZTWV"}, {"no": "8AL070", "size": "Φ311*323", "taobiao": "8AL074", "img_id": "ID_A29C8FE73F2C488D90D766AF1CC7C42C", "draw_id": "ID_CFA3AFE4DCF84194AB33DAB66593D161", "sheet": "Sheet1", "cat": "品牌适配系列", "img": "https://aka.doubaocdn.com/s/PER0f2KMI1", "draw": "https://aka.doubaocdn.com/s/ThWkpOBQt5"}], "display_images": [{"sub_label": "8AL006", "size": "Φ365\n宽槽", "img": "https://aka.doubaocdn.com/s/ooqLZSVfZ9"}]}, {"name": "8AL031", "count": 6, "sub_nos": ["8AL005*2", "8AL016", "82829", "8AL005*2", "8AL016", "82829"], "img": "https://aka.doubaocdn.com/s/DgDlHnicM3", "products": [{"no": "8AL005*2", "size": "Φ340*353(0880) 内八爪", "taobiao": "82831(沃尔沃)", "img_id": "ID_F36B7113D2EC481497D1ED7221605199", "draw_id": "ID_3B2CF96A74DA46E8A8463D3391FA299F", "sheet": "Sheet1", "cat": "品牌适配系列", "img": "https://aka.doubaocdn.com/s/DgDlHnicM3", "draw": "https://aka.doubaocdn.com/s/usLOMKaf3N"}, {"no": "8AL016", "size": "Φ164", "taobiao": "82831(沃尔沃)", "img_id": "ID_F29F483B25C749E18F928F4218AFC5AE", "draw_id": "ID_E5DFD0D806984349A3A21389CC1F908F", "sheet": "Sheet1", "cat": "品牌适配系列", "img": "https://aka.doubaocdn.com/s/4huJazKzQe", "draw": "https://aka.doubaocdn.com/s/CcVULvQXLV"}, {"no": "82829", "size": "复合带背胶(5959) Φ137*158", "taobiao": "82831(沃尔沃)", "img_id": "ID_48DECF6F2FD94202822F1BC14FC32D2C", "draw_id": "ID_1F0B4AFA70BB48CCA7C753A2E7BE609E", "sheet": "Sheet1", "cat": "定制配套", "img": "https://aka.doubaocdn.com/s/Yjx3DMBae4", "draw": "https://aka.doubaocdn.com/s/82IDuUDCic"}, {"no": "8AL005*2", "size": "Φ340*353(0880) 内八爪", "taobiao": "8AL031", "img_id": "ID_9780E67EF1FD445D9E540D41A8692EC2", "draw_id": "ID_A7C7B71AF96B4FB9B1F217339F6B53F4", "sheet": "Sheet1", "cat": "品牌适配系列", "img": "https://aka.doubaocdn.com/s/fz5cN54EtG", "draw": "https://aka.doubaocdn.com/s/3Bekt3eIXs"}, {"no": "8AL016", "size": "Φ164", "taobiao": "8AL031", "img_id": "ID_8E14A71D4A52437CBE908495DEF8D101", "draw_id": "ID_D65B426FCB574946988FA4FE6FEF41F4", "sheet": "Sheet1", "cat": "品牌适配系列", "img": "https://aka.doubaocdn.com/s/Olzk2c8w6w", "draw": "https://aka.doubaocdn.com/s/2AEkV3tV8W"}, {"no": "82829", "size": "复合带背胶(5959) Φ137*158", "taobiao": "8AL031", "img_id": "ID_0EC816BFF2834849BB082523BD9D9D05", "draw_id": "ID_82438F2F776F4888BE61DC99D399A9B8", "sheet": "Sheet1", "cat": "定制配套", "img": "https://aka.doubaocdn.com/s/Yjx3DMBae4", "draw": "https://aka.doubaocdn.com/s/6PFLavgeyx"}], "display_images": [{"sub_label": "8AL005*2", "size": "Φ340*353(0880)\n内八爪", "img": "https://aka.doubaocdn.com/s/atQRduqJWT"}]}, {"name": "5AL065(大底特律)", "count": 3, "sub_nos": ["5AL060", "2KL015", "35833"], "img": "https://aka.doubaocdn.com/s/45V2IZGbCV", "products": [{"no": "5AL060", "size": "Φ325偏口", "taobiao": "5AL065(大底特律)", "img_id": "ID_18CDC31408E24C1394616DD668CC80F2", "draw_id": "ID_A8230FBBDC2B4F9D850293C1CF0EE129", "sheet": "Sheet1", "cat": "品牌适配系列", "img": "https://aka.doubaocdn.com/s/45V2IZGbCV", "draw": "https://aka.doubaocdn.com/s/s6beuOXmWm"}, {"no": "2KL015", "size": "Φ347平 不粘石墨条", "taobiao": "5AL065(大底特律)", "img_id": "ID_A093EC1D25614504A7CCB3FAA515AF49", "draw_id": "ID_1A412BF9257146F0A8E47F4C9B6CAACC", "sheet": "Sheet1", "cat": "品牌适配系列", "img": "https://aka.doubaocdn.com/s/MnT9CvSsyh", "draw": "https://aka.doubaocdn.com/s/zqBUv14ofU"}, {"no": "35833", "size": "大奔驰垫 Φ295.3*317.5", "taobiao": "5AL065(大底特律)", "img_id": "ID_2EF48E18118A4BB6A282C50136033E38", "draw_id": "ID_D5302084BFD34019A777D8265443A534", "sheet": "Sheet1", "cat": "定制配套", "img": "https://aka.doubaocdn.com/s/8KPtJpIUYd", "draw": "https://aka.doubaocdn.com/s/jPsKWfAFU1"}], "display_images": [{"sub_label": "5AL060", "size": "Φ325偏口", "img": "https://aka.doubaocdn.com/s/CipOqCAZQo"}]}, {"name": "2KJ000", "count": 3, "sub_nos": ["2KL015", "2KL016", "2KL014"], "img": "https://aka.doubaocdn.com/s/MnT9CvSsyh", "products": [{"no": "2KL015", "size": "Φ247", "taobiao": "2KJ000", "img_id": "ID_7BE5E42C1C5C4FCD985BA52DEE0B2807", "draw_id": "ID_D632E7A16B00461AA4077F832922391A", "sheet": "Sheet1", "cat": "品牌适配系列", "img": "https://aka.doubaocdn.com/s/r0E76xhIaN", "draw": "https://aka.doubaocdn.com/s/fnvUB7nQ5C"}, {"no": "2KL016", "size": "Φ312*323", "taobiao": "2KJ000", "img_id": "ID_E1D51AC9A5784B4FBFB65968733B79AA", "draw_id": "ID_3DF926A0D9AC41C78697BC39BCE8D1F0", "sheet": "Sheet1", "cat": "品牌适配系列", "img": "https://aka.doubaocdn.com/s/BsGQ2kB4hr", "draw": "https://aka.doubaocdn.com/s/2eywlVibOB"}, {"no": "2KL014", "size": "Φ332双螺栓", "taobiao": "2KJ000", "img_id": "ID_5B72CB69E6B24EA69621D3960722D15F", "draw_id": "ID_13822B311757433BAE82D840D4448B38", "sheet": "Sheet1", "cat": "品牌适配系列", "img": "https://aka.doubaocdn.com/s/hhmX23xWQ9", "draw": "https://aka.doubaocdn.com/s/y5CBugwTgO"}], "display_images": [{"sub_label": "2KL015", "size": "Φ247", "img": "https://aka.doubaocdn.com/s/YICaW8VyfQ"}]}, {"name": "35835", "count": 3, "sub_nos": ["35833", "35831", "35832"], "img": "https://aka.doubaocdn.com/s/8KPtJpIUYd", "products": [{"no": "35833", "size": "Φ336.5*354.5", "taobiao": "35835", "img_id": "ID_182F48391CF64D5FAA2313C47AFEB4E0", "draw_id": "ID_D7CD70580A5142B7938088D1095E41C9", "sheet": "Sheet1", "cat": "定制配套", "img": "https://aka.doubaocdn.com/s/1gv8D10yoN", "draw": "https://aka.doubaocdn.com/s/HvEfpRR9DU"}, {"no": "35831", "size": "Φ349平", "taobiao": "35835", "img_id": "ID_C62CF28D79974E3CAAD03A4E4897F620", "draw_id": "ID_A8DB8E0642254FA293E9C36CF7EC907E", "sheet": "Sheet1", "cat": "定制配套", "img": "https://aka.doubaocdn.com/s/BcaS56GBHS", "draw": "https://aka.doubaocdn.com/s/ZpQ9FvB9O1"}, {"no": "35832", "size": "Φ325偏口", "taobiao": "35835", "img_id": "ID_01DA72DF91A2489FBF79FB4B3A1B01A1", "draw_id": "ID_D70F49CADB07430BBAEBBDDD449D6DB3", "sheet": "Sheet1", "cat": "定制配套", "img": "https://aka.doubaocdn.com/s/uKBpAgjknW", "draw": "https://aka.doubaocdn.com/s/GUUUaFEWFq"}], "display_images": [{"sub_label": "35833", "size": "Φ336.5*354.5", "img": "https://aka.doubaocdn.com/s/8JJhGrJkiv"}]}, {"name": "35827(小底特律)", "count": 3, "sub_nos": ["35825*2", "35822*2", "35817*2"], "img": "https://aka.doubaocdn.com/s/NBBviD9Ucr", "products": [{"no": "35825*2", "size": "Φ268平", "taobiao": "35827(小底特律)", "img_id": "ID_D13051E8E4EE48569E7BD56A28EDAB2D", "draw_id": "ID_C8CB7CC0BEC04C93A766763CF25BD7D6", "sheet": "Sheet1", "cat": "定制配套", "img": "https://aka.doubaocdn.com/s/NBBviD9Ucr", "draw": "https://aka.doubaocdn.com/s/09ZayIN3Eq"}, {"no": "35822*2", "size": "Φ267宽槽", "taobiao": "35827(小底特律)", "img_id": "ID_9397C9570DE64ADDB9EA91D755D1DDBE", "draw_id": "ID_925447BF821E44E280089EE4429E8F7B", "sheet": "Sheet1", "cat": "定制配套", "img": "https://aka.doubaocdn.com/s/j37pgNKYSC", "draw": "https://aka.doubaocdn.com/s/RIyplb9wR1"}, {"no": "35817*2", "size": "Φ246*260", "taobiao": "35827(小底特律)", "img_id": "ID_1B95888071674F60B461C4A88AEED79E", "draw_id": "ID_B4B54A88ADB245069D9D6D47032AFB39", "sheet": "Sheet1", "cat": "定制配套", "img": "https://aka.doubaocdn.com/s/tyk5h4lAsS", "draw": "https://aka.doubaocdn.com/s/Y3s4WAAqdy"}], "display_images": [{"sub_label": "35825*2", "size": "Φ268平", "img": "https://aka.doubaocdn.com/s/r4MwmoBFHa"}]}, {"name": "4IJ004", "count": 2, "sub_nos": ["4IL021", "4IL025"], "img": "https://aka.doubaocdn.com/s/zJ2gP4meuE", "products": [{"no": "4IL021", "size": "Φ282", "taobiao": "4IJ004", "img_id": "ID_7FD84D3C47DA401E88EC73DF95F98BF3", "draw_id": "ID_60DA7DB0893E423D8AE61ED803E8A1E6", "sheet": "Sheet1", "cat": "宽槽U型系列", "img": "https://aka.doubaocdn.com/s/zJ2gP4meuE", "draw": "https://aka.doubaocdn.com/s/yXtnU3WFiW"}, {"no": "4IL025", "size": "Φ261*279", "taobiao": "4IJ004", "img_id": "ID_BD2DA90C5FBB4719A5D7B7E6985DBB5A", "draw_id": "ID_AB212CC7C6AC4ECBAC58E69C8AC66250", "sheet": "Sheet1", "cat": "宽槽U型系列", "img": "https://aka.doubaocdn.com/s/Rez4bxUO9N", "draw": "https://aka.doubaocdn.com/s/yIg1YtQoqK"}], "display_images": [{"sub_label": "4IL021", "size": "Φ282", "img": "https://aka.doubaocdn.com/s/h6E5GWuEVn"}]}, {"name": "4IJ003", "count": 5, "sub_nos": ["4IL017", "4IL014", "4IL013", "4IL014", "4IL017"], "img": "https://aka.doubaocdn.com/s/aKJ4Syt6f5", "products": [{"no": "4IL017", "size": "Φ126 四寸宽槽", "taobiao": "4IJ004", "img_id": "ID_E578775B15C34830891DC0B68C45AC63", "draw_id": "ID_C44D71B9C59440068B15C9C4F26E69E4", "sheet": "Sheet1", "cat": "宽槽U型系列", "img": "https://aka.doubaocdn.com/s/aKJ4Syt6f5", "draw": "https://aka.doubaocdn.com/s/YxwD4oVIfU"}, {"no": "4IL014", "size": "Φ104*121", "taobiao": "4IJ004", "img_id": "ID_AE5C70E71C65415095665895C8E4268C", "draw_id": "ID_BC5F8859321F46FFA56453EBE10CD3D5", "sheet": "Sheet1", "cat": "宽槽U型系列", "img": "https://aka.doubaocdn.com/s/LMG3gaGVuR", "draw": "https://aka.doubaocdn.com/s/WW5YS4UTGc"}, {"no": "4IL013", "size": "Φ285*303", "taobiao": "4IJ003", "img_id": "ID_43672236317349BEA993D2AA9C787371", "draw_id": "ID_D3A83FEBA2584025989827EEE62BD2C6", "sheet": "Sheet1", "cat": "宽槽U型系列", "img": "https://aka.doubaocdn.com/s/hZ7uCcnEvJ", "draw": "https://aka.doubaocdn.com/s/cTteVxhioD"}, {"no": "4IL014", "size": "Φ104*121", "taobiao": "4IJ003", "img_id": "ID_51CE16B1322F409FA71217A3407D53B1", "draw_id": "ID_2990D4191C7241E7B4D26A4F6D4CDCF1", "sheet": "Sheet1", "cat": "宽槽U型系列", "img": "https://aka.doubaocdn.com/s/GL16QRO31o", "draw": "https://aka.doubaocdn.com/s/PWLOHD2NVo"}, {"no": "4IL017", "size": "Φ126 四寸宽槽", "taobiao": "4IJ003", "img_id": "ID_724002279FE2464A95B73B952593E845", "draw_id": "ID_ECB6E0B7615A4B9791F14D440620EA75", "sheet": "Sheet1", "cat": "宽槽U型系列", "img": "https://aka.doubaocdn.com/s/k6fsSNzLr4", "draw": "https://aka.doubaocdn.com/s/K2vZh6ymE6"}], "display_images": [{"sub_label": "4IL016", "size": "Φ308", "img": "https://aka.doubaocdn.com/s/pt2AGEtEtI"}]}, {"name": "35836", "count": 2, "sub_nos": ["65822", "58817"], "img": "https://aka.doubaocdn.com/s/nAM0u8bo60", "products": [{"no": "65822", "size": "Φ340", "taobiao": "35836", "img_id": "ID_1F6DD747865244428E3CB6AD167A2750", "draw_id": "ID_1E62E0D89F8E4071BAE74DD0D3D15B9B", "sheet": "Sheet1", "cat": "定制配套", "img": "https://aka.doubaocdn.com/s/nAM0u8bo60", "draw": "https://aka.doubaocdn.com/s/hlytQBqxCW"}, {"no": "58817", "size": "Φ316.5*336", "taobiao": "35836", "img_id": "ID_65F45726AE5B4DCEB4F89347B1F5CDBB", "draw_id": "ID_6049863CC2684E4BB7585831C0B527FD", "sheet": "Sheet1", "cat": "定制配套", "img": "https://aka.doubaocdn.com/s/o30KoFJhEp", "draw": "https://aka.doubaocdn.com/s/dr47UbFKYd"}], "display_images": [{"sub_label": "65822", "size": "Φ340", "img": "https://aka.doubaocdn.com/s/mPUK2nRqfK"}]}, {"name": "6LL017", "count": 3, "sub_nos": ["6LL000", "6LL002", "6LL007"], "img": "https://aka.doubaocdn.com/s/1UOTZfsWV2", "products": [{"no": "6LL000", "size": "Φ321", "taobiao": "6LL035", "img_id": "ID_9C2C467BC542481689184C810A51C15A", "draw_id": "ID_38D6EB6B915D47659D31EEB9CD1AEF7A", "sheet": "Sheet1", "cat": "耐火套系列", "img": "https://aka.doubaocdn.com/s/1UOTZfsWV2", "draw": "https://aka.doubaocdn.com/s/xwSZZnoSNR"}, {"no": "6LL002", "size": "Φ285*307", "taobiao": "6LL017", "img_id": "ID_CD9FD3DF326D4D9C851406B8CC399B65", "draw_id": "ID_A4D2003201084111888AD120F0A755F5", "sheet": "Sheet1", "cat": "耐火套系列", "img": "https://aka.doubaocdn.com/s/2Gchmeeshw", "draw": "https://aka.doubaocdn.com/s/GUj5xTmH3q"}, {"no": "6LL007", "size": "Φ275*287 斯堪尼亚", "taobiao": "6LL017", "img_id": "ID_2A2C9DC889184690B52BA78B17438502", "draw_id": "ID_3794775ED50043EE82D864A14626D158", "sheet": "Sheet1", "cat": "耐火套系列", "img": "https://aka.doubaocdn.com/s/I0zZjkzbNN", "draw": "https://aka.doubaocdn.com/s/1UO0TRFezz"}], "display_images": [{"sub_label": "6LL002", "size": "Φ285*307", "img": "https://aka.doubaocdn.com/s/u8sMjVk7W9"}]}, {"name": "6LL035", "count": 2, "sub_nos": ["6LL003*2", "6LL000"], "img": "https://aka.doubaocdn.com/s/kowXBcauUI", "products": [{"no": "6LL003*2", "size": "Φ294*310", "taobiao": "6LL035", "img_id": "ID_BEF0268C93C645E2A08F4120AAB5CA90", "draw_id": "ID_0DD7E29149E54C59A0F1518A738634D0", "sheet": "Sheet1", "cat": "耐火套系列", "img": "https://aka.doubaocdn.com/s/kowXBcauUI", "draw": "https://aka.doubaocdn.com/s/jPu5EzUcIf"}, {"no": "6LL000", "size": "Φ321", "taobiao": "6LL017", "img_id": "ID_2593E76197674053B7ADEAD2038E75F0", "draw_id": "ID_223E2B0C22D94DDCA6E3FFF27B12CCAA", "sheet": "Sheet1", "cat": "耐火套系列", "img": "https://aka.doubaocdn.com/s/0iHZAMSdcQ", "draw": "https://aka.doubaocdn.com/s/Xb9UogbUAB"}], "display_images": [{"sub_label": "6LL035", "size": "Φ321", "img": "https://aka.doubaocdn.com/s/CxGR371om0"}]}, {"name": "35841", "count": 2, "sub_nos": ["58824*2", "65831*2"], "img": "https://aka.doubaocdn.com/s/XF8vr3mhuU", "products": [{"no": "58824*2", "size": "Φ265", "taobiao": "35841", "img_id": "ID_A517F697FC6D4948BF3D981AD5DA0F88", "draw_id": "ID_BFE56680AD09417BA0FFC09A57FCE5E1", "sheet": "Sheet1", "cat": "定制配套", "img": "https://aka.doubaocdn.com/s/XF8vr3mhuU", "draw": "https://aka.doubaocdn.com/s/VFdKjw3LJ1"}, {"no": "65831*2", "size": "Φ240*260", "taobiao": "35841", "img_id": "ID_989E096FE3D642A18955093AA02AF22D", "draw_id": "ID_2990A3EEADD24A3599144DD48B9DA124", "sheet": "Sheet1", "cat": "定制配套", "img": "https://aka.doubaocdn.com/s/bCugLIHcdE", "draw": "https://aka.doubaocdn.com/s/9uxVnQxzCU"}], "display_images": [{"sub_label": "58824*2", "size": "Φ265", "img": "https://aka.doubaocdn.com/s/rOOwzpfHIX"}]}, {"name": "2AL017", "count": 2, "sub_nos": ["2AL018", "2AL019"], "img": "https://aka.doubaocdn.com/s/7NGDX72c7u", "products": [{"no": "2AL018", "size": "Φ209.2*223.5", "taobiao": "2AL017", "img_id": "ID_6CD522BCCAC446E3AA4095B1DED639F2", "draw_id": "ID_4460DE82348C4054A62CB21170FF8CEB", "sheet": "Sheet1", "cat": "耐火套系列", "img": "https://aka.doubaocdn.com/s/7NGDX72c7u", "draw": "https://aka.doubaocdn.com/s/wguaCbUiXD"}, {"no": "2AL019", "size": "Φ225 不宽不窄", "taobiao": "2AL017", "img_id": "ID_F5C9400292FC487ABB5ADD85F61A4A66", "draw_id": "ID_65C1A134AA8A4E9F9E673290B3E98D13", "sheet": "Sheet1", "cat": "耐火套系列", "img": "https://aka.doubaocdn.com/s/7vFfUkmJko", "draw": "https://aka.doubaocdn.com/s/1HzuI9VytH"}], "display_images": [{"sub_label": "2AL018", "size": "Φ209.2*223.5", "img": "https://aka.doubaocdn.com/s/k9oF5CPqC5"}]}, {"name": "2AL022", "count": 2, "sub_nos": ["6LL012", "6LL011"], "img": "https://aka.doubaocdn.com/s/jhvYPHuLUs", "products": [{"no": "6LL012", "size": "Φ247*261", "taobiao": "2AL022", "img_id": "ID_D8D229FC5DD94E5B8792149EFAF949F0", "draw_id": "ID_E4ED2059D2E04D90939BAD0E8DD704FD", "sheet": "Sheet1", "cat": "耐火套系列", "img": "https://aka.doubaocdn.com/s/jhvYPHuLUs", "draw": "https://aka.doubaocdn.com/s/M5EWyPpqV3"}, {"no": "6LL011", "size": "Φ265", "taobiao": "2AL022", "img_id": "ID_653B7C95EE404F87836A2337FC850680", "draw_id": "ID_B23F46B9B51041EEA174206BF318BBB0", "sheet": "Sheet1", "cat": "耐火套系列", "img": "https://aka.doubaocdn.com/s/gmnIYV72Zo", "draw": "https://aka.doubaocdn.com/s/ItHkw3T4VB"}], "display_images": [{"sub_label": "6LL012", "size": "Φ247*261", "img": "https://aka.doubaocdn.com/s/JKE9Mytrop"}]}, {"name": "8AL030", "count": 3, "sub_nos": ["8AL014", "8AL013*2", "8AL015"], "img": "https://aka.doubaocdn.com/s/0uZtkpctO7", "products": [{"no": "8AL014", "size": "Φ331", "taobiao": "8AL030", "img_id": "ID_C0612B9689A44858880C4C3C5F1F520C", "draw_id": "ID_67BE2D6676E0410DAC51DFE52E549DD6", "sheet": "Sheet1", "cat": "品牌适配系列", "img": "https://aka.doubaocdn.com/s/0uZtkpctO7", "draw": "https://aka.doubaocdn.com/s/XQVTx3yK3T"}, {"no": "8AL013*2", "size": "Φ301*319 内六", "taobiao": "8AL030", "img_id": "ID_22890D85CBE24268B3D43D105777531D", "draw_id": "ID_7C72BAE871F446E6B289D6D787DBE655", "sheet": "Sheet1", "cat": "品牌适配系列", "img": "https://aka.doubaocdn.com/s/FLq7uFCv04", "draw": "https://aka.doubaocdn.com/s/f0zn4YDkhG"}, {"no": "8AL015", "size": "Φ140", "taobiao": "8AL030", "img_id": "ID_2EE3E64311F843ED81502D11E0AE9714", "draw_id": "ID_E905511B096E4D06926A8F6422F38EFB", "sheet": "Sheet1", "cat": "品牌适配系列", "img": "https://aka.doubaocdn.com/s/4zM4QIONGe", "draw": "https://aka.doubaocdn.com/s/aQJmMvoatT"}], "display_images": [{"sub_label": "8AL014", "size": "Φ331", "img": "https://aka.doubaocdn.com/s/BujWaDMZZT"}]}, {"name": "35838", "count": 2, "sub_nos": ["58821*2", "58831*2"], "img": "https://aka.doubaocdn.com/s/9PVCADFMyp", "products": [{"no": "58821*2", "size": "Φ364*384 4868", "taobiao": "35838", "img_id": "ID_50434133D7884026896D144196CABE34", "draw_id": "ID_21083F5E741B464D81BFC12765156A36", "sheet": "Sheet1", "cat": "定制配套", "img": "https://aka.doubaocdn.com/s/9PVCADFMyp", "draw": "https://aka.doubaocdn.com/s/Na31pAHTwK"}, {"no": "58831*2", "size": "Φ394", "taobiao": "35838", "img_id": "ID_D0BD295702AA42F08E810D79DEA69894", "draw_id": "ID_88E3081920884892B382E51B6229715F", "sheet": "Sheet1", "cat": "定制配套", "img": "https://aka.doubaocdn.com/s/wNv89X2Xia", "draw": "https://aka.doubaocdn.com/s/J1lW371S12"}], "display_images": [{"sub_label": "58821*2", "size": "Φ364*384\n4868", "img": "https://aka.doubaocdn.com/s/LyE6YrA5rK"}]}, {"name": "4IJ009", "count": 4, "sub_nos": ["4IL016", "4IL036", "4IL016", "4IL037"], "img": "https://aka.doubaocdn.com/s/OaH8HbyxcO", "products": [{"no": "4IL016", "size": "Φ308", "taobiao": "4IJ003", "img_id": "ID_B38489653E1547D99826EA3CFB2007A7", "draw_id": "ID_B3D36653E2254860A3CD0739385DF77D", "sheet": "Sheet1", "cat": "宽槽U型系列", "img": "https://aka.doubaocdn.com/s/OaH8HbyxcO", "draw": "https://aka.doubaocdn.com/s/hbbVf8RDON"}, {"no": "4IL036", "size": "Φ288*308", "taobiao": "4IJ009", "img_id": "ID_A621CE56DF3E4A878F7DB52A68F2497E", "draw_id": "ID_44043C1774774546AFA3133E3248DE95", "sheet": "Sheet1", "cat": "宽槽U型系列", "img": "https://aka.doubaocdn.com/s/hbmS2VFcFa", "draw": "https://aka.doubaocdn.com/s/pIU9qO4QUU"}, {"no": "4IL016", "size": "Φ308", "taobiao": "4IJ009", "img_id": "ID_53B03EA633544B289A47EF815B549D42", "draw_id": "ID_A82624BC7D394713A67952282CBE82E9", "sheet": "Sheet1", "cat": "宽槽U型系列", "img": "https://aka.doubaocdn.com/s/83agVRwBAi", "draw": "https://aka.doubaocdn.com/s/0oSeGUVHD5"}, {"no": "4IL037", "size": "Φ275*287 斯堪尼亚", "taobiao": "4IJ009", "img_id": "ID_FDCD88AAD1714478B87B457D68EA203C", "draw_id": "ID_06A10E1D85F94C6A974FE5C2C8F01D32", "sheet": "Sheet1", "cat": "宽槽U型系列", "img": "https://aka.doubaocdn.com/s/UKGrTase1l", "draw": "https://aka.doubaocdn.com/s/xcv4JihVHt"}], "display_images": [{"sub_label": "4IL036", "size": "Φ288*308", "img": "https://aka.doubaocdn.com/s/UsjlPiuIEO"}]}, {"name": "2KL017", "count": 3, "sub_nos": ["2KL028", "2KL029", "2KL030"], "img": "https://aka.doubaocdn.com/s/hrmUCKVMRx", "products": [{"no": "2KL028", "size": "Φ266*281", "taobiao": "2KL017", "img_id": "ID_593CEE6975844198A430B94CDDAA1ECD", "draw_id": "ID_DA0837CF3206416A83912F92AC2B54CF", "sheet": "Sheet1", "cat": "品牌适配系列", "img": "https://aka.doubaocdn.com/s/hrmUCKVMRx", "draw": "https://aka.doubaocdn.com/s/lVtg45ds60"}, {"no": "2KL029", "size": "Φ300平", "taobiao": "2KL017", "img_id": "ID_E1468CC7835846ED9341A9641BD47E8D", "draw_id": "ID_82D0B6762696477987B3C96B6A6CF8AE", "sheet": "Sheet1", "cat": "品牌适配系列", "img": "https://aka.doubaocdn.com/s/o15a8NARQI", "draw": "https://aka.doubaocdn.com/s/EHZCNaubSt"}, {"no": "2KL030", "size": "Φ287 双螺栓", "taobiao": "2KL017", "img_id": "ID_09D855DE90B940829F1F416687172BE1", "draw_id": "ID_9B7713DF962042618F6E767FC8C51843", "sheet": "Sheet1", "cat": "品牌适配系列", "img": "https://aka.doubaocdn.com/s/mu0MofU8hY", "draw": "https://aka.doubaocdn.com/s/iZNfQhGEGG"}], "display_images": [{"sub_label": "2KL028", "size": "Φ266*281", "img": "https://aka.doubaocdn.com/s/Mr5VOdBzfb"}]}, {"name": "5AL062", "count": 2, "sub_nos": ["5AL055", "5AL021"], "img": "https://aka.doubaocdn.com/s/HfcK2Bh2NC", "products": [{"no": "5AL055", "size": "Φ267窄槽", "taobiao": "5AL062", "img_id": "ID_416F77D72971403A96FC88F786A96728", "draw_id": "ID_7688861687B24245BB0E68B87CE196E9", "sheet": "Sheet1", "cat": "品牌适配系列", "img": "https://aka.doubaocdn.com/s/HfcK2Bh2NC", "draw": "https://aka.doubaocdn.com/s/IdLzO52w3K"}, {"no": "5AL021", "size": "Φ250*257 缠绕", "taobiao": "5AL062", "img_id": "ID_9EDB016F1255490AB8DC9363C1409ADE", "draw_id": "ID_13AB64BAE581401D8D09C69B32730804", "sheet": "Sheet1", "cat": "品牌适配系列", "img": "https://aka.doubaocdn.com/s/lqV3rnyN1Y", "draw": "https://aka.doubaocdn.com/s/QhVE2Pqf6Y"}], "display_images": [{"sub_label": "5AL055", "size": "Φ267窄槽", "img": "https://aka.doubaocdn.com/s/v62XSK1ncK"}]}, {"name": "5AL031", "count": 4, "sub_nos": ["5AL004", "50902", "5AL003", "5AL004"], "img": "https://aka.doubaocdn.com/s/aKZs3eaWHH", "products": [{"no": "5AL004", "size": "Φ280平", "taobiao": "5AL062", "img_id": "ID_3F1D3BEEE2C7498CB973A4C643EBED83", "draw_id": "ID_32CF7906A7384C11A3E9660669C2F8B9", "sheet": "Sheet1", "cat": "品牌适配系列", "img": "https://aka.doubaocdn.com/s/aKZs3eaWHH", "draw": "https://aka.doubaocdn.com/s/yTuEblAA3h"}, {"no": "50902", "size": "Φ246*257 小奔驰", "taobiao": "5AL031", "img_id": "ID_2EEBF4153CE94423A02046B3C40E34E2", "draw_id": "ID_A8FAA0CA56B8472EB42578489532DEA4", "sheet": "Sheet1", "cat": "定制配套", "img": "https://aka.doubaocdn.com/s/L8YlqNepMF", "draw": "https://aka.doubaocdn.com/s/SLGzYIVIV6"}, {"no": "5AL003", "size": "Φ267 不宽不窄", "taobiao": "5AL031", "img_id": "ID_924EE8C905C94EC5818EC507E6C882B5", "draw_id": "ID_72D027F3604D44708F0EA96B10AB4BAB", "sheet": "Sheet1", "cat": "品牌适配系列", "img": "https://aka.doubaocdn.com/s/zBJASYfagG", "draw": "https://aka.doubaocdn.com/s/ckYp3kNYTA"}, {"no": "5AL004", "size": "Φ280平", "taobiao": "5AL031", "img_id": "ID_234D7574CB8D453086B28C7A3036E04B", "draw_id": "ID_033611597A0F44668AD09B62C2AE10A9", "sheet": "Sheet1", "cat": "品牌适配系列", "img": "https://aka.doubaocdn.com/s/HHJb56KX2U", "draw": "https://aka.doubaocdn.com/s/ADt2W2UslF"}], "display_images": [{"sub_label": "50902", "size": "Φ246*257\n小奔驰", "img": "https://aka.doubaocdn.com/s/xpVFuG9NCL"}]}, {"name": "35837", "count": 2, "sub_nos": ["58843*2", "58836*2"], "img": "https://aka.doubaocdn.com/s/pe3JIx0y6q", "products": [{"no": "58843*2", "size": "Φ332", "taobiao": "35837", "img_id": "ID_C339B9B5FA7B40FE80F9FECF3170991D", "draw_id": "ID_DE8715944FAD4CD6899844B06C1BDE08", "sheet": "Sheet1", "cat": "定制配套", "img": "https://aka.doubaocdn.com/s/pe3JIx0y6q", "draw": "https://aka.doubaocdn.com/s/otWUx2VlnJ"}, {"no": "58836*2", "size": "Φ301.5*321 0019", "taobiao": "35837", "img_id": "ID_9A92C8F662884FBA97711CEDBF24996F", "draw_id": "ID_43C775F050E146DBAC4641A507946F49", "sheet": "Sheet1", "cat": "定制配套", "img": "https://aka.doubaocdn.com/s/CLziS0ndIe", "draw": "https://aka.doubaocdn.com/s/zlUUPeMrbC"}], "display_images": [{"sub_label": "58843*2", "size": "Φ332", "img": "https://aka.doubaocdn.com/s/u9H2AamsbA"}]}, {"name": "5AL029", "count": 3, "sub_nos": ["5AL005", "35822", "5AL001"], "img": "https://aka.doubaocdn.com/s/FH5iyeMCk5", "products": [{"no": "5AL005", "size": "Φ243*264", "taobiao": "5AL029", "img_id": "ID_7FC1A26B9A234E4797EF87937722A42A", "draw_id": "ID_F3F901C2FF674A1292E22A0B4CB331B9", "sheet": "Sheet1", "cat": "品牌适配系列", "img": "https://aka.doubaocdn.com/s/FH5iyeMCk5", "draw": "https://aka.doubaocdn.com/s/kjVSvilV6O"}, {"no": "35822", "size": "Φ267宽槽", "taobiao": "5AL029", "img_id": "ID_5C1470F2F27E461DA68323353BE555BD", "draw_id": "ID_8B1AF61AE757446CA0D66B16036A2B5A", "sheet": "Sheet1", "cat": "定制配套", "img": "https://aka.doubaocdn.com/s/0vxordzeEp", "draw": "https://aka.doubaocdn.com/s/0HgUZI8nTC"}, {"no": "5AL001", "size": "Φ268平", "taobiao": "5AL029", "img_id": "ID_1FB26ACB304540ED9D04F4D7144AB02D", "draw_id": "ID_C7326E2CB92F4797B4B8EC791AD963BF", "sheet": "Sheet1", "cat": "品牌适配系列", "img": "https://aka.doubaocdn.com/s/FPBngXbv9e", "draw": "https://aka.doubaocdn.com/s/IHFqq0Z86x"}], "display_images": [{"sub_label": "5AL005", "size": "Φ243*264", "img": "https://aka.doubaocdn.com/s/gTZLvhJI55"}]}, {"name": "35843", "count": 2, "sub_nos": ["35806*2", "35805*2"], "img": "https://aka.doubaocdn.com/s/mNU2WEcFVq", "products": [{"no": "35806*2", "size": "Φ360宽槽", "taobiao": "35843", "img_id": "ID_C4DA47D4068046E587103CCD8ABDDCA8", "draw_id": "ID_F50285BE3EBD4B82BC2CEAB9C6E9A828", "sheet": "Sheet1", "cat": "定制配套", "img": "https://aka.doubaocdn.com/s/mNU2WEcFVq", "draw": "https://aka.doubaocdn.com/s/HtiJzMOYZK"}, {"no": "35805*2", "size": "Φ340*348 大缠绕", "taobiao": "35843", "img_id": "ID_D6CF52B7D9B64680B32C03A9B8E0DF4C", "draw_id": "ID_AF696A8008CA481E84FF4FC0AFFF9DBF", "sheet": "Sheet1", "cat": "定制配套", "img": "https://aka.doubaocdn.com/s/C38mJh2wWX", "draw": "https://aka.doubaocdn.com/s/V5rGwlwd1f"}], "display_images": [{"sub_label": "35806*2", "size": "Φ360宽槽", "img": "https://aka.doubaocdn.com/s/Ml3KYBr2pX"}]}, {"name": "82828", "count": 2, "sub_nos": ["82810*2", "82809*2"], "img": "https://aka.doubaocdn.com/s/nDGALi0foB", "products": [{"no": "82810*2", "size": "Φ242*262", "taobiao": "82828", "img_id": "ID_B6B101336FF2456697D260E3D2A39C15", "draw_id": "ID_9427555E929F4A2D89355D21479E6B7F", "sheet": "Sheet1", "cat": "定制配套", "img": "https://aka.doubaocdn.com/s/nDGALi0foB", "draw": "https://aka.doubaocdn.com/s/xTdsV9gF4Y"}, {"no": "82809*2", "size": "Φ365 宽槽", "taobiao": "82828", "img_id": "ID_19D5A63FF0B14406BA009FA460B4C508", "draw_id": "ID_8AA7B66AC1744D96A4136F63AEDCACB4", "sheet": "Sheet1", "cat": "定制配套", "img": "https://aka.doubaocdn.com/s/TURNLNxHAd", "draw": "https://aka.doubaocdn.com/s/8LInZt6mc4"}], "display_images": [{"sub_label": "82810*2", "size": "Φ242*262", "img": "https://aka.doubaocdn.com/s/SttdSREHXH"}]}, {"name": "58827", "count": 1, "sub_nos": ["58827(365窄)"], "img": "https://aka.doubaocdn.com/s/ye8tBEVq7o", "products": [{"no": "58827(365窄)", "size": "Φ365窄槽", "taobiao": "58827", "img_id": "ID_7F6427D774AF40DF9F3695BD52AFEE03", "draw_id": "ID_883E503E60B6452FB977A6AA2ACE71BA", "sheet": "Sheet1", "cat": "定制配套", "img": "https://aka.doubaocdn.com/s/ye8tBEVq7o", "draw": "https://aka.doubaocdn.com/s/E4NcL7S6WJ"}], "display_images": []}, {"name": "58841", "count": 1, "sub_nos": ["58841"], "img": "https://aka.doubaocdn.com/s/IfWaEGl9re", "products": [{"no": "58841", "size": "-", "taobiao": "58841", "img_id": "ID_8455D20B59064F9AA7EA56AF1EEE9FEA", "draw_id": "ID_1DFF0932A6554E6ABE7737F91C1AAFDF", "sheet": "Sheet1", "cat": "定制配套", "img": "https://aka.doubaocdn.com/s/IfWaEGl9re", "draw": "https://aka.doubaocdn.com/s/7CVfL2v782"}], "display_images": []}, {"name": "39801", "count": 1, "sub_nos": ["39801"], "img": "https://aka.doubaocdn.com/s/F8to9bqnDH", "products": [{"no": "39801", "size": "-", "taobiao": "39801", "img_id": "ID_ACC1839ACE4A46BAAA3AECAA85B9C14B", "draw_id": "ID_235178083EF44CE3A33C35B38C5FB174", "sheet": "Sheet1", "cat": "定制配套", "img": "https://aka.doubaocdn.com/s/F8to9bqnDH", "draw": "https://aka.doubaocdn.com/s/iqemh8IOsS"}], "display_images": []}, {"name": "28999-8K910", "count": 1, "sub_nos": ["28999-8K910"], "img": "https://aka.doubaocdn.com/s/mWMUzGHBwz", "products": [{"no": "28999-8K910", "size": "-", "taobiao": "28999-8K910", "img_id": "ID_D89AF96307AB4270B3A9E5A769D3B5E4", "draw_id": "ID_0F2F77A116364FAE8EB83DFEE13FBD0B", "sheet": "Sheet1", "cat": "定制配套", "img": "https://aka.doubaocdn.com/s/mWMUzGHBwz", "draw": "https://aka.doubaocdn.com/s/xv5hqwwDgM"}], "display_images": []}, {"name": "8AL056", "count": 1, "sub_nos": ["20755169（韩国）"], "img": "https://aka.doubaocdn.com/s/Ud1F7Ol655", "products": [{"no": "20755169（韩国）", "size": "-", "taobiao": "8AL056", "img_id": "ID_6DCE8EB8C8964EBC80B9F2AC0F59685E", "draw_id": "ID_0239963B77F14F108A53FC9C57F667CB", "sheet": "Sheet1", "cat": "定制配套", "img": "https://aka.doubaocdn.com/s/Ud1F7Ol655", "draw": "https://aka.doubaocdn.com/s/pVDwEzuL88"}], "display_images": []}, {"name": "客户配套(HOBI)", "count": 6, "sub_nos": ["51958", "68898", "21850", "44805", "99277", "1675741"], "img": "https://aka.doubaocdn.com/s/wyWK6OaKie", "products": [{"no": "51958", "size": "Φ73 2寸", "taobiao": "51958", "img_id": "ID_A582FDCC03FA4E1BAF4DADD1914E41EA", "draw_id": "ID_8E5B5C50DB724B14BCA700564FE3119A", "sheet": "Sheet1", "cat": "卡箍系列", "img": "https://aka.doubaocdn.com/s/wyWK6OaKie", "draw": "https://aka.doubaocdn.com/s/jb1DrvJpBq"}, {"no": "68898", "size": "Φ120 四寸半", "taobiao": "68898", "img_id": "ID_5FB4923FEF7C464986C8C17A751DE9ED", "draw_id": "ID_9E4EAC92F96646598238C901C206B8E6", "sheet": "Sheet1", "cat": "卡箍系列", "img": "https://aka.doubaocdn.com/s/loTaUD1AZf", "draw": "https://aka.doubaocdn.com/s/BfgXe8jc82"}, {"no": "21850", "size": "Φ151 五寸", "taobiao": "21850", "img_id": "ID_8DF942FC3AFA4CCABA71125526E65F24", "draw_id": "ID_F0E0A19EBA0F473CBE7BF8E66A2DF185", "sheet": "Sheet1", "cat": "卡箍系列", "img": "https://aka.doubaocdn.com/s/mRD3Nynq8b", "draw": "https://aka.doubaocdn.com/s/gPwAz4Bn1k"}, {"no": "44805", "size": "Φ76 2.25寸", "taobiao": "44805", "img_id": "ID_3BAB86A2AA404174880B294ED48DC334", "draw_id": "ID_83E922318B554509AB66A42027FA1DB2", "sheet": "Sheet1", "cat": "卡箍系列", "img": "https://aka.doubaocdn.com/s/G6uHhMPUhk", "draw": "https://aka.doubaocdn.com/s/3VAieA2lFN"}, {"no": "99277", "size": "3寸通径", "taobiao": "99277", "img_id": "ID_FA34FFF7DD834D929804AFAE7AE7B55E", "draw_id": "ID_F6B27013CE3D42619ECED3737AAE2ECF", "sheet": "Sheet1", "cat": "卡箍系列", "img": "https://aka.doubaocdn.com/s/zhYUGdzd0w", "draw": "https://aka.doubaocdn.com/s/VwbcVlUrZH"}, {"no": "1675741", "size": "Φ116", "taobiao": "1675741", "img_id": "ID_2DCDDAA2EE9B4F399DE11A988A8DFF35", "draw_id": "ID_0E9ED3A1F6EF4BD092E8ED3D53DFC2FF", "sheet": "Sheet1", "cat": "定制配套", "img": "https://aka.doubaocdn.com/s/WRvVOk9iUj", "draw": "https://aka.doubaocdn.com/s/AmCkUjXUSH"}], "display_images": []}, {"name": "客户配套（第二组）", "count": 8, "sub_nos": ["2AL049", "51958", "68898", "21850", "44805", "99277", "1675741", "2AL049"], "products": [{"no": "2AL049", "size": "Φ75 二寸", "taobiao": "2AL049", "img_id": "ID_1841B57E58FA4E1797FEA0E08C2768BF", "draw_id": "ID_4B6B95F0613F4F5788EB793AB946A89D", "sheet": "Sheet1", "cat": "耐火套系列", "img": "https://aka.doubaocdn.com/s/SVKqpZbAK3", "draw": "https://aka.doubaocdn.com/s/WTD45MgFUl"}, {"no": "51958", "size": "Φ73 2寸", "taobiao": "HOBI", "img_id": "ID_4E1E3796BA3948E6A1703311A428837A", "draw_id": "ID_111C44B6CDC748D8839BC97A9F208B80", "sheet": "HOBI", "cat": "客户配套", "img": "https://aka.doubaocdn.com/s/nELSbHLl73", "draw": "https://aka.doubaocdn.com/s/VKYR46VUda"}, {"no": "68898", "size": "Φ120 四寸半", "taobiao": "HOBI", "img_id": "ID_95101AC0DF654BFEB974E3C7CE9CB075", "draw_id": "ID_15B56C252C65444A9F05D6508E123F76", "sheet": "HOBI", "cat": "客户配套", "img": "https://aka.doubaocdn.com/s/9NeqcEQ26i", "draw": "https://aka.doubaocdn.com/s/5AwXizF0Vm"}, {"no": "21850", "size": "Φ151 五寸", "taobiao": "HOBI", "img_id": "ID_F4EAC692EF1E49E4B5EFDBF93E447279", "draw_id": "ID_586FE4BD05C34FDEAEB1092E9617D5E4", "sheet": "HOBI", "cat": "客户配套", "img": "https://aka.doubaocdn.com/s/G8rOD2Dqfs", "draw": "https://aka.doubaocdn.com/s/9ihKGNV5yQ"}, {"no": "44805", "size": "Φ76 2.25寸", "taobiao": "HOBI", "img_id": "ID_BBD6F76FDB9E40B98CF19E151B28D5BC", "draw_id": "ID_497B78DBD3CD476B90523C886BABF847", "sheet": "HOBI", "cat": "客户配套", "img": "https://aka.doubaocdn.com/s/Ybv52zrDlC", "draw": "https://aka.doubaocdn.com/s/tDdrtazFG4"}, {"no": "99277", "size": "3寸通径", "taobiao": "HOBI", "img_id": "ID_A5D31C314EAF424B9689D4F99F75076E", "draw_id": "ID_25A52714185F44DB8E00E3AAFB57CDEF", "sheet": "HOBI", "cat": "客户配套", "img": "https://aka.doubaocdn.com/s/YbmvdRzQsN", "draw": "https://aka.doubaocdn.com/s/ESeAxWyVTa"}, {"no": "1675741", "size": "Φ116 四寸", "taobiao": "HOBI", "img_id": "ID_368D6774B0734D3BA0441C28700A82B4", "draw_id": "ID_69439EAA7D5A4FACB738D010C6DB3DEB", "sheet": "HOBI", "cat": "客户配套", "img": "https://aka.doubaocdn.com/s/n5uIUVQg6Y", "draw": "https://aka.doubaocdn.com/s/22xclLK1Za"}, {"no": "2AL049", "size": "Φ75 二寸", "taobiao": "HOBI", "img_id": "ID_548BBD68B0CD41CBADADAA01719F2811", "draw_id": "ID_EC0380C13F9646FBAE38938E09D9C7DE", "sheet": "HOBI", "cat": "客户配套", "img": "https://aka.doubaocdn.com/s/sDhsT8MVcN", "draw": "https://aka.doubaocdn.com/s/5Zd8cY7Ef3"}], "display_images": []}, {"name": "德国拖拉机", "count": 2, "sub_nos": ["拖拉机卡箍", "垫片"], "img": "https://aka.doubaocdn.com/s/aXx5nTT9Lo", "products": [{"no": "拖拉机卡箍", "size": "Φ327", "taobiao": "德国拖拉机", "img_id": "ID_00935A5DD792463E9C60D3E0A4DE0352", "draw_id": "ID_749CB8D393934C809C43856E73F6558A", "sheet": "Sheet1", "cat": "定制配套", "img": "https://aka.doubaocdn.com/s/aXx5nTT9Lo", "draw": "https://aka.doubaocdn.com/s/Nyw9rRYWYm"}, {"no": "垫片", "size": "Φ318*334", "taobiao": "德国拖拉机", "img_id": "ID_D15E6381EB1045F5BEAA869C0220D8D1", "draw_id": "ID_DDC05EBD7A21481681D772EC63229960", "sheet": "Sheet1", "cat": "定制配套", "img": "https://aka.doubaocdn.com/s/LE0bOOuUYx", "draw": "https://aka.doubaocdn.com/s/uytolUKxWp"}], "display_images": [{"sub_label": "拖拉机卡箍", "size": "Φ327", "img": "https://aka.doubaocdn.com/s/W8Ie9yKuQl"}]}, {"name": "2KL055", "count": 1, "sub_nos": ["新A型"], "img": "https://aka.doubaocdn.com/s/yLMOYL7Jrr", "products": [{"no": "新A型", "size": "Φ240*260", "taobiao": "2KL055", "img_id": "ID_3A863AAD82FC41E7B31655069087023C", "draw_id": "ID_297DFE67748B4F5A955E7DC4EA3E37BC", "sheet": "Sheet1", "cat": "定制配套", "img": "https://aka.doubaocdn.com/s/yLMOYL7Jrr", "draw": "https://aka.doubaocdn.com/s/RoRu63A2mY"}], "display_images": []}];
+const pdfList = [{"no": "2AL008", "url": "https://aka.doubaocdn.com/s/yvRUexruKu", "file": "2AL008.pdf"}, {"no": "2AL009", "url": "https://aka.doubaocdn.com/s/s1I52J4GIo", "file": "2AL009.pdf"}, {"no": "2AL010", "url": "https://aka.doubaocdn.com/s/6lpzyhJva7", "file": "2AL010.pdf"}, {"no": "2AL011", "url": "https://aka.doubaocdn.com/s/3qmGPIAx1g", "file": "2AL011.pdf"}, {"no": "2AL012", "url": "https://aka.doubaocdn.com/s/EEqtGqCv4Z", "file": "2AL012.pdf"}, {"no": "2AL018", "url": "https://aka.doubaocdn.com/s/Wydq4EAv58", "file": "2AL018.pdf"}, {"no": "2AL019", "url": "https://aka.doubaocdn.com/s/CpVUnJwWpQ", "file": "2AL019.pdf"}, {"no": "2AL043", "url": "https://aka.doubaocdn.com/s/U3HKmzhltX", "file": "2AL043.pdf"}, {"no": "2AL044", "url": "https://aka.doubaocdn.com/s/mEtg48uuPJ", "file": "2AL044.pdf"}, {"no": "2AL045", "url": "https://aka.doubaocdn.com/s/nVijNDKv5V", "file": "2AL045.pdf"}, {"no": "2AL046", "url": "https://aka.doubaocdn.com/s/Ie3h5XOfgU", "file": "2AL046.pdf"}, {"no": "2AL049", "url": "https://aka.doubaocdn.com/s/inzDmryONd", "file": "2AL049.pdf"}, {"no": "2KL014", "url": "https://aka.doubaocdn.com/s/AEUpvjLbT2", "file": "2KL014.pdf"}, {"no": "2KL015", "url": "https://aka.doubaocdn.com/s/iIi46rbDxZ", "file": "2KL015.pdf"}, {"no": "2KL015", "url": "https://aka.doubaocdn.com/s/EJnMsjJL6n", "file": "2KL015_2.pdf"}, {"no": "2KL016", "url": "https://aka.doubaocdn.com/s/85RPU3fJcZ", "file": "2KL016.pdf"}, {"no": "2KL028", "url": "https://aka.doubaocdn.com/s/U7rIVpaDzS", "file": "2KL028.pdf"}, {"no": "2KL029", "url": "https://aka.doubaocdn.com/s/c9la2jhlT5", "file": "2KL029.pdf"}, {"no": "2KL030", "url": "https://aka.doubaocdn.com/s/M2jPuDgZZp", "file": "2KL030.pdf"}, {"no": "4IL003", "url": "https://aka.doubaocdn.com/s/jo3mEvNbnf", "file": "4IL003.pdf"}, {"no": "4IL003", "url": "https://aka.doubaocdn.com/s/saiCQStaYV", "file": "4IL003_2.pdf"}, {"no": "4IL004", "url": "https://aka.doubaocdn.com/s/nxzobqZVPn", "file": "4IL004.pdf"}, {"no": "4IL004", "url": "https://aka.doubaocdn.com/s/4M1XJUPqno", "file": "4IL004_2.pdf"}, {"no": "4IL005", "url": "https://aka.doubaocdn.com/s/4B8RQuRbIb", "file": "4IL005.pdf"}, {"no": "4IL006", "url": "https://aka.doubaocdn.com/s/vH50FjUGvp", "file": "4IL006.pdf"}, {"no": "4IL013", "url": "https://aka.doubaocdn.com/s/VP3sDwu77b", "file": "4IL013.pdf"}, {"no": "4IL014", "url": "https://aka.doubaocdn.com/s/BsR3A3lAUF", "file": "4IL014.pdf"}, {"no": "4IL014", "url": "https://aka.doubaocdn.com/s/jV41yqanUR", "file": "4IL014_2.pdf"}, {"no": "4IL016", "url": "https://aka.doubaocdn.com/s/U2q3B3sn5W", "file": "4IL016.pdf"}, {"no": "4IL016", "url": "https://aka.doubaocdn.com/s/qxMdGv6HLl", "file": "4IL016_2.pdf"}, {"no": "4IL017", "url": "https://aka.doubaocdn.com/s/TYc22EdAQk", "file": "4IL017.pdf"}, {"no": "4IL017", "url": "https://aka.doubaocdn.com/s/5tM6MPgnYV", "file": "4IL017_2.pdf"}, {"no": "4IL021", "url": "https://aka.doubaocdn.com/s/GrvH7WEVvJ", "file": "4IL021.pdf"}, {"no": "4IL025", "url": "https://aka.doubaocdn.com/s/7V9ZfV8GWQ", "file": "4IL025.pdf"}, {"no": "4IL036", "url": "https://aka.doubaocdn.com/s/WDOeUDVa5Z", "file": "4IL036.pdf"}, {"no": "4IL037", "url": "https://aka.doubaocdn.com/s/ifPROEMeBx", "file": "4IL037.pdf"}, {"no": "4IL059", "url": "https://aka.doubaocdn.com/s/lL2Vam2Akq", "file": "4IL059.pdf"}, {"no": "4IL060", "url": "https://aka.doubaocdn.com/s/Ti0uT26EJk", "file": "4IL060.pdf"}, {"no": "5AL001", "url": "https://aka.doubaocdn.com/s/ALxNzEhec0", "file": "5AL001.pdf"}, {"no": "5AL003", "url": "https://aka.doubaocdn.com/s/QlPSRA1fAR", "file": "5AL003.pdf"}, {"no": "5AL004", "url": "https://aka.doubaocdn.com/s/rDLOwxkwZ6", "file": "5AL004.pdf"}, {"no": "5AL004", "url": "https://aka.doubaocdn.com/s/xSZiXZkQ0y", "file": "5AL004_2.pdf"}, {"no": "5AL005", "url": "https://aka.doubaocdn.com/s/jBvmYdw47Y", "file": "5AL005.pdf"}, {"no": "5AL021", "url": "https://aka.doubaocdn.com/s/OI36ap3ts5", "file": "5AL021.pdf"}, {"no": "5AL055", "url": "https://aka.doubaocdn.com/s/gYCJQEnVoK", "file": "5AL055.pdf"}, {"no": "5AL060", "url": "https://aka.doubaocdn.com/s/4wZbqPQgP0", "file": "5AL060.pdf"}, {"no": "6LL000", "url": "https://aka.doubaocdn.com/s/2KnCv4Yyf8", "file": "6LL000.pdf"}, {"no": "6LL000", "url": "https://aka.doubaocdn.com/s/eT1VfSn1LO", "file": "6LL000_2.pdf"}, {"no": "6LL002", "url": "https://aka.doubaocdn.com/s/KW2QysZLId", "file": "6LL002.pdf"}, {"no": "6LL003", "url": "https://aka.doubaocdn.com/s/dFGAvHXVrI", "file": "6LL003.pdf"}, {"no": "6LL005", "url": "https://aka.doubaocdn.com/s/ebI5hr5TbM", "file": "6LL005.pdf"}, {"no": "6LL006", "url": "https://aka.doubaocdn.com/s/RsJYWWs9XT", "file": "6LL006.pdf"}, {"no": "6LL007", "url": "https://aka.doubaocdn.com/s/AVWA4BYo7P", "file": "6LL007.pdf"}, {"no": "6LL008", "url": "https://aka.doubaocdn.com/s/qZzhfmyf7j", "file": "6LL008.pdf"}, {"no": "6LL011", "url": "https://aka.doubaocdn.com/s/JWrRMiU5h1", "file": "6LL011.pdf"}, {"no": "6LL012", "url": "https://aka.doubaocdn.com/s/Akm8mIAwqR", "file": "6LL012.pdf"}, {"no": "8AL005", "url": "https://aka.doubaocdn.com/s/QnZ1SM52ey", "file": "8AL005.pdf"}, {"no": "8AL005", "url": "https://aka.doubaocdn.com/s/bhep2Zom2t", "file": "8AL005_2.pdf"}, {"no": "8AL006", "url": "https://aka.doubaocdn.com/s/VTBp4flSW4", "file": "8AL006.pdf"}, {"no": "8AL006", "url": "https://aka.doubaocdn.com/s/fFB37C1GUg", "file": "8AL006_2.pdf"}, {"no": "8AL006", "url": "https://aka.doubaocdn.com/s/1WpOoaQatV", "file": "8AL006_3.pdf"}, {"no": "8AL013", "url": "https://aka.doubaocdn.com/s/HAVe3f1kvH", "file": "8AL013.pdf"}, {"no": "8AL014", "url": "https://aka.doubaocdn.com/s/h6cxGuOa6T", "file": "8AL014.pdf"}, {"no": "8AL015", "url": "https://aka.doubaocdn.com/s/NZrUK1VSVb", "file": "8AL015.pdf"}, {"no": "8AL016", "url": "https://aka.doubaocdn.com/s/GMU0S3wTkB", "file": "8AL016.pdf"}, {"no": "8AL016", "url": "https://aka.doubaocdn.com/s/DU2AYVxySU", "file": "8AL016_2.pdf"}, {"no": "8AL056", "url": "https://aka.doubaocdn.com/s/miEEI63TJV", "file": "8AL056.pdf"}, {"no": "8AL069", "url": "https://aka.doubaocdn.com/s/klFqMYDQhD", "file": "8AL069.pdf"}, {"no": "8AL070", "url": "https://aka.doubaocdn.com/s/HDvStCcYUR", "file": "8AL070.pdf"}, {"no": "8AL072", "url": "https://aka.doubaocdn.com/s/ZOBOfUNwOt", "file": "8AL072.pdf"}, {"no": "21850", "url": "https://aka.doubaocdn.com/s/0XqwjPp7Y4", "file": "21850.pdf"}, {"no": "21850", "url": "https://aka.doubaocdn.com/s/LoyhGoUoMj", "file": "21850_2.pdf"}, {"no": "28999-8K910", "url": "https://aka.doubaocdn.com/s/IP16p80U47", "file": "28999-8K910.pdf"}, {"no": "35805", "url": "https://aka.doubaocdn.com/s/6CbhsSIwu8", "file": "35805.pdf"}, {"no": "35806", "url": "https://aka.doubaocdn.com/s/kIS5RERco4", "file": "35806.pdf"}, {"no": "35817", "url": "https://aka.doubaocdn.com/s/BtPogJYOPS", "file": "35817.pdf"}, {"no": "35822", "url": "https://aka.doubaocdn.com/s/rnO4lKbQfe", "file": "35822.pdf"}, {"no": "35822", "url": "https://aka.doubaocdn.com/s/xQB3JVGBmQ", "file": "35822_2.pdf"}, {"no": "35825", "url": "https://aka.doubaocdn.com/s/zNSX3nyBd9", "file": "35825.pdf"}, {"no": "35831", "url": "https://aka.doubaocdn.com/s/yh5OWlMpcX", "file": "35831.pdf"}, {"no": "35832", "url": "https://aka.doubaocdn.com/s/r78Orz78EU", "file": "35832.pdf"}, {"no": "35833", "url": "https://aka.doubaocdn.com/s/jbDAWapyju", "file": "35833.pdf"}, {"no": "35833", "url": "https://aka.doubaocdn.com/s/rwvC6YSBAk", "file": "35833_2.pdf"}, {"no": "39801", "url": "https://aka.doubaocdn.com/s/rKyDAWkHVY", "file": "39801.pdf"}, {"no": "50902", "url": "https://aka.doubaocdn.com/s/0eloiHjMW5", "file": "50902.pdf"}, {"no": "51958", "url": "https://aka.doubaocdn.com/s/LzwjfmzB5y", "file": "51958.pdf"}, {"no": "58817", "url": "https://aka.doubaocdn.com/s/YV2e3RxNCn", "file": "58817.pdf"}, {"no": "58821", "url": "https://aka.doubaocdn.com/s/StGit7f2T3", "file": "58821.pdf"}, {"no": "58824", "url": "https://aka.doubaocdn.com/s/PhwDXX55NU", "file": "58824.pdf"}, {"no": "58827", "url": "https://aka.doubaocdn.com/s/MFLfN2CWRp", "file": "58827.pdf"}, {"no": "58831", "url": "https://aka.doubaocdn.com/s/z6SEA1n0ai", "file": "58831.pdf"}, {"no": "58836", "url": "https://aka.doubaocdn.com/s/IgVioakRfU", "file": "58836.pdf"}, {"no": "58841", "url": "https://aka.doubaocdn.com/s/C49FJJgZOl", "file": "58841.pdf"}, {"no": "58843", "url": "https://aka.doubaocdn.com/s/JbjPhhzsnO", "file": "58843.pdf"}, {"no": "65822", "url": "https://aka.doubaocdn.com/s/XctUiw4nkP", "file": "65822.pdf"}, {"no": "65831", "url": "https://aka.doubaocdn.com/s/V8W2U7moUV", "file": "65831.pdf"}, {"no": "68898", "url": "https://aka.doubaocdn.com/s/DasVCzVfwT", "file": "68898.pdf"}, {"no": "82809", "url": "https://aka.doubaocdn.com/s/0MC8fxPObS", "file": "82809.pdf"}, {"no": "82810", "url": "https://aka.doubaocdn.com/s/LbTl2z0nni", "file": "82810.pdf"}, {"no": "82829", "url": "https://aka.doubaocdn.com/s/irN2tLBpfH", "file": "82829.pdf"}, {"no": "99277", "url": "https://aka.doubaocdn.com/s/CqUm60UCFR", "file": "99277.pdf"}, {"no": "1675741", "url": "https://aka.doubaocdn.com/s/j8oRK1MZXD", "file": "1675741.pdf"}, {"no": "20755169", "url": "https://aka.doubaocdn.com/s/miEEI63TJV", "file": "20755169.pdf"}];
+const pdfByNo = {"2AL008": ["https://aka.doubaocdn.com/s/yvRUexruKu"], "2AL009": ["https://aka.doubaocdn.com/s/s1I52J4GIo"], "2AL010": ["https://aka.doubaocdn.com/s/6lpzyhJva7"], "2AL011": ["https://aka.doubaocdn.com/s/3qmGPIAx1g"], "2AL012": ["https://aka.doubaocdn.com/s/EEqtGqCv4Z"], "2AL018": ["https://aka.doubaocdn.com/s/Wydq4EAv58"], "2AL019": ["https://aka.doubaocdn.com/s/CpVUnJwWpQ"], "2AL043": ["https://aka.doubaocdn.com/s/5ggbkdtbAD"], "2AL044": ["https://aka.doubaocdn.com/s/mEtg48uuPJ"], "2AL045": ["https://aka.doubaocdn.com/s/nVijNDKv5V"], "2AL046": ["https://aka.doubaocdn.com/s/Ie3h5XOfgU"], "2AL049": ["https://aka.doubaocdn.com/s/inzDmryONd"], "2KL014": ["https://aka.doubaocdn.com/s/AEUpvjLbT2"], "2KL015": ["https://aka.doubaocdn.com/s/iIi46rbDxZ", "https://aka.doubaocdn.com/s/EJnMsjJL6n"], "2KL016": ["https://aka.doubaocdn.com/s/85RPU3fJcZ"], "2KL028": ["https://aka.doubaocdn.com/s/U7rIVpaDzS"], "2KL029": ["https://aka.doubaocdn.com/s/c9la2jhlT5"], "2KL030": ["https://aka.doubaocdn.com/s/M2jPuDgZZp"], "4IL003": ["https://aka.doubaocdn.com/s/jo3mEvNbnf", "https://aka.doubaocdn.com/s/saiCQStaYV"], "4IL004": ["https://aka.doubaocdn.com/s/nxzobqZVPn", "https://aka.doubaocdn.com/s/4M1XJUPqno"], "4IL005": ["https://aka.doubaocdn.com/s/4B8RQuRbIb"], "4IL006": ["https://aka.doubaocdn.com/s/vH50FjUGvp"], "4IL013": ["https://aka.doubaocdn.com/s/VP3sDwu77b"], "4IL014": ["https://aka.doubaocdn.com/s/BsR3A3lAUF", "https://aka.doubaocdn.com/s/jV41yqanUR"], "4IL016": ["https://aka.doubaocdn.com/s/U2q3B3sn5W", "https://aka.doubaocdn.com/s/qxMdGv6HLl"], "4IL017": ["https://aka.doubaocdn.com/s/TYc22EdAQk", "https://aka.doubaocdn.com/s/5tM6MPgnYV"], "4IL021": ["https://aka.doubaocdn.com/s/GrvH7WEVvJ"], "4IL025": ["https://aka.doubaocdn.com/s/7V9ZfV8GWQ"], "4IL036": ["https://aka.doubaocdn.com/s/WDOeUDVa5Z"], "4IL037": ["https://aka.doubaocdn.com/s/ifPROEMeBx"], "4IL059": ["https://aka.doubaocdn.com/s/lL2Vam2Akq"], "4IL060": ["https://aka.doubaocdn.com/s/Ti0uT26EJk"], "5AL001": ["https://aka.doubaocdn.com/s/ALxNzEhec0"], "5AL003": ["https://aka.doubaocdn.com/s/QlPSRA1fAR"], "5AL004": ["https://aka.doubaocdn.com/s/rDLOwxkwZ6", "https://aka.doubaocdn.com/s/xSZiXZkQ0y"], "5AL005": ["https://aka.doubaocdn.com/s/jBvmYdw47Y"], "5AL021": ["https://aka.doubaocdn.com/s/OI36ap3ts5"], "5AL055": ["https://aka.doubaocdn.com/s/gYCJQEnVoK"], "5AL060": ["https://aka.doubaocdn.com/s/4wZbqPQgP0"], "6LL000": ["https://aka.doubaocdn.com/s/2KnCv4Yyf8", "https://aka.doubaocdn.com/s/eT1VfSn1LO"], "6LL002": ["https://aka.doubaocdn.com/s/KW2QysZLId"], "6LL003": ["https://aka.doubaocdn.com/s/dFGAvHXVrI"], "6LL005": ["https://aka.doubaocdn.com/s/ebI5hr5TbM"], "6LL006": ["https://aka.doubaocdn.com/s/RsJYWWs9XT"], "6LL007": ["https://aka.doubaocdn.com/s/AVWA4BYo7P"], "6LL008": ["https://aka.doubaocdn.com/s/qZzhfmyf7j"], "6LL011": ["https://aka.doubaocdn.com/s/JWrRMiU5h1"], "6LL012": ["https://aka.doubaocdn.com/s/Akm8mIAwqR"], "8AL005": ["https://aka.doubaocdn.com/s/QnZ1SM52ey", "https://aka.doubaocdn.com/s/bhep2Zom2t"], "8AL006": ["https://aka.doubaocdn.com/s/VTBp4flSW4", "https://aka.doubaocdn.com/s/fFB37C1GUg", "https://aka.doubaocdn.com/s/1WpOoaQatV"], "8AL013": ["https://aka.doubaocdn.com/s/HAVe3f1kvH"], "8AL014": ["https://aka.doubaocdn.com/s/h6cxGuOa6T"], "8AL015": ["https://aka.doubaocdn.com/s/NZrUK1VSVb"], "8AL016": ["https://aka.doubaocdn.com/s/GMU0S3wTkB", "https://aka.doubaocdn.com/s/DU2AYVxySU"], "8AL056": ["https://aka.doubaocdn.com/s/miEEI63TJV"], "8AL069": ["https://aka.doubaocdn.com/s/klFqMYDQhD"], "8AL070": ["https://aka.doubaocdn.com/s/HDvStCcYUR"], "8AL072": ["https://aka.doubaocdn.com/s/ZOBOfUNwOt"], "21850": ["https://aka.doubaocdn.com/s/0XqwjPp7Y4", "https://aka.doubaocdn.com/s/LoyhGoUoMj"], "28999-8K910": ["https://aka.doubaocdn.com/s/IP16p80U47"], "35805": ["https://aka.doubaocdn.com/s/6CbhsSIwu8"], "35806": ["https://aka.doubaocdn.com/s/kIS5RERco4"], "35817": ["https://aka.doubaocdn.com/s/BtPogJYOPS"], "35822": ["https://aka.doubaocdn.com/s/rnO4lKbQfe", "https://aka.doubaocdn.com/s/xQB3JVGBmQ"], "35825": ["https://aka.doubaocdn.com/s/zNSX3nyBd9"], "35831": ["https://aka.doubaocdn.com/s/yh5OWlMpcX"], "35832": ["https://aka.doubaocdn.com/s/r78Orz78EU"], "35833": ["https://aka.doubaocdn.com/s/jbDAWapyju", "https://aka.doubaocdn.com/s/rwvC6YSBAk"], "39801": ["https://aka.doubaocdn.com/s/rKyDAWkHVY"], "50902": ["https://aka.doubaocdn.com/s/0eloiHjMW5"], "51958": ["https://aka.doubaocdn.com/s/LzwjfmzB5y"], "58817": ["https://aka.doubaocdn.com/s/YV2e3RxNCn"], "58821": ["https://aka.doubaocdn.com/s/StGit7f2T3"], "58824": ["https://aka.doubaocdn.com/s/PhwDXX55NU"], "58827": ["https://aka.doubaocdn.com/s/MFLfN2CWRp"], "58831": ["https://aka.doubaocdn.com/s/z6SEA1n0ai"], "58836": ["https://aka.doubaocdn.com/s/IgVioakRfU"], "58841": ["https://aka.doubaocdn.com/s/C49FJJgZOl"], "58843": ["https://aka.doubaocdn.com/s/JbjPhhzsnO"], "65822": ["https://aka.doubaocdn.com/s/XctUiw4nkP"], "65831": ["https://aka.doubaocdn.com/s/V8W2U7moUV"], "68898": ["https://aka.doubaocdn.com/s/DasVCzVfwT"], "82809": ["https://aka.doubaocdn.com/s/0MC8fxPObS"], "82810": ["https://aka.doubaocdn.com/s/LbTl2z0nni"], "82829": ["https://aka.doubaocdn.com/s/irN2tLBpfH"], "99277": ["https://aka.doubaocdn.com/s/CqUm60UCFR"], "1675741": ["https://aka.doubaocdn.com/s/j8oRK1MZXD"], "20755169": ["https://aka.doubaocdn.com/s/miEEI63TJV"], "58827(365窄)": ["https://aka.doubaocdn.com/s/MFLfN2CWRp"], "20755169（韩国）": ["https://aka.doubaocdn.com/s/miEEI63TJV"], "44805": ["https://aka.doubaocdn.com/s/EUlOMCApvd"], "拖拉机卡箍": ["https://aka.doubaocdn.com/s/6CvgPUpU5S"], "新A型": ["https://aka.doubaocdn.com/s/3nh8hEpdxv"], "拖拉机垫片": ["https://aka.doubaocdn.com/s/v4hwDbwbQ1"], "垫片钢圈": ["https://aka.doubaocdn.com/s/FtOpjUwVRn"], "多层内衬卡箍": ["https://aka.doubaocdn.com/s/CjqPzUJYOH"],
+"2AL005": ["https://aka.doubaocdn.com/s/wq8HHE1cZE"],
+"3.5寸铁法兰": ["https://aka.doubaocdn.com/s/DHIbFC8hWv"],
+"6LL019": ["https://aka.doubaocdn.com/s/HhQE5VM7sy"],
+"160大喇叭口": ["https://aka.doubaocdn.com/s/qS2v7mLVhn"],
+"99811": ["https://aka.doubaocdn.com/s/K2EBe2SH4p"],
+"1676424": ["https://aka.doubaocdn.com/s/ZVWoR2VFZc"]};;
+
+let currentTab = 'all';
+let openSets = new Set();
+
+function renderPDF(filter) {
+  const grid = document.getElementById('grid');
+  grid.innerHTML = '';
+  const f = (filter || '').toLowerCase().trim();
+  let list = pdfList;
+  if (f) {
+    list = pdfList.filter(p => p.no.toLowerCase().includes(f));
+  }
+  grid.className = 'product-grid';
+  list.forEach(pdf => {
+    const card = document.createElement('div');
+    card.className = 'product-card';
+    card.style.cursor = 'pointer';
+    card.onclick = () => window.open(pdf.url, '_blank');
+    card.innerHTML = `
+      <div style="height:160px;background:linear-gradient(135deg,#e74c3c,#c0392b);display:flex;align-items:center;justify-content:center;flex-direction:column;color:white;border-radius:12px 12px 0 0;">
+        <div style="font-size:48px;font-weight:bold;">PDF</div>
+        <div style="font-size:14px;margin-top:8px;opacity:0.9;">点击打开</div>
+      </div>
+      <div class="p-4">
+        <div style="font-weight:700;font-size:16px;color:#1e293b;">${pdf.no}</div>
+        <div style="font-size:13px;color:#64748b;margin-top:4px;">工程图纸 PDF · 可直接打印</div>
+      </div>
+    `;
+    grid.appendChild(card);
+  });
+  if (list.length === 0) {
+    grid.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:60px;color:#94a3b8;">未找到相关PDF</div>';
+  }
+}
+
+function scrollToId(id) {
+  document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+}
+
+function switchTab(tab, btn) {
+  currentTab = tab;
+  document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+  btn.classList.add('active');
+  render();
+}
+
+function toggleSet(idx) {
+  if (openSets.has(idx)) {
+    openSets.delete(idx);
+  } else {
+    openSets.add(idx);
+  }
+  render();
+}
+
+function render() {
+  const grid = document.getElementById('productGrid');
+  const q = document.getElementById('searchInput').value.toLowerCase();
+  
+  if (currentTab === 'pdf') {
+    // PDF打印tab
+    let list = pdfList;
+    if (q) {
+      list = pdfList.filter(p => p.no.toLowerCase().includes(q));
+    }
+    grid.innerHTML = '<div class="product-grid">' + list.map((pdf, i) => `
+      <div class="product-card" style="cursor:pointer;animation:fadeInUp 0.4s ease;animation-delay:${i*0.02}s" onclick="window.open('${pdf.url}', '_blank')">
+        <div style="height:160px;background:linear-gradient(135deg,#e74c3c,#c0392b);display:flex;align-items:center;justify-content:center;flex-direction:column;color:white;border-radius:12px 12px 0 0;">
+          <div style="font-size:48px;font-weight:bold;">PDF</div>
+          <div style="font-size:14px;margin-top:8px;opacity:0.9;">点击打开打印</div>
+        </div>
+        <div class="product-info">
+          <div class="product-no">${pdf.no}</div>
+          <div class="product-size">工程图纸 · 可直接打印</div>
+        </div>
+      </div>
+    `).join('') + '</div>';
+    return;
+  }
+  
+  if (currentTab === 'all' || currentTab === 'custom' || currentTab === 'bianjing' || currentTab === 'qiangli' || currentTab === 'guangu') {
+    let list;
+    if (currentTab === 'all') list = allList;
+    else if (currentTab === 'custom') list = customList;
+    else if (currentTab === 'bianjing') list = allList.filter(p => p.cat === '变径卡箍');
+    else if (currentTab === 'qiangli') list = allList.filter(p => p.cat === '强力卡箍');
+    else if (currentTab === 'guangu') list = allList.filter(p => p.cat === '管箍');
+    let showcaseHtml = '';
+    
+    if (q) {
+      // 搜索时，先看有没有匹配的套名
+      const matchedSetNos = new Set();
+      let matchedSetShowcase = [];
+      if (currentTab === 'all') {
+        setsList.forEach(s => {
+          if (s.name.toLowerCase().includes(q)) {
+            s.sub_nos.forEach(no => matchedSetNos.add(no));
+            if (s.display_images && s.display_images.length) {
+              matchedSetShowcase = s.display_images;
+            }
+          }
+        });
+      }
+      list = list.filter(p => 
+        p.no.toLowerCase().includes(q) || 
+        p.size.toLowerCase().includes(q) ||
+        matchedSetNos.has(p.no)
+      );
+      
+      // 如果匹配到了套的展示图，生成展示区HTML
+      if (matchedSetShowcase.length > 0) {
+        showcaseHtml = `
+          <div style="margin-bottom:32px;">
+            <div style="font-size:16px;font-weight:700;margin-bottom:16px;color:var(--accent);">🎯 系列产品展示</div>
+            <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;">
+              ${matchedSetShowcase.map(img => `
+                <div class="showcase-item" onclick="openModal('${img.img}', '${img.sub_label}')" style="animation:fadeInUp 0.4s ease;">
+                  <img src="${img.img}" alt="${img.sub_label}" loading="lazy">
+                  <div class="showcase-item-name">${img.sub_label} (${img.size})</div>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+          <div style="font-size:14px;color:var(--muted);margin-bottom:16px;">📦 包含产品明细：</div>
+        `;
+      }
+    }
+    
+    const productHtml = list.map((p, i) => `
+      <div class="product-card animate-on-scroll visible" style="animation-delay:${i * 0.03}s">
+        <div class="product-img" onclick="openModal('${p.img}', '${p.no}')">
+          <img src="${p.img}" alt="${p.no}" loading="lazy">
+        </div>
+        <div class="product-info">
+          <div class="product-no">${p.no}</div>
+          <div class="product-size">${p.size}</div>
+          ${p.draw ? `<button class="draw-btn" onclick="openModal('${p.draw}', '${p.no} 产品图纸')">📐 <span data-i18n="drawing">产品图纸</span></button>` : ''}
+        ${(pdfByNo[p.no] || pdfByNo[p.no.replace('*2', '')]) ? (() => { const urls = pdfByNo[p.no] || pdfByNo[p.no.replace('*2', '')]; return `<button class="draw-btn" style="background:#e74c3c;" onclick="window.open('${urls[0]}', '_blank')">🖨️ 打印PDF</button>`; })() : ''}
+        </div>
+      </div>
+    `).join('');
+    
+    grid.innerHTML = showcaseHtml + '<div class="product-grid">' + productHtml + '</div>';
+  } else if (currentTab === 'sets') {
+    let list = setsList;
+    if (q) {
+      list = list.filter((s) => s.name.toLowerCase().includes(q) || s.sub_nos.some(no => no.toLowerCase().includes(q)));
+    }
+    grid.innerHTML = list.map((s, i) => `
+      <div class="set-card ${openSets.has(i) ? 'open' : ''}">
+        <div class="set-header" onclick="toggleSet(${i})">
+          <div class="set-title">
+            <span class="set-name">${s.name}</span>
+            <span class="set-count">${s.count} <span data-i18n="pieces">件产品</span></span>
+          </div>
+          <span class="set-arrow">▼</span>
+        </div>
+        <div class="set-products">
+          <div class="set-products-inner">
+            <div class="set-list">
+              <strong data-i18n="contains">包含标号：</strong>${s.sub_nos.join('、')}
+            </div>
+            <div class="set-grid">
+              ${s.products.map(p => `
+                <div class="set-item" onclick="openModal('${p.img}', '${p.no}')">
+                  <img src="${p.img}" alt="${p.no}" loading="lazy">
+                  <div class="set-item-name">${p.no} · ${p.size || ""}</div>
+                </div>
+              `).join('')}
+            </div>
+            ${s.display_images && s.display_images.length ? `
+              <div class="showcase-section">
+                <div class="showcase-title" data-i18n="showcase">产品展示</div>
+                <div class="showcase-grid">
+                  ${s.display_images.map(img => `
+                    <div class="showcase-item" onclick="openModal('${img.img}', '${img.sub_label}')">
+                      <img src="${img.img}" alt="${img.sub_label}" loading="lazy">
+                      <div class="showcase-item-name">${img.sub_label} (${img.size})</div>
+                    </div>
+                  `).join('')}
+                </div>
+              </div>
+            ` : ''}
+          </div>
+        </div>
+      </div>
+    `).join('');
+  }
+  
+  // 更新结果计数
+  const countEl = document.getElementById('resultCount');
+  if (countEl) {
+    if (currentTab === 'sets') {
+      countEl.textContent = setsList.length + ' ' + (i18n[currentLang].pieces || '套');
+    } else {
+      const count = grid.querySelectorAll('.product-card').length;
+      countEl.textContent = count + ' ' + (i18n[currentLang].pieces || '件');
+    }
+  }
+}
+
+function openQQ() {
+  const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+  if (isMobile) {
+    // 手机端：打开QQ加好友网页
+    window.open('https://qm.qq.com/cgi-bin/qm/qr?uin=2447185812&jump_from=webapi', '_blank');
+  } else {
+    // 电脑端：唤起QQ客户端加好友
+    window.location.href = 'tencent://addfriend/?uin=2447185812';
+  }
+}
+
+function openModal(src, title) {
+  document.getElementById('modalImg').src = src;
+  document.getElementById('imgModal').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  document.getElementById('imgModal').classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeModal();
+});
+
+// 滚动动画
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1 });
+
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+});
+
+// 16国语言
+const i18n = {
+  zh: { badge: '源头工厂 · 300+型号现货', title: '汽车尾气后处理密封件专家', subtitle: '河间市蓝佐汽车配件有限公司 · 多年专注尾气后处理密封件、卡箍生产，适配斯堪尼亚、沃尔沃、奔驰卡车排气系统', stat_products: '在售产品', stat_series: '核心系列', stat_sets: '成套产品', about_tag: 'ABOUT US', about_title: '关于蓝佐汽配', about_sub: '多年专注尾气后处理密封件、卡箍生产，工厂深耕汽配密封件行业多年', about1_title: '公司全称', about2_title: '从业年限', about2_desc: '多年专注尾气后处理密封件、卡箍生产，工厂深耕汽配密封件行业多年', about3_title: '销售区域', about3_desc: '国内批发 + 外贸出口，主打海外卡车配件市场', about4_title: '材质工艺', about4_desc: '金属缠绕垫片、石墨复合垫片、耐高温纤维垫片；V型卡箍为304不锈钢/碳钢冲压，耐高温、抗排气腐蚀', about5_title: '起订量', about5_desc: '支持样品单，小批量可拿；大批量订单优先，可散拿试样', about6_title: '突出优势', about6_desc: '尺寸齐全，支持定制非标尺寸；样品发货快；适配斯堪尼亚、沃尔沃、奔驰卡车后处理排气系统；源头工厂，性价比高，可提供样品测试', products_tag: 'PRODUCTS', products_title: '产品中心', products_sub: '点击图片查看大图 · 点击图纸按钮查看工程图纸', tab_all: '全部产品', tab_custom: '客户定制', tab_sets: '成套展示', tab_pdf: 'PDF打印', get_quote: '获取报价', catalog: '产品目录', contains: '包含标号：', showcase: '产品展示', drawing: '产品图纸', pieces: '件产品', nav_about: '公司简介', nav_products: '产品中心', nav_contact: '联系我们', call_now: '立即咨询', online_support: '在线支持', qq_pc: '电脑QQ', qq_mobile: '手机QQ' },
+  en: { badge: 'Factory Direct · 300+ Models', title: 'Exhaust Aftertreatment Sealing Expert', subtitle: 'Hejian Lanzuo Auto Parts Co., Ltd. · Years of experience in exhaust sealing parts & V-band clamps, fit Scania, Volvo, Benz', stat_products: 'Products', stat_series: 'Series', stat_sets: 'Sets', about_tag: 'ABOUT US', about_title: 'About Lanzuo', about_sub: 'Years of experience in auto exhaust sealing parts & clamps manufacturing', about1_title: 'Full Name', about2_title: 'Experience', about2_desc: 'Years of experience in exhaust sealing parts & clamps manufacturing', about3_title: 'Market', about3_desc: 'Domestic wholesale & export worldwide, mainly truck parts market', about4_title: 'Material & Tech', about4_desc: 'Metal wound gasket, graphite composite gasket, high temp fiber gasket; V-band clamps made of 304 stainless steel / carbon steel stamping', about5_title: 'MOQ', about5_desc: 'Small sample order acceptable, support trial order', about6_title: 'Advantages', about6_desc: 'Full range sizes, custom non-standard sizes available; fast sample delivery; fit Scania, Volvo, Benz; factory direct supply, free samples for testing', products_tag: 'PRODUCTS', products_title: 'Product Center', products_sub: 'Click image to zoom · Click drawing button to view engineering drawing', tab_all: 'All Products', tab_custom: 'Custom', tab_sets: 'Product Sets', tab_pdf: 'PDF Print', get_quote: 'Get Quote', catalog: 'Catalog', contains: 'Contains: ', showcase: 'Showcase', drawing: 'Drawing', pieces: 'items', nav_about: 'About Us', nav_products: 'Products', nav_contact: 'Contact', call_now: 'Call Now', online_support: 'Online Support', qq_pc: 'PC QQ', qq_mobile: 'Mobile QQ' },
+  ja: { badge: '工場直販 · 300+機種', title: '排気後処理シールの専門家', subtitle: '河間藍佐自動車部品有限公司 · 排気シール・クランプ製造の専門メーカー、スカニア、ボルボ、ベンツ対応', stat_products: '製品数', stat_series: 'シリーズ', stat_sets: 'セット品', about_tag: '会社概要', about_title: '藍佐汽配について', about_sub: '排気シール・クランプ製造の長年の経験', about1_title: '会社名', about2_title: '経験年数', about2_desc: '排気シール・クランプ製造の長年の経験', about3_title: '販売地域', about3_desc: '国内卸売 + 輸出販売、トラック部品市場が中心', about4_title: '材質・技術', about4_desc: '金属巻きガスケット、黒鉛複合ガスケット、耐熱繊維ガスケット；Vバンドクランプは304ステンレス/炭素鋼プレス', about5_title: '最小ロット', about5_desc: 'サンプル注文可、小ロット対応、大口優先', about6_title: '強み', about6_desc: 'サイズ豊富、カスタム対応；サンプル迅速発送；スカニア、ボルボ、ベンツ対応；工場直販、サンプル無料', products_tag: '製品', products_title: '製品センター', products_sub: '画像クリックで拡大・図面ボタンでエンジニアリング図面', tab_all: '全製品', tab_custom: 'カスタム', tab_sets: 'セット品', tab_pdf: 'PDF印刷', get_quote: '見積もり', catalog: 'カタログ', contains: '含まれる品番: ', showcase: '製品紹介', drawing: '図面', pieces: '点', nav_about: '会社概要', nav_products: '製品センター', nav_contact: 'お問い合わせ', call_now: '今すぐ電話', online_support: 'オンラインサポート', qq_pc: 'PC QQ', qq_mobile: 'モバイルQQ' },
+  ko: { badge: '공장 직판 · 300+ 모델', title: '배기 후처리 씰 전문가', subtitle: '허란란쭈오 자동차부품 유한공사 · 배기 씰 및 클램프 전문 생산, 스카니아, 볼보, 벤츠 호환', stat_products: '제품 수', stat_series: '시리즈', stat_sets: '세트 상품', about_tag: '회사 소개', about_title: '란쭈오 소개', about_sub: '배기 씰 및 클램프 생산 다년간 경험', about1_title: '회사명', about2_title: '경력', about2_desc: '배기 씰 및 클램프 생산 다년간 경험', about3_title: '판매 지역', about3_desc: '국내 도매 + 수출, 트럭 부품 시장 중심', about4_title: '재질 및 기술', about4_desc: '금속 와셔, 흑연 복합 와셔, 내열 섬유 와셔; V밴드 클램프 304 스테인리스/탄소강 프레스', about5_title: 'MOQ', about5_desc: '샘플 주문 가능, 소량 대응, 대량 우선', about6_title: '강점', about6_desc: '사이즈 풍부, 맞춤 가능; 샘플 빠른 발송; 스카니아, 볼보, 벤츠 호환; 공장 직판, 샘플 무료', products_tag: '제품', products_title: '제품 센터', products_sub: '이미지 클릭 시 확대 · 도면 버튼으로 도면 확인', tab_all: '전체 제품', tab_custom: '맞춤 제작', tab_sets: '세트 상품', tab_pdf: 'PDF 인쇄', get_quote: '견적 문의', catalog: '카탈로그', contains: '포함 품번: ', showcase: '제품 전시', drawing: '도면', pieces: '개', nav_about: '회사 소개', nav_products: '제품 센터', nav_contact: '문의하기', call_now: '지금 전화', online_support: '온라인 지원', qq_pc: 'PC QQ', qq_mobile: '모바일 QQ' },
+  de: { badge: 'Werk direkt · 300+ Modelle', title: 'Experte für Abgasnachbehandlungsdichtungen', subtitle: 'Hejian Lanzuo Auto Parts Co., Ltd. · Spezialist für Abgasdichtungen & Schellen, passend für Scania, Volvo, Benz', stat_products: 'Produkte', stat_series: 'Serien', stat_sets: 'Sets', about_tag: 'ÜBER UNS', about_title: 'Über Lanzuo', about_sub: 'Jahrelange Erfahrung in der Herstellung von Abgasdichtungen und Schellen', about1_title: 'Firmenname', about2_title: 'Erfahrung', about2_desc: 'Jahrelange Erfahrung in der Herstellung von Abgasdichtungen und Schellen', about3_title: 'Markt', about3_desc: 'Inlandsgroßhandel & Export, hauptsächlich LKW-Teilemarkt', about4_title: 'Material & Technik', about4_desc: 'Metallumwicklungsdichtung, Graphitverbunddichtung, Hochtemperaturfaserdichtung; V-Band-Schellen aus 304 Edelstahl/Kohlenstoffstahl', about5_title: 'MOQ', about5_desc: 'Kleine Musterbestellung möglich, Testbestellung unterstützt', about6_title: 'Vorteile', about6_desc: 'Volle Größenauswahl, Sonderanfertigung möglich; Schnelle Musterlieferung; Passend für Scania, Volvo, Benz; Werk direkt, kostenlose Muster', products_tag: 'PRODUKTE', products_title: 'Produktzentrum', products_sub: 'Klicken Sie auf das Bild zum Vergrößern · Klicken Sie auf die Zeichnungsschaltfläche', tab_all: 'Alle Produkte', tab_custom: 'Kundenspezifisch', tab_sets: 'Produktsets', tab_pdf: 'PDF Drucken', get_quote: 'Anfrage', catalog: 'Katalog', contains: 'Enthält: ', showcase: 'Ausstellung', drawing: 'Zeichnung', pieces: 'Stück', nav_about: 'Über uns', nav_products: 'Produkte', nav_contact: 'Kontakt', call_now: 'Anrufen', online_support: 'Online Support', qq_pc: 'PC QQ', qq_mobile: 'Mobil QQ' },
+  fr: { badge: 'Usine directe · 300+ modèles', title: 'Spécialiste des joints d\'étanchéité d\'échappement', subtitle: 'Hejian Lanzuo Auto Parts Co., Ltd. · Spécialiste des joints et colliers d\'échappement, adapté Scania, Volvo, Benz', stat_products: 'Produits', stat_series: 'Séries', stat_sets: 'Ensembles', about_tag: 'À PROPOS', about_title: 'À propos de Lanzuo', about_sub: 'Des années d\'expérience dans la fabrication de joints et colliers d\'échappement', about1_title: 'Raison sociale', about2_title: 'Expérience', about2_desc: 'Des années d\'expérience dans la fabrication de joints et colliers d\'échappement', about3_title: 'Marché', about3_desc: 'Gros domestique & exportation, principalement marché des pièces de camions', about4_title: 'Matériaux & technologie', about4_desc: 'Joint spiralé, joint en graphite composite, joint en fibre haute température; colliers V-band en acier inox 304/acier carbone', about5_title: 'MOQ', about5_desc: 'Petite commande échantillon acceptable, commande d\'essai prise en charge', about6_title: 'Avantages', about6_desc: 'Gamme complète, sur mesure disponible; livraison échantillon rapide; adapté Scania, Volvo, Benz; usine directe, échantillons gratuits', products_tag: 'PRODUITS', products_title: 'Centre de produits', products_sub: 'Cliquez sur l\'image pour agrandir · Cliquez sur le bouton dessin', tab_all: 'Tous les produits', tab_custom: 'Personnalisé', tab_sets: 'Ensembles', tab_pdf: 'PDF Imprimer', get_quote: 'Devis', catalog: 'Catalogue', contains: 'Contient : ', showcase: 'Vitrine', drawing: 'Dessin', pieces: 'pièces', nav_about: 'À propos', nav_products: 'Produits', nav_contact: 'Contact', call_now: 'Appeler', online_support: 'Support en ligne', qq_pc: 'PC QQ', qq_mobile: 'QQ Mobile' },
+  es: { badge: 'Fábrica directa · 300+ modelos', title: 'Especialista en juntas de postratamiento de escape', subtitle: 'Hejian Lanzuo Auto Parts Co., Ltd. · Especialistas en juntas y abrazaderas de escape, compatible Scania, Volvo, Benz', stat_products: 'Productos', stat_series: 'Series', stat_sets: 'Conjuntos', about_tag: 'SOBRE NOSOTROS', about_title: 'Sobre Lanzuo', about_sub: 'Años de experiencia en la fabricación de juntas y abrazaderas de escape', about1_title: 'Razón social', about2_title: 'Experiencia', about2_desc: 'Años de experiencia en la fabricación de juntas y abrazaderas de escape', about3_title: 'Mercado', about3_desc: 'Mayorista nacional y exportación, principalmente mercado de piezas de camiones', about4_title: 'Material y tecnología', about4_desc: 'Junta espiral, junta de grafito compuesto, junta de fibra de alta temperatura; abrazaderas V-band de acero inoxidable 304/acero al carbono', about5_title: 'MOQ', about5_desc: 'Pequeño pedido de muestra aceptable, pedido de prueba admitido', about6_title: 'Ventajas', about6_desc: 'Gama completa, personalizado disponible; entrega rápida de muestras; compatible Scania, Volvo, Benz; fábrica directa, muestras gratis', products_tag: 'PRODUCTOS', products_title: 'Centro de productos', products_sub: 'Haz clic en la imagen para ampliar · Haz clic en el botón de dibujo', tab_all: 'Todos los productos', tab_custom: 'Personalizado', tab_sets: 'Conjuntos', tab_pdf: 'PDF Imprimir', get_quote: 'Cotización', catalog: 'Catálogo', contains: 'Contiene: ', showcase: 'Muestra', drawing: 'Dibujo', pieces: 'piezas', nav_about: 'Sobre nosotros', nav_products: 'Productos', nav_contact: 'Contacto', call_now: 'Llamar', online_support: 'Soporte en línea', qq_pc: 'PC QQ', qq_mobile: 'QQ Móvil' },
+  ru: { badge: 'Прямое производство · 300+ моделей', title: 'Эксперт по уплотнениям системы доочистки', subtitle: 'Hejian Lanzuo Auto Parts Co., Ltd. · Специалист по уплотнениям и хомутам выхлопной системы, Scania, Volvo, Benz', stat_products: 'Товары', stat_series: 'Серии', stat_sets: 'Комплекты', about_tag: 'О НАС', about_title: 'О компании Lanzuo', about_sub: 'Многолетний опыт производства уплотнений и хомутов выхлопной системы', about1_title: 'Полное название', about2_title: 'Опыт', about2_desc: 'Многолетний опыт производства уплотнений и хомутов выхлопной системы', about3_title: 'Рынок', about3_desc: 'Отовая продажа внутри страны и экспорт, в основном рынок запчастей для грузовиков', about4_title: 'Материалы и технологии', about4_desc: 'Металлическая спиральная прокладка, графитовая композитная прокладка, высокотемпературное волокно; V-образные хомуты из нержавеющей стали 304/углеродистой стали', about5_title: 'MOQ', about5_desc: 'Принимаются небольшие образцы, поддерживается пробный заказ', about6_title: 'Преимущества', about6_desc: 'Полный размерный ряд, изготовление по спецзаказу; быстрая отправка образцов; подходит для Scania, Volvo, Benz; прямое производство, бесплатные образцы', products_tag: 'ПРОДУКЦИЯ', products_title: 'Центр продукции', products_sub: 'Нажмите на изображение для увеличения · Нажмите кнопку чертежа', tab_all: 'Вся продукция', tab_custom: 'Индивидуальные', tab_sets: 'Комплекты', tab_pdf: 'PDF Печать', get_quote: 'Запрос цены', catalog: 'Каталог', contains: 'Содержит: ', showcase: 'Витрина', drawing: 'Чертеж', pieces: 'шт', nav_about: 'О нас', nav_products: 'Продукция', nav_contact: 'Контакты', call_now: 'Позвонить', online_support: 'Онлайн поддержка', qq_pc: 'ПК QQ', qq_mobile: 'Мобильный QQ' },
+  pt: { badge: 'Fábrica direta · 300+ modelos', title: 'Especialista em vedações de pós-tratamento', subtitle: 'Hejian Lanzuo Auto Parts Co., Ltd. · Especialista em vedações e braçadeiras de escapamento, compatível Scania, Volvo, Benz', stat_products: 'Produtos', stat_series: 'Séries', stat_sets: 'Conjuntos', about_tag: 'SOBRE NÓS', about_title: 'Sobre a Lanzuo', about_sub: 'Anos de experiência na fabricação de vedações e braçadeiras de escapamento', about1_title: 'Razão social', about2_title: 'Experiência', about2_desc: 'Anos de experiência na fabricação de vedações e braçadeiras de escapamento', about3_title: 'Mercado', about3_desc: 'Atacado interno e exportação, principalmente mercado de peças de caminhões', about4_title: 'Material e tecnologia', about4_desc: 'Junta espiral metálica, junta de grafite composto, junta de fibra de alta temperatura; braçadeiras V-band de aço inoxidável 304/aço carbono', about5_title: 'MOQ', about5_desc: 'Pequeno pedido de amostra aceitável, pedido de teste suportado', about6_title: 'Vantagens', about6_desc: 'Linha completa, personalizado disponível; entrega rápida de amostras; compatível Scania, Volvo, Benz; fábrica direta, amostras grátis', products_tag: 'PRODUTOS', products_title: 'Centro de produtos', products_sub: 'Clique na imagem para ampliar · Clique no botão de desenho', tab_all: 'Todos os produtos', tab_custom: 'Personalizado', tab_sets: 'Conjuntos', tab_pdf: 'PDF Imprimir', get_quote: 'Cotação', catalog: 'Catálogo', contains: 'Contém: ', showcase: 'Vitrine', drawing: 'Desenho', pieces: 'peças', nav_about: 'Sobre nós', nav_products: 'Produtos', nav_contact: 'Contato', call_now: 'Ligar', online_support: 'Suporte online', qq_pc: 'PC QQ', qq_mobile: 'QQ Mobile' },
+  it: { badge: 'Fabbrica diretta · 300+ modelli', title: 'Specialista in guarnizioni post-trattamento scarico', subtitle: 'Hejian Lanzuo Auto Parts Co., Ltd. · Specialista in guarnizioni e fascette di scarico, compatibile Scania, Volvo, Benz', stat_products: 'Prodotti', stat_series: 'Serie', stat_sets: 'Set', about_tag: 'SU DI NOI', about_title: 'Su Lanzuo', about_sub: 'Anni di esperienza nella produzione di guarnizioni e fascette di scarico', about1_title: 'Ragione sociale', about2_title: 'Esperienza', about2_desc: 'Anni di esperienza nella produzione di guarnizioni e fascette di scarico', about3_title: 'Mercato', about3_desc: 'Ingrosso interno ed esportazione, principalmente mercato ricambi per camion', about4_title: 'Materiali e tecnologia', about4_desc: 'Guarnizione spirale metallica, guarnizione grafite composito, guarnizione fibra alta temperatura; fascette V-band in acciaio inox 304/acciaio al carbonio', about5_title: 'MOQ', about5_desc: 'Piccolo ordine campione accettabile, ordine di prova supportato', about6_title: 'Vantaggi', about6_desc: 'Gamma completa, personalizzato disponibile; consegna campioni veloce; compatibile Scania, Volvo, Benz; fabbrica diretta, campioni gratuiti', products_tag: 'PRODOTTI', products_title: 'Centro prodotti', products_sub: 'Clicca sull\'immagine per ingrandire · Clicca sul pulsante disegno', tab_all: 'Tutti i prodotti', tab_custom: 'Personalizzato', tab_sets: 'Set', tab_pdf: 'PDF Stampa', get_quote: 'Preventivo', catalog: 'Catalogo', contains: 'Contiene: ', showcase: 'Vetrina', drawing: 'Disegno', pieces: 'pezzi', nav_about: 'Chi siamo', nav_products: 'Prodotti', nav_contact: 'Contatti', call_now: 'Chiama ora', online_support: 'Supporto online', qq_pc: 'PC QQ', qq_mobile: 'QQ Mobile' },
+  ar: { badge: 'مصنع مباشر · 300+ موديل', title: 'خبير حشوات معالجة عادم السيارات', subtitle: 'شركة Hejian Lanzuo لقطع غيار السيارات · متخصصة في حشوات ومشابك العادم، متوافقة مع سكانيا وفولفو ومرسيدس', stat_products: 'المنتجات', stat_series: 'السلاسل', stat_sets: 'المجموعات', about_tag: 'من نحن', about_title: 'عن شركة Lanzuo', about_sub: 'سنوات من الخبرة في تصنيع حشوات ومشابك العادم', about1_title: 'الاسم الكامل', about2_title: 'الخبرة', about2_desc: 'سنوات من الخبرة في تصنيع حشوات ومشابك العادم', about3_title: 'السوق', about3_desc: 'الجملة المحلية والتصدير، بشكل أساسي سوق قطع غيار الشاحنات', about4_title: 'المواد والتقنية', about4_desc: 'حشوة معدنية ملتفة، حشوة جرافيت مركبة، حشوة ألياف مقاومة للحرارة؛ مشابك V-band من الفولاذ المقاوم للصدأ 304/فولاذ كربوني', about5_title: 'MOQ', about5_desc: 'يقبل طلب العينة الصغيرة، يدعم الطلب التجريبي', about6_title: 'المزايا', about6_desc: 'مجموعة كاملة، حسب الطلب متاح؛ تسليم عينات سريع؛ متوافق مع سكانيا وفولفو ومرسيدس؛ مصنع مباشر، عينات مجانية', products_tag: 'المنتجات', products_title: 'مركز المنتجات', products_sub: 'انقر على الصورة للتكبير · انقر على زر الرسم', tab_all: 'جميع المنتجات', tab_custom: 'حسب الطلب', tab_sets: 'المجموعات', tab_pdf: 'PDF طباعة', get_quote: 'طلب عرض سعر', catalog: 'كتالوج', contains: 'يحتوي على: ', showcase: 'معرض', drawing: 'رسم', pieces: 'قطعة', nav_about: 'من نحن', nav_products: 'المنتجات', nav_contact: 'اتصل بنا', call_now: 'اتصل الآن', online_support: 'دعم عبر الإنترنت', qq_pc: 'كمبيوتر QQ', qq_mobile: 'جوال QQ' },
+  th: { badge: 'โรงงานตรง · 300+ รุ่น', title: 'ผู้เชี่ยวชาญด้านซีลบำบัดไอเสีย', subtitle: 'Hejian Lanzuo Auto Parts Co., Ltd. · ผู้เชี่ยวชาญด้านซีลและคลิปป์ท่อไอเสีย รองรับ Scania, Volvo, Benz', stat_products: 'สินค้า', stat_series: 'ซีรีส์', stat_sets: 'ชุดสินค้า', about_tag: 'เกี่ยวกับเรา', about_title: 'เกี่ยวกับ Lanzuo', about_sub: 'ประสบการณ์หลายปีในการผลิตซีลและคลิปป์ท่อไอเสีย', about1_title: 'ชื่อบริษัท', about2_title: 'ประสบการณ์', about2_desc: 'ประสบการณ์หลายปีในการผลิตซีลและคลิปป์ท่อไอเสีย', about3_title: 'ตลาด', about3_desc: 'ขายส่งในประเทศและส่งออก ส่วนใหญ่เป็นตลาดอะไหล่รถบรรทุก', about4_title: 'วัสดุและเทคโนโลยี', about4_desc: 'ปะเก็นโลหะพัน, ปะเก็นกราไฟต์ผสม, ปะเก็นใยทนความร้อน; คลิปป์ V-band สแตนเลส 304/เหล็กกล้าคาร์บอน', about5_title: 'MOQ', about5_desc: 'รับออเดอร์ตัวอย่างขนาดเล็ก รองรับออเดอร์ทดลอง', about6_title: 'ข้อดี', about6_desc: 'ขนาดครบ ทำตามสั่งได้; ส่งตัวอย่างเร็ว; รองรับ Scania, Volvo, Benz; โรงงานตรง ตัวอย่างฟรี', products_tag: 'สินค้า', products_title: 'ศูนย์สินค้า', products_sub: 'คลิกที่ภาพเพื่อขยาย · คลิกที่ปุ่มแบบภาพ', tab_all: 'สินค้าทั้งหมด', tab_custom: 'ทำตามสั่ง', tab_sets: 'ชุดสินค้า', tab_pdf: 'PDF พิมพ์', get_quote: 'ขอใบเสนอราคา', catalog: 'แคตตาล็อก', contains: 'ประกอบด้วย: ', showcase: 'แสดงสินค้า', drawing: 'แบบรูป', pieces: 'ชิ้น', nav_about: 'เกี่ยวกับเรา', nav_products: 'ศูนย์สินค้า', nav_contact: 'ติดต่อเรา', call_now: 'โทรเลย', online_support: 'สนับสนุนออนไลน์', qq_pc: 'PC QQ', qq_mobile: 'มือถือ QQ' },
+  vi: { badge: 'Nhà máy trực tiếp · 300+ mẫu', title: 'Chuyên gia gioăng xử lý khí thải', subtitle: 'Hejian Lanzuo Auto Parts Co., Ltd. · Chuyên gia về gioăng và kẹp ống xả, tương thích Scania, Volvo, Benz', stat_products: 'Sản phẩm', stat_series: 'Dòng sản phẩm', stat_sets: 'Bộ sản phẩm', about_tag: 'VỀ CHÚNG TÔI', about_title: 'Về Lanzuo', about_sub: 'Nhiều năm kinh nghiệm sản xuất gioăng và kẹp ống xả', about1_title: 'Tên công ty', about2_title: 'Kinh nghiệm', about2_desc: 'Nhiều năm kinh nghiệm sản xuất gioăng và kẹp ống xả', about3_title: 'Thị trường', about3_desc: 'Bán buôn nội địa và xuất khẩu, chủ yếu thị trường phụ tùng xe tải', about4_title: 'Vật liệu và công nghệ', about4_desc: 'Gioăng cuộn kim loại, gioăng than chì composite, gioăng sợi chịu nhiệt; kẹp V-band thép không gỉ 304/thép carbon', about5_title: 'MOQ', about5_desc: 'Chấp nhận đơn hàng mẫu nhỏ, hỗ trợ đơn hàng thử nghiệm', about6_title: 'Ưu điểm', about6_desc: 'Đủ kích thước, đặt riêng được; giao mẫu nhanh; tương thích Scania, Volvo, Benz; nhà máy trực tiếp, mẫu miễn phí', products_tag: 'SẢN PHẨM', products_title: 'Trung tâm sản phẩm', products_sub: 'Nhấp vào hình để phóng to · Nhấp vào nút bản vẽ', tab_all: 'Tất cả sản phẩm', tab_custom: 'Đặt riêng', tab_sets: 'Bộ sản phẩm', tab_pdf: 'PDF In', get_quote: 'Báo giá', catalog: 'Danh mục', contains: 'Bao gồm: ', showcase: 'Trưng bày', drawing: 'Bản vẽ', pieces: 'cái', nav_about: 'Về chúng tôi', nav_products: 'Trung tâm SP', nav_contact: 'Liên hệ', call_now: 'Gọi ngay', online_support: 'Hỗ trợ trực tuyến', qq_pc: 'PC QQ', qq_mobile: 'Mobile QQ' },
+  id: { badge: 'Pabrik langsung · 300+ model', title: 'Pakar segel aftertreatment knalpot', subtitle: 'Hejian Lanzuo Auto Parts Co., Ltd. · Spesialis segel dan klem knalpot, cocok Scania, Volvo, Benz', stat_products: 'Produk', stat_series: 'Seri', stat_sets: 'Set', about_tag: 'TENTANG KAMI', about_title: 'Tentang Lanzuo', about_sub: 'Pengalaman bertahun-tahun dalam pembuatan segel dan klem knalpot', about1_title: 'Nama perusahaan', about2_title: 'Pengalaman', about2_desc: 'Pengalaman bertahun-tahun dalam pembuatan segel dan klem knalpot', about3_title: 'Pasar', about3_desc: 'Grosir domestik dan ekspor, terutama pasar suku cadang truk', about4_title: 'Material dan teknologi', about4_desc: 'Gulungan logam gasket, grafit komposit gasket, serat suhu tinggi gasket; klem V-band dari stainless steel 304/baja karbon', about5_title: 'MOQ', about5_desc: 'Pesanan sampel kecil dapat diterima, pesanan uji didukung', about6_title: 'Keunggulan', about6_desc: 'Lengkap ukuran, custom tersedia; pengiriman sampel cepat; cocok Scania, Volvo, Benz; pabrik langsung, sampel gratis', products_tag: 'PRODUK', products_title: 'Pusat produk', products_sub: 'Klik gambar untuk memperbesar · Klik tombol gambar teknik', tab_all: 'Semua produk', tab_custom: 'Kustom', tab_sets: 'Set produk', tab_pdf: 'PDF Cetak', get_quote: 'Penawaran', catalog: 'Katalog', contains: 'Berisi: ', showcase: 'Pameran', drawing: 'Gambar', pieces: 'buah', nav_about: 'Tentang Kami', nav_products: 'Pusat Produk', nav_contact: 'Kontak', call_now: 'Hubungi', online_support: 'Dukungan Online', qq_pc: 'PC QQ', qq_mobile: 'QQ Mobile' },
+  nl: { badge: 'Fabriek direct · 300+ modellen', title: 'Expert in uitlatingsafdichtingen', subtitle: 'Hejian Lanzuo Auto Parts Co., Ltd. · Specialist in uitlatingsafdichtingen en klemmen, geschikt Scania, Volvo, Benz', stat_products: 'Producten', stat_series: 'Series', stat_sets: 'Sets', about_tag: 'OVER ONS', about_title: 'Over Lanzuo', about_sub: 'Jarenlange ervaring in de productie van uitlatingsafdichtingen en klemmen', about1_title: 'Bedrijfsnaam', about2_title: 'Ervaring', about2_desc: 'Jarenlange ervaring in de productie van uitlatingsafdichtingen en klemmen', about3_title: 'Markt', about3_desc: 'Binnenlandse groothandel en export, vooral markt voor vrachtwagenonderdelen', about4_title: 'Materiaal en technologie', about4_desc: 'Metaalwikkelpakking, grafietcomposiet pakking, hogetemperatuurvezel pakking; V-band klemmen van RVS 304/koolstofstaal', about5_title: 'MOQ', about5_desc: 'Kleine monsterbestelling acceptabel, proefbestelling ondersteund', about6_title: 'Voordelen', about6_desc: 'Volledig assortiment, op maat beschikbaar; snelle levering van monsters; geschikt Scania, Volvo, Benz; fabriek direct, gratis monsters', products_tag: 'PRODUCTEN', products_title: 'Productcentrum', products_sub: 'Klik op afbeelding om te vergroten · Klik op tekenknop', tab_all: 'Alle producten', tab_custom: 'Op maat', tab_sets: 'Productsets', tab_pdf: 'PDF Afdrukken', get_quote: 'Offerte', catalog: 'Catalogus', contains: 'Bevat: ', showcase: 'Showcase', drawing: 'Tekening', pieces: 'stuks', nav_about: 'Over ons', nav_products: 'Producten', nav_contact: 'Contact', call_now: 'Bel nu', online_support: 'Online ondersteuning', qq_pc: 'PC QQ', qq_mobile: 'Mobiel QQ' },
+  tr: { badge: 'Fabrika direkt · 300+ model', title: 'Egzoz arıtma sızdırmazlık uzmanı', subtitle: 'Hejian Lanzuo Auto Parts Co., Ltd. · Egzoz sızdırmazlık ve kelepçe uzmanı, Scania, Volvo, Benz uyumlu', stat_products: 'Ürünler', stat_series: 'Seriler', stat_sets: 'Setler', about_tag: 'HAKKIMIZDA', about_title: 'Lanzuo Hakkında', about_sub: 'Egzoz sızdırmazlık ve kelepçe üretiminde yılların deneyimi', about1_title: 'Şirket adı', about2_title: 'Deneyim', about2_desc: 'Egzoz sızdırmazlık ve kelepçe üretiminde yılların deneyimi', about3_title: 'Pazar', about3_desc: 'Yurtiçi toptan ve ihracat, ağırlıklı olarak kamyon yedek parça pazarı', about4_title: 'Malzeme ve teknoloji', about4_desc: 'Metal sargılı conta, grafit kompozit conta, yüksek sıcaklık lif contası; V-band kelepçeler paslanmaz çelik 304/karbon çelik', about5_title: 'MOQ', about5_desc: 'Küçük numune siparişi kabul edilir, deneme siparişi desteklenir', about6_title: 'Avantajlar', about6_desc: 'Tam boyut yelpazesi, özel üretim mevcut; hızlı numune teslimatı; Scania, Volvo, Benz uyumlu; fabrika direkt, ücretsiz numune', products_tag: 'ÜRÜNLER', products_title: 'Ürün merkezi', products_sub: 'Büyütmek için resme tıklayın · Çizim düğmesine tıklayın', tab_all: 'Tüm ürünler', tab_custom: 'Özel üretim', tab_sets: 'Ürün setleri', tab_pdf: 'PDF Yazdır', get_quote: 'Teklif Al', catalog: 'Katalog', contains: 'İçerir: ', showcase: 'Vitrin', drawing: 'Çizim', pieces: 'adet', nav_about: 'Hakkımızda', nav_products: 'Ürünler', nav_contact: 'İletişim', call_now: 'Hemen Ara', online_support: 'Çevrimiçi Destek', qq_pc: 'PC QQ', qq_mobile: 'Mobil QQ' }
+};;
+
+let currentLang = 'zh';
+
+function switchLang(lang) {
+  currentLang = lang;
+  const t = i18n[lang];
+  
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (t[key]) el.textContent = t[key];
+  });
+}
+
+render();
+</script>
+
+</body>
+</html>
