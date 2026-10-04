@@ -1064,19 +1064,103 @@ function switchLang(lang) {
   });
   // 手动替换那四段长文字，确保生效
   const longTexts = {
-    'zh': [
-      'Hejian Lanzuo Auto Parts Co., Ltd. — 源头工厂，专注排气密封件多年',
-      '多年深耕汽配密封件行业。蓝佐位于河北省河间市米各庄镇，地理位置优越，紧邻全国汽配产业带。工厂专业生产尾气后处理密封件、V型卡箍，产品涵盖金属缠绕垫片、石墨复合垫片、耐高温纤维垫片等全系列。',
-      '我们的V型卡箍采用304不锈钢/碳钢冲压工艺，耐高温、抗排气腐蚀。产品适配斯堪尼亚（Scania）、沃尔沃（Volvo）、奔驰（Mercedes-Benz）、底特律（Detroit）等主流卡车品牌的排气后处理系统，同时面向国内批发与海外卡车配件市场出口。',
-      '支持样品单与小批量试单，大批量订单优先排产。源头工厂直供，性价比高，可提供样品测试。欢迎来图来样定制非标尺寸。'
-    ],
-    'en': [
-      'Hejian Lanzuo Auto Parts Co., Ltd. - Factory Direct, Exhaust Sealing Expert',
-      'Years of experience in auto sealing industry. Lanzuo is located in Migezhuang Town, Hejian City, Hebei Province, adjacent to the national auto parts industry belt. We specialize in exhaust aftertreatment seals and V-band clamps, covering metal wound gaskets, graphite composite gaskets, high temp fiber gaskets.',
-      'Our V-band clamps are made of 304 stainless steel / carbon steel stamping, heat and corrosion resistant. Products fit Scania, Volvo, Mercedes-Benz, Detroit and other mainstream truck brands exhaust aftertreatment system, serving both domestic wholesale and global truck parts export market.',
-      'Sample orders and small trial orders accepted, bulk orders prioritized. Factory direct supply, competitive price, free samples available. Welcome custom non-standard sizes per drawings or samples.'
-    ]
-  };
+  'zh': [
+    `Hejian Lanzuo Auto Parts Co., Ltd. — 源头工厂，专注排气密封件多年`,
+    `多年深耕汽配密封件行业。蓝佐位于河北省河间市米各庄镇，地理位置优越，紧邻全国汽配产业带。工厂专业生产尾气后处理密封件、V型卡箍，产品涵盖金属缠绕垫片、石墨复合垫片、耐高温纤维垫片等全系列。`,
+    `我们的V型卡箍采用304不锈钢/碳钢冲压工艺，耐高温、抗排气腐蚀。产品适配斯堪尼亚（Scania）、沃尔沃（Volvo）、奔驰（Mercedes-Benz）、底特律（Detroit）等主流卡车品牌的排气后处理系统，同时面向国内批发与海外卡车配件市场出口。`,
+    `支持样品单与小批量试单，大批量订单优先排产。源头工厂直供，性价比高，可提供样品测试。欢迎来图来样定制非标尺寸。`
+  ],
+  'en': [
+    `Hejian Lanzuo Auto Parts Co., Ltd. - Factory Direct, Exhaust Sealing Expert`,
+    `Years of experience in auto sealing industry. Lanzuo is located in Migezhuang Town, Hejian City, Hebei Province, adjacent to the national auto parts industry belt. We specialize in exhaust aftertreatment seals and V-band clamps, covering metal wound gaskets, graphite composite gaskets, high temp fiber gaskets.`,
+    `Our V-band clamps are made of 304 stainless steel / carbon steel stamping, heat and corrosion resistant. Products fit Scania, Volvo, Mercedes-Benz, Detroit and other mainstream truck brands exhaust aftertreatment system, serving both domestic wholesale and global truck parts export market.`,
+    `Sample orders and small trial orders accepted, bulk orders prioritized. Factory direct supply, competitive price, free samples available. Welcome custom non-standard sizes per drawings or samples.`
+  ],
+  'ja': [
+    `Hejian Lanzuo Auto Parts Co., Ltd. - 工場直販、排気シール専門`,
+    `自動車シール業界で長年の経験。藍佐は河北省河間市米各荘镇に位置し、全国自動車部品産業ベルトに隣接。排気後処理シール、Vバンドクランプを専門生産し、金属巻きガスケット、黒鉛複合ガスケット、耐熱繊維ガスケットを取り扱う。`,
+    `Vバンドクランプは304ステンレス/炭素鋼プレス製で、耐熱・耐排気腐食性に優れる。スカニア、ボルボ、ベンツ、デトロイトなどのトラックに適合し、国内卸売と輸出を行う。`,
+    `サンプル注文・小ロット試注文対応可、大口優先生産。工場直販で高コスパ、サンプル無料。特注サイズ対応。`
+  ],
+  'ko': [
+    `Hejian Lanzuo Auto Parts Co., Ltd. - 공장 직판, 배기 씰 전문`,
+    `자동차 씰 업계 다년간 경험. 란쭈오는 허베이성 하젠시 미게좡진에 위치, 전국 자동차 부품 산업벨트 인접. 배기 후처리 씰과 V밴드 클램프 전문 생산, 금속 와셔, 흑연 복합 와셔, 내열 섬유 와셔 취급.`,
+    `V밴드 클램프는 304 스테인리스/탄소강 프레스, 내열·배기 부식 강함. 스카니아, 볼보, 벤츠, 디트로이트 트럭 적합, 국내 도매와 수출.`,
+    `샘플 주문·소량 시험 주문 가능, 대량 우선 생산. 공장 직판 가격 경쟁, 샘플 무료. 맞춤 사이즈 가능.`
+  ],
+  'de': [
+    `Hejian Lanzuo Auto Parts Co., Ltd. - Werk direkt, Dichtungsspezialist`,
+    `Langjährige Erfahrung in der Dichtungsindustrie. Lanzuo in Migezhuang, Hejian, Hebei, nahe dem nationalen Autoteile-Industriegürtel. Spezialisiert auf Abgasdichtungen und V-Band-Schellen mit Metall-, Graphit- und Hochtemperaturdichtungen.`,
+    `V-Band-Schellen aus 304 Edelstahl/Kohlenstoffstahl, hitze- und abgaskorrosionsbeständig. Passend für Scania, Volvo, Mercedes-Benz, Detroit, für Großhandel und Export.`,
+    `Muster und kleine Testbestellungen willkommen, Großaufträge bevorzugt. Werk direkt, günstiger Preis, kostenlose Muster. Sonderanfertigung möglich.`
+  ],
+  'fr': [
+    `Hejian Lanzuo Auto Parts Co., Ltd. - Usine directe, spécialiste joints`,
+    `Années d'expérience dans l'industrie automobile. Lanzuo à Migezhuang, Hejian, Hebei, près de la ceinture industrielle nationale. Spécialisé dans joints d'échappement et colliers V-band, couvrant joints métalliques, graphite, fibre haute température.`,
+    `Colliers V-band en acier inox 304/acier carbone embouti, résistants chaleur et corrosion. Adaptés Scania, Volvo, Mercedes-Benz, Detroit, pour gros domestique et export.`,
+    `Échantillons et petites commandes acceptés, grandes commandes prioritaires. Usine directe, prix compétitif, échantillons gratuits. Sur mesure possible.`
+  ],
+  'es': [
+    `Hejian Lanzuo Auto Parts Co., Ltd. - Fábrica directa, especialista juntas`,
+    `Años de experiencia en juntas automotrices. Lanzuo en Migezhuang, Hejian, Hebei, junto al cinturón industrial nacional. Especialistas en juntas de escape y abrazaderas V-band, cubriendo juntas espirales, grafito, fibra alta temperatura.`,
+    `Abrazaderas V-band de acero inoxidable 304/acero al carbono, resistentes al calor y corrosión. Compatible Scania, Volvo, Mercedes-Benz, Detroit, mayoreo y exportación.`,
+    `Pedidos de muestra y pequeñas pruebas aceptadas, grandes volúmenes prioritarios. Fábrica directa, precio competitivo, muestras gratis. Personalizado disponible.`
+  ],
+  'ru': [
+    `Hejian Lanzuo Auto Parts Co., Ltd. - Прямое производство, эксперт уплотнений`,
+    `Многолетний опыт в автомобильной промышленности. Lanzuo в Мичжуан, Хэцзян, Хэбэй, рядом с автопромышленным поясом. Специализация: уплотнения выхлопа и V-образные хомуты, спиральные, графитовые, высокотемпературные.`,
+    `V-образные хомуты из нержавеющей стали 304/углеродистой, жаропрочные. Подходит для Scania, Volvo, Mercedes-Benz, Detroit, опт и экспорт.`,
+    `Образцы и малые пробные заказы принимаются, крупные в приоритете. Прямое производство, выгодная цена, бесплатные образцы. Изготовление по чертежам.`
+  ],
+  'pt': [
+    `Hejian Lanzuo Auto Parts Co., Ltd. - Fábrica direta, especialista vedações`,
+    `Anos de experiência na indústria automotiva. Lanzuo em Migezhuang, Hejian, Hebei, próximo ao cinturão industrial. Especializados em vedações de escapamento e braçadeiras V-band, juntas metálicas, grafite, fibra alta temperatura.`,
+    `Braçadeiras V-band de aço inoxidável 304/aço carbono, resistentes ao calor e corrosão. Compatível Scania, Volvo, Mercedes-Benz, Detroit, atacado e exportação.`,
+    `Pedidos de amostra e pequenos testes aceitos, grandes pedidos priorizados. Fábrica direta, preço competitivo, amostras grátis. Personalizado disponível.`
+  ],
+  'it': [
+    `Hejian Lanzuo Auto Parts Co., Ltd. - Fabbrica diretta, specialista guarnizioni`,
+    `Anni di esperienza nell'industria automobilistica. Lanzuo a Migezhuang, Hejian, Hebei, vicino alla cintura industriale. Specializzati in guarnizioni scarico e fascette V-band, guarnizioni metalliche, grafite, fibra alta temperatura.`,
+    `Fascette V-band in acciaio inox 304/acciaio al carbonio, resistenti al calore e corrosione. Compatibili Scania, Volvo, Mercedes-Benz, Detroit, ingrosso ed esportazione.`,
+    `Ordini campione e piccoli test accettati, grandi ordini prioritari. Fabbrica diretta, prezzo competitivo, campioni gratuiti. Personalizzato disponibile.`
+  ],
+  'ar': [
+    `Hejian Lanzuo Auto Parts Co., Ltd. - مصنع مباشر، خبير حشوات العادم`,
+    `سنوات من الخبرة في صناعة السيارات. يقع لانتسو في ميغهتشوانغ، هجيان، خبي، بالقرب من الحزام الصناعي. متخصصون في حشوات العادم ومشابك V-band، تشمل حشوات معدنية وجرافيت وألياف عالية الحرارة.`,
+    `مشابك V-band من الفولاذ المقاوم للصدأ 304/فولاذ كربوني، مقاومة للحرارة والتآكل. متوافقة مع سكانيا، فولفو، مرسيدس، ديترويت، للبيع بالجملة والتصدير.`,
+    `نقبل طلبات العينات والتجارب الصغيرة، وأوامر الجملة ذات أولوية. مصنع مباشر، سعر تنافسي، عينات مجانية. تصنيع حسب الطلب.`
+  ],
+  'th': [
+    `Hejian Lanzuo Auto Parts Co., Ltd. - โรงงานตรง ผู้เชี่ยวชาญซีลไอเสีย`,
+    `ประสบการณ์หลายปีในอุตสาหกรรมยานยนต์ Lanzuo ตั้งอยู่ที่เมืองหมีเกอจ้วง เหอเจียน มณฑลเหอเป่ย ใกล้แถบอุตสาหกรรม เชี่ยวชาญซีลไอเสียและคลิปป์ V-band ครอบคลุมปะเก็นโลหะ กราไฟต์ ใยทนความร้อน`,
+    `คลิปป์ V-band ทำจากสแตนเลส 304/เหล็กกล้าคาร์บอน ทนความร้อนและการกัดกร่อน รองรับ Scania, Volvo, Mercedes-Benz, Detroit ขายส่งและส่งออก`,
+    `รับออเดอร์ตัวอย่างและทดลองเล็ก ยอดใหญ่จัดลำดับก่อน โรงงานตรง ราคาถูก ตัวอย่างฟรี รับทำตามแบบ`
+  ],
+  'vi': [
+    `Hejian Lanzuo Auto Parts Co., Ltd. - Nhà máy trực tiếp, chuyên gia gioăng xả`,
+    `Nhiều năm kinh nghiệm trong ngành ô tô. Lanzuo tại Migezhuang, Hejian, Hà Bắc, gần vành đai công nghiệp. Chuyên sản xuất gioăng khí thải và kẹp V-band, bao gồm gioăng kim loại, than chì, sợi chịu nhiệt.`,
+    `Kẹp V-band làm từ thép không gỉ 304/thép carbon, chịu nhiệt và ăn mòn. Tương thích Scania, Volvo, Mercedes-Benz, Detroit, bán buôn và xuất khẩu.`,
+    `Nhận đơn mẫu và đơn thử nhỏ, đơn lớn ưu tiên. Nhà máy trực tiếp giá tốt, mẫu miễn phí. Nhận làm kích thước riêng.`
+  ],
+  'id': [
+    `Hejian Lanzuo Auto Parts Co., Ltd. - Pabrik langsung, pakar segel knalpot`,
+    `Bertahun-tahun pengalaman industri otomotif. Lanzuo di Migezhuang, Hejian, Hebei, dekat sabuk industri. Spesialis segel knalpot dan klem V-band, gasket logam, grafit, serat suhu tinggi.`,
+    `Klem V-band dari stainless steel 304/baja karbon, tahan panas dan korosi. Cocok Scania, Volvo, Mercedes-Benz, Detroit, grosir dan ekspor.`,
+    `Pesanan sampel dan tes kecil diterima, pesanan besar diprioritaskan. Pabrik langsung, harga bersaing, sampel gratis. Custom tersedia.`
+  ],
+  'nl': [
+    `Hejian Lanzuo Auto Parts Co., Ltd. - Fabriek direct, afdichtingsspecialist`,
+    `Jarenlange ervaring in de auto-industrie. Lanzuo in Migezhuang, Hejian, Hebei, vlak bij de industriezone. Specialist in uitlatingsafdichtingen en V-band klemmen, met metalen, grafiet en hoge-temperatuur pakkingen.`,
+    `V-band klemmen van RVS 304/koolstofstaal, hitte- en corrosiebestendig. Geschikt voor Scania, Volvo, Mercedes-Benz, Detroit, groothandel en export.`,
+    `Monsterbestellingen en kleine proefbestellingen welkom, grote bestellingen voorrang. Fabriek direct, scherpe prijs, gratis monsters. Maatwerk mogelijk.`
+  ],
+  'tr': [
+    `Hejian Lanzuo Auto Parts Co., Ltd. - Fabrika direkt, egzoz sızdırmazlık uzmanı`,
+    `Otomotiv sektöründe yılların deneyimi. Lanzuo, Hebei eyaleti Hejian şehri Migezhuang kasabasında, ulusal otomotiv sanayi kuşağının yanında. Egzoz sızdırmazlıkları ve V-band kelepçeleri uzmanı, metal, grafit, yüksek sıcaklık lif contaları.`,
+    `V-band kelepçeler paslanmaz çelik 304/karbon çelik, ısı ve korozyona dayanıklı. Scania, Volvo, Mercedes-Benz, Detroit uyumlu, iç toptan ve ihracat.`,
+    `Numune ve küçük deneme siparişleri kabul, büyük siparişler öncelikli. Fabrika direkt, rekabetçi fiyat, ücretsiz numune. Özel üretim mevcut.`
+  ]
+};
   const enTexts = longTexts['en'];
   if (longTexts[lang]) {
     const ps = document.querySelectorAll('div[style*="max-width:800px"] p');
