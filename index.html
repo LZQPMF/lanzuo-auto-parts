@@ -1077,10 +1077,17 @@ function switchLang(lang) {
       'Sample orders and small trial orders accepted, bulk orders prioritized. Factory direct supply, competitive price, free samples available. Welcome custom non-standard sizes per drawings or samples.'
     ]
   };
+  const enTexts = longTexts['en'];
   if (longTexts[lang]) {
-    const ps = document.querySelectorAll('.max-w-800 p, div[style*="max-width:800px"] p');
+    const ps = document.querySelectorAll('div[style*="max-width:800px"] p');
     ps.forEach((p, i) => {
       if (longTexts[lang][i]) p.textContent = longTexts[lang][i];
+      else if (enTexts[i]) p.textContent = enTexts[i];
+    });
+  } else {
+    const ps = document.querySelectorAll('div[style*="max-width:800px"] p');
+    ps.forEach((p, i) => {
+      if (enTexts[i]) p.textContent = enTexts[i];
     });
   }
 }
