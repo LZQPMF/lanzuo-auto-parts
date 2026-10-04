@@ -994,14 +994,11 @@ function render() {
 }
 
 function openQQ() {
-  const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-  if (isMobile) {
-    // 手机端：打开QQ加好友网页
-    window.open('https://qm.qq.com/cgi-bin/qm/qr?uin=2447185812&jump_from=webapi', '_blank');
-  } else {
-    // 电脑端：唤起QQ客户端加好友
-    window.location.href = 'tencent://addfriend/?uin=2447185812';
-  }
+  const phone = '15631700440';
+  navigator.clipboard.writeText(phone).then(() => {
+    alert('联系电话已复制：' + phone + '，正在为您跳转拨号界面...');
+    window.location.href = 'tel:' + phone;
+  });
 }
 
 function openModal(src, title) {
