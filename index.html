@@ -1062,6 +1062,27 @@ function switchLang(lang) {
     const key = el.getAttribute('data-i18n');
     if (t[key]) el.textContent = t[key];
   });
+  // 手动替换那四段长文字，确保生效
+  const longTexts = {
+    'zh': [
+      'Hejian Lanzuo Auto Parts Co., Ltd. — 源头工厂，专注排气密封件多年',
+      '多年深耕汽配密封件行业。蓝佐位于河北省河间市米各庄镇，地理位置优越，紧邻全国汽配产业带。工厂专业生产尾气后处理密封件、V型卡箍，产品涵盖金属缠绕垫片、石墨复合垫片、耐高温纤维垫片等全系列。',
+      '我们的V型卡箍采用304不锈钢/碳钢冲压工艺，耐高温、抗排气腐蚀。产品适配斯堪尼亚（Scania）、沃尔沃（Volvo）、奔驰（Mercedes-Benz）、底特律（Detroit）等主流卡车品牌的排气后处理系统，同时面向国内批发与海外卡车配件市场出口。',
+      '支持样品单与小批量试单，大批量订单优先排产。源头工厂直供，性价比高，可提供样品测试。欢迎来图来样定制非标尺寸。'
+    ],
+    'en': [
+      'Hejian Lanzuo Auto Parts Co., Ltd. - Factory Direct, Exhaust Sealing Expert',
+      'Years of experience in auto sealing industry. Lanzuo is located in Migezhuang Town, Hejian City, Hebei Province, adjacent to the national auto parts industry belt. We specialize in exhaust aftertreatment seals and V-band clamps, covering metal wound gaskets, graphite composite gaskets, high temp fiber gaskets.',
+      'Our V-band clamps are made of 304 stainless steel / carbon steel stamping, heat and corrosion resistant. Products fit Scania, Volvo, Mercedes-Benz, Detroit and other mainstream truck brands exhaust aftertreatment system, serving both domestic wholesale and global truck parts export market.',
+      'Sample orders and small trial orders accepted, bulk orders prioritized. Factory direct supply, competitive price, free samples available. Welcome custom non-standard sizes per drawings or samples.'
+    ]
+  };
+  if (longTexts[lang]) {
+    const ps = document.querySelectorAll('.max-w-800 p, div[style*="max-width:800px"] p');
+    ps.forEach((p, i) => {
+      if (longTexts[lang][i]) p.textContent = longTexts[lang][i];
+    });
+  }
 }
 
 render();
