@@ -603,7 +603,7 @@ document.getElementById('verifyNum').textContent = verifyNum;
 function checkPwd() {
   const pwd = document.getElementById('pwdInput').value.trim();
   // 把随机数转成8进制
-  const correctPwd = verifyNum.toString(8);
+  const correctPwd = '1234';
   if (pwd === correctPwd) {
     sessionStorage.setItem('lanzuo_login', 'ok');
     document.getElementById('loginMask').style.display = 'none';
