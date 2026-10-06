@@ -9,15 +9,15 @@
 body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #0A1F3D; min-height: 100vh; user-select: none; }
 #login-screen { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; padding: 20px; }
 #login-screen .logo { font-size: 42px; font-weight: 800; color: #fff; letter-spacing: 3px; margin-bottom: 5px; }
-#login-screen .tagline { font-size: 12px; color: #EE8A35; letter-spacing: 4px; margin-bottom: 50px; text-transform: uppercase; }
-#login-screen h2 { color: #fff; font-size: 20px; font-weight: 400; margin-bottom: 30px; text-align: center; }
-#login-screen input { width: 100%; max-width: 360px; padding: 16px 20px; font-size: 16px; border: 2px solid #1E3A5F; border-radius: 8px; background: #162D4D; color: #fff; outline: none; }
+#login-screen .tagline { font-size: 12px; color: #EE8A35; letter-spacing: 4px; margin-bottom: 40px; text-transform: uppercase; }
+#login-screen h2 { color: #fff; font-size: 18px; font-weight: 400; margin-bottom: 25px; text-align: center; }
+#login-screen input { width: 100%; max-width: 360px; padding: 14px 18px; font-size: 15px; border: 2px solid #1E3A5F; border-radius: 8px; background: #162D4D; color: #fff; outline: none; margin-bottom: 12px; }
 #login-screen input:focus { border-color: #EE8A35; }
-#login-screen button { margin-top: 20px; width: 100%; max-width: 360px; padding: 16px; font-size: 16px; font-weight: 600; background: #EE8A35; color: #fff; border: none; border-radius: 8px; cursor: pointer; letter-spacing: 1px; }
+#login-screen button { margin-top: 8px; width: 100%; max-width: 360px; padding: 15px; font-size: 16px; font-weight: 600; background: #EE8A35; color: #fff; border: none; border-radius: 8px; cursor: pointer; letter-spacing: 1px; }
 #login-screen button:hover { background: #d97a28; }
 #login-screen .error { color: #ff6b6b; margin-top: 15px; font-size: 14px; display: none; }
 #login-screen .loading { color: #EE8A35; margin-top: 15px; font-size: 14px; display: none; }
-#login-screen .hint { margin-top: 40px; color: #555; font-size: 12px; }
+#login-screen .hint { margin-top: 30px; color: #555; font-size: 12px; text-align: center; }
 #viewer { display: none; flex-direction: column; height: 100vh; }
 .topbar { background: #0A1F3D; padding: 10px 20px; display: flex; justify-content: space-between; align-items: center; flex-shrink: 0; }
 .topbar .brand { color: #fff; font-weight: 700; font-size: 16px; letter-spacing: 2px; }
@@ -36,12 +36,13 @@ body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #0A1F3D; min-hei
 <div id="login-screen">
   <div class="logo">LANZUO</div>
   <div class="tagline">Precision Auto Parts</div>
-  <h2>Product Catalogue 2026<br>Restricted Access</h2>
-  <input type="password" id="password" placeholder="Enter password" onkeypress="if(event.key==='Enter')unlock()">
-  <button onclick="unlock()">VIEW CATALOGUE</button>
-  <div class="error" id="error">Incorrect password.</div>
-  <div class="loading" id="loading">Decrypting...</div>
-  <div class="hint">Contact Lanzuo Auto Parts for access.</div>
+  <h2>Product Catalogue 2026<br>Two-Factor Authentication Required</h2>
+  <input type="password" id="password" placeholder="Password">
+  <input type="text" id="totp" placeholder="6-digit code from authenticator" maxlength="6">
+  <button onclick="unlock()">UNLOCK CATALOGUE</button>
+  <div class="error" id="error">Authentication failed.</div>
+  <div class="loading" id="loading">Verifying & decrypting...</div>
+  <div class="hint">Password + authenticator code required.</div>
 </div>
 <div id="viewer">
   <div class="topbar">
@@ -57,13 +58,37 @@ body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #0A1F3D; min-hei
 </div>
 <script>
 const TOTAL = 43;
-const SALT = Uint8Array.from(atob('h4Y4eJQ1U/VzM0Yyx4ecmQ=='), c => c.charCodeAt(0));
+const SALT = Uint8Array.from(atob('H2Vx/4IWcFzBk6x0EiQnXA=='), c => c.charCodeAt(0));
+const TOTP_SECRET = 'PA4TKTEO76TYLTK65SU2CCHTDNC64SXG';
 let current = 1, cryptoKey = null, pageCache = {};
+
+function base32Decode(s) {
+  s = s.replace(/=+$/, '').toUpperCase();
+  const a = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ234567';
+  let bits = 0, val = 0; const out = [];
+  for (const c of s) { val = (val << 5) | a.indexOf(c); bits += 5; if (bits >= 8) { bits -= 8; out.push((val >> bits) & 0xFF); } }
+  return new Uint8Array(out);
+}
+
+async function totpVerify(code) {
+  const key = await crypto.subtle.importKey('raw', base32Decode(TOTP_SECRET), {name:'HMAC', hash:'SHA-1'}, false, ['sign']);
+  const now = Math.floor(Date.now() / 1000);
+  for (let off = -1; off <= 1; off++) {
+    const step = Math.floor(now/30) + off;
+    const buf = new ArrayBuffer(8); new DataView(buf).setUint32(4, step);
+    const hmac = new Uint8Array(await crypto.subtle.sign('HMAC', key, buf));
+    const o = hmac[19] & 0xf;
+    const c = ((hmac[o]&0x7f)<<24|hmac[o+1]<<16|hmac[o+2]<<8|hmac[o+3]) % 1000000;
+    if (String(c).padStart(6,'0') === code) return true;
+  }
+  return false;
+}
 
 async function deriveKey(pw) {
   const base = await crypto.subtle.importKey('raw', new TextEncoder().encode(pw), {name:'PBKDF2'}, false, ['deriveKey']);
   return crypto.subtle.deriveKey({name:'PBKDF2', salt:SALT, iterations:500000, hash:'SHA-256'}, base, {name:'AES-GCM', length:256}, false, ['decrypt']);
 }
+
 async function decryptPage(n) {
   if (pageCache[n]) return pageCache[n];
   const r = await fetch(`enc/page_${String(n).padStart(2,'0')}.bin`);
@@ -74,10 +99,12 @@ async function decryptPage(n) {
     pageCache[n] = u; return u;
   } catch(e) { return null; }
 }
+
 async function unlock() {
-  document.getElementById('loading').style.display = 'block';
   document.getElementById('error').style.display = 'none';
+  document.getElementById('loading').style.display = 'block';
   try {
+    if (!await totpVerify(document.getElementById('totp').value.trim())) throw 0;
     cryptoKey = await deriveKey(document.getElementById('password').value);
     if (!await decryptPage(1)) throw 0;
     sessionStorage.setItem('pw', document.getElementById('password').value);
@@ -89,6 +116,7 @@ async function unlock() {
     document.getElementById('loading').style.display = 'none';
   }
 }
+
 async function showPage(n) {
   current = Math.max(1, Math.min(TOTAL, n));
   const u = await decryptPage(current);
@@ -99,7 +127,6 @@ function prevPage(){showPage(current-1)}
 function logout(){sessionStorage.clear();location.reload()}
 document.addEventListener('keydown',e=>{if(sessionStorage.getItem('pw')){if(e.key==='ArrowRight')nextPage();if(e.key==='ArrowLeft')prevPage()}});
 document.addEventListener('contextmenu',e=>e.preventDefault());
-if(sessionStorage.getItem('pw')){(async()=>{cryptoKey=await deriveKey(sessionStorage.getItem('pw'));document.getElementById('login-screen').style.display='none';document.getElementById('viewer').style.display='flex';showPage(1);})();}
 </script>
 </body>
 </html>
