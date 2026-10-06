@@ -6,162 +6,34 @@
 <title>Lanzuo Auto Parts - Catalogue 2026</title>
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #0A1F3D; min-height: 100vh; user-select: none; }
-#login-screen { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; padding: 20px; }
-#login-screen .logo { font-size: 42px; font-weight: 800; color: #fff; letter-spacing: 3px; margin-bottom: 5px; }
-#login-screen .tagline { font-size: 12px; color: #EE8A35; letter-spacing: 4px; margin-bottom: 40px; text-transform: uppercase; }
-#login-screen h2 { color: #fff; font-size: 18px; font-weight: 400; margin-bottom: 25px; text-align: center; }
-#login-screen input { width: 100%; max-width: 360px; padding: 14px 18px; font-size: 15px; border: 2px solid #1E3A5F; border-radius: 8px; background: #162D4D; color: #fff; outline: none; margin-bottom: 12px; }
-#login-screen input:focus { border-color: #EE8A35; }
-#login-screen button { margin-top: 8px; width: 100%; max-width: 360px; padding: 15px; font-size: 16px; font-weight: 600; background: #EE8A35; color: #fff; border: none; border-radius: 8px; cursor: pointer; letter-spacing: 1px; }
-#login-screen button:hover { background: #d97a28; }
-#login-screen .error { color: #ff6b6b; margin-top: 15px; font-size: 14px; display: none; }
-#login-screen .loading { color: #EE8A35; margin-top: 15px; font-size: 14px; display: none; }
-#login-screen .hint { margin-top: 30px; color: #555; font-size: 12px; text-align: center; }
-#viewer { display: none; flex-direction: column; height: 100vh; }
-.topbar { background: #0A1F3D; padding: 10px 20px; display: flex; justify-content: space-between; align-items: center; flex-shrink: 0; }
-.topbar .brand { color: #fff; font-weight: 700; font-size: 16px; letter-spacing: 2px; }
-.topbar .brand span { color: #EE8A35; }
-.topbar .nav button { background: #1E3A5F; color: #fff; border: none; padding: 8px 16px; border-radius: 5px; cursor: pointer; font-size: 13px; }
-.topbar .nav button:hover { background: #EE8A35; }
-.page-area { flex: 1; display: flex; justify-content: center; align-items: flex-start; overflow-y: auto; padding: 20px; background: #1a1a2e; }
-.page-area img { max-width: 100%; max-width: 800px; width: 100%; height: auto; box-shadow: 0 4px 30px rgba(0,0,0,0.5); }
-.bottombar { background: #0A1F3D; padding: 12px 20px; display: flex; justify-content: center; align-items: center; gap: 20px; flex-shrink: 0; }
+body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #0A1F3D; }
+.topbar { background: #0A1F3D; padding: 12px 20px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 10; }
+.brand { color: #fff; font-weight: 700; font-size: 16px; letter-spacing: 2px; }
+.brand span { color: #EE8A35; }
+.page-area { display: flex; flex-direction: column; align-items: center; padding: 20px; gap: 20px; }
+.page-area img { width: 100%; max-width: 800px; box-shadow: 0 4px 30px rgba(0,0,0,0.5); }
+.bottombar { background: #0A1F3D; padding: 15px 20px; display: flex; justify-content: center; align-items: center; gap: 20px; position: sticky; bottom: 0; }
 .bottombar button { background: #1E3A5F; color: #fff; border: none; padding: 10px 24px; border-radius: 6px; cursor: pointer; font-size: 14px; }
 .bottombar button:hover { background: #EE8A35; }
-.bottombar .page-info { color: #aaa; font-size: 14px; }
+.page-info { color: #aaa; font-size: 14px; }
 </style>
 </head>
 <body>
-<div id="login-screen">
-  <div class="logo">LANZUO</div>
-  <div class="tagline">Precision Auto Parts</div>
-  <h2>Product Catalogue 2026<br>Two-Factor Authentication Required</h2>
-  <input type="password" id="password" placeholder="Password">
-  <input type="text" id="totp" placeholder="6-digit code from authenticator" maxlength="6">
-  <button onclick="unlock()">UNLOCK CATALOGUE</button>
-  <div class="error" id="error">Authentication failed.</div>
-  <div class="loading" id="loading">Verifying & decrypting...</div>
-  <div class="hint">Password + authenticator code required.</div>
+<div class="topbar">
+  <div class="brand">LANZUO <span>CATALOGUE 2026</span></div>
 </div>
-<div id="viewer">
-  <div class="topbar">
-    <div class="brand">LANZUO <span>CATALOGUE 2026</span></div>
-    <div class="nav"><button onclick="logout()">Logout</button></div>
-  </div>
-  <div class="page-area"><img id="pageImg" src="" alt="Page"></div>
-  <div class="bottombar">
-    <button onclick="prevPage()">◀ Prev</button>
-    <span class="page-info" id="pageInfo">1 / 43</span>
-    <button onclick="nextPage()">Next ▶</button>
-  </div>
+<div class="page-area" id="pages"></div>
+<div class="bottombar">
+  <span class="page-info">43 Pages</span>
 </div>
 <script>
-const TOTAL = 43;
-const SALT = Uint8Array.from(atob('EasSmDR4wcJktCL7gCBOFg=='), c => c.charCodeAt(0));
-const TOTP_SECRET = 'PA4TKTEO76TYLTK65SU2CCHTDNC64SXG';
-let current = 1, cryptoKey = null, pageCache = {};
-
-function base32Decode(s) {
-  s = s.replace(/=+$/, '').toUpperCase();
-  const a = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ234567';
-  let bits = 0, val = 0; const out = [];
-  for (const c of s) { val = (val << 5) | a.indexOf(c); bits += 5; if (bits >= 8) { bits -= 8; out.push((val >> bits) & 0xFF); } }
-  return new Uint8Array(out);
+const container = document.getElementById('pages');
+for (let i = 1; i <= 43; i++) {
+  const img = document.createElement('img');
+  img.src = `pages/page_${String(i).padStart(2,'0')}.jpg`;
+  img.alt = `Page ${i}`;
+  container.appendChild(img);
 }
-
-async function totpVerify(code) {
-  const key = await crypto.subtle.importKey('raw', base32Decode(TOTP_SECRET), {name:'HMAC', hash:'SHA-1'}, false, ['sign']);
-  const now = Math.floor(Date.now() / 1000);
-  for (let off = -1; off <= 1; off++) {
-    const step = Math.floor(now/30) + off;
-    const buf = new ArrayBuffer(8); new DataView(buf).setUint32(4, step);
-    const hmac = new Uint8Array(await crypto.subtle.sign('HMAC', key, buf));
-    const o = hmac[19] & 0xf;
-    const c = ((hmac[o]&0x7f)<<24|hmac[o+1]<<16|hmac[o+2]<<8|hmac[o+3]) % 1000000;
-    if (String(c).padStart(6,'0') === code) return true;
-  }
-  return false;
-}
-
-async function deriveKey(pw) {
-  const base = await crypto.subtle.importKey('raw', new TextEncoder().encode(pw), {name:'PBKDF2'}, false, ['deriveKey']);
-  return crypto.subtle.deriveKey({name:'PBKDF2', salt:SALT, iterations:500000, hash:'SHA-256'}, base, {name:'AES-GCM', length:256}, false, ['decrypt']);
-}
-
-async function decryptPage(n) {
-  if (pageCache[n]) return pageCache[n];
-  const r = await fetch(`enc/page_${String(n).padStart(2,'0')}.bin`);
-  const d = await r.arrayBuffer();
-  try {
-    const p = await crypto.subtle.decrypt({name:'AES-GCM', iv:d.slice(0,12)}, cryptoKey, d.slice(12));
-    const u = URL.createObjectURL(new Blob([p], {type:'image/jpeg'}));
-    pageCache[n] = u; return u;
-  } catch(e) { return null; }
-}
-
-async function unlock() {
-  document.getElementById('error').style.display = 'none';
-  document.getElementById('loading').style.display = 'block';
-  try {
-    if (!await totpVerify(document.getElementById('totp').value.trim())) throw 0;
-    cryptoKey = await deriveKey(document.getElementById('password').value);
-    if (!await decryptPage(1)) throw 0;
-    sessionStorage.setItem('pw', document.getElementById('password').value);
-    document.getElementById('login-screen').style.display = 'none';
-    document.getElementById('viewer').style.display = 'flex';
-    showPage(1);
-  } catch(e) {
-    document.getElementById('error').style.display = 'block';
-    document.getElementById('loading').style.display = 'none';
-  }
-}
-
-async function showPage(n) {
-  current = Math.max(1, Math.min(TOTAL, n));
-  const u = await decryptPage(current);
-  if (u) { document.getElementById('pageImg').src = u; document.getElementById('pageInfo').textContent = `${current} / ${TOTAL}`; document.querySelector('.page-area').scrollTop = 0; }
-}
-function nextPage(){showPage(current+1)}
-function prevPage(){showPage(current-1)}
-function logout(){sessionStorage.clear();location.reload()}
-document.addEventListener('keydown',e=>{if(sessionStorage.getItem('pw')){if(e.key==='ArrowRight')nextPage();if(e.key==='ArrowLeft')prevPage()}});
-document.addEventListener('contextmenu',e=>e.preventDefault());
-
-// Block keyboard shortcuts
-document.addEventListener('keydown', e => {
-  // F12
-  if (e.key === 'F12') { e.preventDefault(); return; }
-  // Ctrl+Shift+I/J/C (dev tools)
-  if (e.ctrlKey && e.shiftKey && ['I','J','C','K'].includes(e.key.toUpperCase())) { e.preventDefault(); return; }
-  // Ctrl+P (print), Ctrl+S (save), Ctrl+C (copy), Ctrl+U (view source), Ctrl+Shift+P
-  if (e.ctrlKey && ['P','S','C','U'].includes(e.key.toUpperCase())) { e.preventDefault(); return; }
-  // Print screen - try to detect and blank screen
-  if (e.key === 'PrintScreen') {
-    document.body.style.filter = 'blur(20px)';
-    setTimeout(() => { document.body.style.filter = ''; }, 500);
-  }
-});
-
-// Detect dev tools and blank screen
-let devtools = false;
-setInterval(() => {
-  const threshold = 160;
-  const widthDiff = window.outerWidth - window.innerWidth > threshold;
-  const heightDiff = window.outerHeight - window.innerHeight > threshold;
-  if (widthDiff || heightDiff) {
-    if (!devtools) {
-      devtools = true;
-      document.getElementById('pageImg').style.display = 'none';
-      document.querySelector('.page-area').innerHTML = '<div style="color:#ff6b6b;font-size:20px;margin:auto;">Access Restricted</div>';
-    }
-  }
-}, 1000);
-
-// Prevent drag, select
-document.addEventListener('dragstart', e => e.preventDefault());
-document.addEventListener('selectstart', e => e.preventDefault());
-document.oncopy = e => e.preventDefault();
 </script>
 </body>
 </html>
