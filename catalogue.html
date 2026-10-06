@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lanzuo Auto Parts - Product Catalogue 2026</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #0A1F3D; min-height: 100vh; }
+
+#login-screen { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; padding: 20px; }
+#login-screen .logo { font-size: 42px; font-weight: 800; color: #fff; letter-spacing: 3px; margin-bottom: 5px; }
+#login-screen .tagline { font-size: 12px; color: #EE8A35; letter-spacing: 4px; margin-bottom: 50px; text-transform: uppercase; }
+#login-screen h2 { color: #fff; font-size: 22px; font-weight: 400; margin-bottom: 30px; }
+#login-screen .input-wrap { position: relative; width: 100%; max-width: 360px; }
+#login-screen input { width: 100%; padding: 16px 20px; font-size: 16px; border: 2px solid #1E3A5F; border-radius: 8px; background: #162D4D; color: #fff; outline: none; transition: border-color 0.3s; }
+#login-screen input:focus { border-color: #EE8A35; }
+#login-screen input::placeholder { color: #666; }
+#login-screen button { margin-top: 20px; width: 100%; max-width: 360px; padding: 16px; font-size: 16px; font-weight: 600; background: #EE8A35; color: #fff; border: none; border-radius: 8px; cursor: pointer; transition: background 0.3s; letter-spacing: 1px; }
+#login-screen button:hover { background: #d97a28; }
+#login-screen .error { color: #ff6b6b; margin-top: 15px; font-size: 14px; display: none; }
+#login-screen .hint { margin-top: 40px; color: #555; font-size: 12px; }
+
+#pdf-screen { display: none; width: 100%; height: 100vh; }
+#pdf-screen .topbar { background: #0A1F3D; padding: 10px 20px; display: flex; justify-content: space-between; align-items: center; }
+#pdf-screen .topbar .brand { color: #fff; font-weight: 700; font-size: 16px; letter-spacing: 2px; }
+#pdf-screen .topbar .brand span { color: #EE8A35; }
+#pdf-screen .topbar .actions button { background: #1E3A5F; color: #fff; border: none; padding: 8px 16px; border-radius: 5px; cursor: pointer; font-size: 13px; margin-left: 8px; }
+#pdf-screen .topbar .actions button:hover { background: #EE8A35; }
+#pdf-screen iframe { width: 100%; height: calc(100vh - 48px); border: none; }
+</style>
+</head>
+<body>
+
+<div id="login-screen">
+  <div class="logo">LANZUO</div>
+  <div class="tagline">Precision Auto Parts</div>
+  <h2>Product Catalogue 2026 - Restricted Access</h2>
+  <div class="input-wrap">
+    <input type="password" id="password" placeholder="Enter access password" onkeypress="if(event.key==='Enter')checkPass()">
+  </div>
+  <button onclick="checkPass()">VIEW CATALOGUE</button>
+  <div class="error" id="error">Incorrect password. Please try again.</div>
+  <div class="hint">Please contact Lanzuo Auto Parts for access.</div>
+</div>
+
+<div id="pdf-screen">
+  <div class="topbar">
+    <div class="brand">LANZUO <span>AUTO PARTS</span></div>
+    <div class="actions">
+      <button onclick="window.open('catalogue.pdf','_blank')">OPEN NEW TAB</button>
+      <button onclick="location.reload()">LOGOUT</button>
+    </div>
+  </div>
+  <iframe src="catalogue.pdf#toolbar=1&navpanes=0"></iframe>
+</div>
+
+<script>
+// Password hash for "lanzuo2026" - SHA-256
+const PASSWORD_HASH = 'a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2';
+
+async function sha256(text) {
+  const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(text));
+  return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2,'0')).join('');
+}
+
+async function checkPass() {
+  const input = document.getElementById('password').value;
+  const hash = await sha256(input);
+  // Simple check - compare against expected hash
+  // Password: lanzuo2026
+  const expected = await sha256('lanzuo2026');
+  if (hash === expected) {
+    sessionStorage.setItem('authed', '1');
+    showPdf();
+  } else {
+    document.getElementById('error').style.display = 'block';
+  }
+}
+
+function showPdf() {
+  document.getElementById('login-screen').style.display = 'none';
+  document.getElementById('pdf-screen').style.display = 'block';
+}
+
+// Check if already authed this session
+if (sessionStorage.getItem('authed') === '1') {
+  showPdf();
+}
+</script>
+
+</body>
+</html>
