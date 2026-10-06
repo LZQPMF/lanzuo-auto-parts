@@ -3,31 +3,42 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lanzuo Auto Parts - Product Catalogue 2026</title>
+<title>Lanzuo Auto Parts - Catalogue 2026</title>
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #0A1F3D; min-height: 100vh; }
+body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #0A1F3D; min-height: 100vh; user-select: none; }
 
+/* Login Screen */
 #login-screen { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; padding: 20px; }
 #login-screen .logo { font-size: 42px; font-weight: 800; color: #fff; letter-spacing: 3px; margin-bottom: 5px; }
 #login-screen .tagline { font-size: 12px; color: #EE8A35; letter-spacing: 4px; margin-bottom: 50px; text-transform: uppercase; }
-#login-screen h2 { color: #fff; font-size: 22px; font-weight: 400; margin-bottom: 30px; }
-#login-screen .input-wrap { position: relative; width: 100%; max-width: 360px; }
-#login-screen input { width: 100%; padding: 16px 20px; font-size: 16px; border: 2px solid #1E3A5F; border-radius: 8px; background: #162D4D; color: #fff; outline: none; transition: border-color 0.3s; }
+#login-screen h2 { color: #fff; font-size: 20px; font-weight: 400; margin-bottom: 30px; text-align: center; }
+#login-screen input { width: 100%; max-width: 360px; padding: 16px 20px; font-size: 16px; border: 2px solid #1E3A5F; border-radius: 8px; background: #162D4D; color: #fff; outline: none; }
 #login-screen input:focus { border-color: #EE8A35; }
-#login-screen input::placeholder { color: #666; }
-#login-screen button { margin-top: 20px; width: 100%; max-width: 360px; padding: 16px; font-size: 16px; font-weight: 600; background: #EE8A35; color: #fff; border: none; border-radius: 8px; cursor: pointer; transition: background 0.3s; letter-spacing: 1px; }
+#login-screen button { margin-top: 20px; width: 100%; max-width: 360px; padding: 16px; font-size: 16px; font-weight: 600; background: #EE8A35; color: #fff; border: none; border-radius: 8px; cursor: pointer; letter-spacing: 1px; }
 #login-screen button:hover { background: #d97a28; }
 #login-screen .error { color: #ff6b6b; margin-top: 15px; font-size: 14px; display: none; }
 #login-screen .hint { margin-top: 40px; color: #555; font-size: 12px; }
 
-#pdf-screen { display: none; width: 100%; height: 100vh; }
-#pdf-screen .topbar { background: #0A1F3D; padding: 10px 20px; display: flex; justify-content: space-between; align-items: center; }
-#pdf-screen .topbar .brand { color: #fff; font-weight: 700; font-size: 16px; letter-spacing: 2px; }
-#pdf-screen .topbar .brand span { color: #EE8A35; }
-#pdf-screen .topbar .actions button { background: #1E3A5F; color: #fff; border: none; padding: 8px 16px; border-radius: 5px; cursor: pointer; font-size: 13px; margin-left: 8px; }
-#pdf-screen .topbar .actions button:hover { background: #EE8A35; }
-#pdf-screen iframe { width: 100%; height: calc(100vh - 48px); border: none; }
+/* Viewer Screen */
+#viewer { display: none; flex-direction: column; height: 100vh; }
+.topbar { background: #0A1F3D; padding: 10px 20px; display: flex; justify-content: space-between; align-items: center; flex-shrink: 0; }
+.topbar .brand { color: #fff; font-weight: 700; font-size: 16px; letter-spacing: 2px; }
+.topbar .brand span { color: #EE8A35; }
+.topbar .nav { display: flex; align-items: center; gap: 10px; }
+.topbar .nav button { background: #1E3A5F; color: #fff; border: none; padding: 8px 16px; border-radius: 5px; cursor: pointer; font-size: 13px; }
+.topbar .nav button:hover { background: #EE8A35; }
+.topbar .nav .page-info { color: #aaa; font-size: 13px; margin: 0 10px; }
+
+.page-area { flex: 1; display: flex; justify-content: center; align-items: flex-start; overflow-y: auto; padding: 20px; background: #1a1a2e; }
+.page-area img { max-width: 100%; max-width: 800px; width: 100%; height: auto; box-shadow: 0 4px 30px rgba(0,0,0,0.5); }
+
+/* Mobile nav */
+@media (max-width: 600px) {
+  .topbar { flex-wrap: wrap; gap: 8px; }
+  .topbar .brand { font-size: 14px; }
+  .page-area { padding: 10px; }
+}
 </style>
 </head>
 <body>
@@ -35,29 +46,31 @@ body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background:
 <div id="login-screen">
   <div class="logo">LANZUO</div>
   <div class="tagline">Precision Auto Parts</div>
-  <h2>Product Catalogue 2026 - Restricted Access</h2>
-  <div class="input-wrap">
-    <input type="password" id="password" placeholder="Enter access password" onkeypress="if(event.key==='Enter')checkPass()">
-  </div>
+  <h2>Product Catalogue 2026<br>Restricted Access</h2>
+  <input type="password" id="password" placeholder="Enter password" onkeypress="if(event.key==='Enter')checkPass()">
   <button onclick="checkPass()">VIEW CATALOGUE</button>
-  <div class="error" id="error">Incorrect password. Please try again.</div>
-  <div class="hint">Please contact Lanzuo Auto Parts for access.</div>
+  <div class="error" id="error">Incorrect password.</div>
+  <div class="hint">Contact Lanzuo Auto Parts for access.</div>
 </div>
 
-<div id="pdf-screen">
+<div id="viewer">
   <div class="topbar">
-    <div class="brand">LANZUO <span>AUTO PARTS</span></div>
-    <div class="actions">
-      <button onclick="window.open('catalogue.pdf','_blank')">OPEN NEW TAB</button>
-      <button onclick="location.reload()">LOGOUT</button>
+    <div class="brand">LANZUO <span>CATALOGUE 2026</span></div>
+    <div class="nav">
+      <button onclick="prevPage()">◀ Prev</button>
+      <span class="page-info" id="pageInfo">1 / 43</span>
+      <button onclick="nextPage()">Next ▶</button>
+      <button onclick="logout()">Logout</button>
     </div>
   </div>
-  <iframe src="catalogue.pdf#toolbar=1&navpanes=0"></iframe>
+  <div class="page-area">
+    <img id="pageImg" src="pages/page_01.jpg" alt="Page">
+  </div>
 </div>
 
 <script>
-// Password hash for "lanzuo2026" - SHA-256
-const PASSWORD_HASH = 'a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2';
+const TOTAL = 43;
+let current = 1;
 
 async function sha256(text) {
   const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(text));
@@ -66,27 +79,50 @@ async function sha256(text) {
 
 async function checkPass() {
   const input = document.getElementById('password').value;
-  const hash = await sha256(input);
-  // Simple check - compare against expected hash
-  // Password: lanzuo2026
   const expected = await sha256('lanzuo2026');
+  const hash = await sha256(input);
   if (hash === expected) {
     sessionStorage.setItem('authed', '1');
-    showPdf();
+    showViewer();
   } else {
     document.getElementById('error').style.display = 'block';
   }
 }
 
-function showPdf() {
+function showViewer() {
   document.getElementById('login-screen').style.display = 'none';
-  document.getElementById('pdf-screen').style.display = 'block';
+  document.getElementById('viewer').style.display = 'flex';
+  showPage(1);
 }
 
-// Check if already authed this session
-if (sessionStorage.getItem('authed') === '1') {
-  showPdf();
+function showPage(n) {
+  current = Math.max(1, Math.min(TOTAL, n));
+  document.getElementById('pageImg').src = `pages/page_${String(current).padStart(2,'0')}.jpg`;
+  document.getElementById('pageInfo').textContent = `${current} / ${TOTAL}`;
+  document.querySelector('.page-area').scrollTop = 0;
 }
+
+function nextPage() { showPage(current + 1); }
+function prevPage() { showPage(current - 1); }
+
+function logout() {
+  sessionStorage.removeItem('authed');
+  location.reload();
+}
+
+// Keyboard navigation
+document.addEventListener('keydown', e => {
+  if (sessionStorage.getItem('authed') === '1') {
+    if (e.key === 'ArrowRight') nextPage();
+    if (e.key === 'ArrowLeft') prevPage();
+  }
+});
+
+// Disable right-click
+document.addEventListener('contextmenu', e => e.preventDefault());
+
+// Auto-login if session valid
+if (sessionStorage.getItem('authed') === '1') showViewer();
 </script>
 
 </body>
